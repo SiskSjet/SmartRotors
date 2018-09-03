@@ -25,7 +25,7 @@ namespace AutoMcD.SmartRotors {
         private const LogEventLevel DEFAULT_LOG_EVENT_LEVEL = LogEventLevel.All;
 
         private const string LOG_FILE_TEMPLATE = "{0}.log";
-        private const ushort NETWORK_ID = 51502;
+        private const ushort NETWORK_ID = 51511;
         private const string PROFILER_LOG_FILE = "profiler.log";
         private const string PROFILER_SUMMARY_FILE = "profiler_summary.txt";
         private static readonly string LogFile = string.Format(LOG_FILE_TEMPLATE, NAME);
