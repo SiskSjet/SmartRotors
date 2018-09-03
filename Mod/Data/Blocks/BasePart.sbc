@@ -5,7 +5,7 @@
     <Definition>
       <Id>
         <TypeId>MotorAdvancedRotor</TypeId>
-        <SubtypeId>MA_SmartRotor_Base_Part</SubtypeId>
+        <SubtypeId>MA_SmartRotor_Part1</SubtypeId>
       </Id>
       <DisplayName>DisplayName_Block_Smart_Rotor_Base_Part</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>

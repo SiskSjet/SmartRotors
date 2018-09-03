@@ -43,7 +43,7 @@
       <MaxForceMagnitude>1E9</MaxForceMagnitude>
       <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
 
-      <RotorPart>MA_SmartRotor_Base_Part</RotorPart>
+      <RotorPart>MA_SmartRotor_Part1</RotorPart>
 
       <RotorDisplacementMin>-0.1</RotorDisplacementMin>
       <RotorDisplacementMax>0.1</RotorDisplacementMax>
@@ -104,7 +104,7 @@
       <MaxForceMagnitude>1E9</MaxForceMagnitude>
       <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
 
-      <RotorPart>MA_SmartRotor_Solar_Hinge_Part</RotorPart>
+      <RotorPart>MA_SmartRotor_Part2</RotorPart>
 
       <RotorDisplacementMin>0</RotorDisplacementMin>
       <RotorDisplacementMax>0</RotorDisplacementMax>
@@ -124,7 +124,7 @@
     <Definition>
       <Id>
         <TypeId>MotorAdvancedRotor</TypeId>
-        <SubtypeId>MA_SmartRotor_Solar_Hinge_Part</SubtypeId>
+        <SubtypeId>MA_SmartRotor_Part2</SubtypeId>
       </Id>
       <DisplayName>DisplayName_Block_Solar_Hinge_Part</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>
