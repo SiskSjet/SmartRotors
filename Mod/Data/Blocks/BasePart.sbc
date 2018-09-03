@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CubeBlocks>
+
+    <Definition>
+      <Id>
+        <TypeId>MotorAdvancedRotor</TypeId>
+        <SubtypeId>MA_SmartRotor_Base_Part</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_Smart_Rotor_Base_Part</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>
+      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\MA_SmartRotor_Part1.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="LargeTube" Count="24" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Top" StartX="0.32" StartY="0.32" EndX="0.68" EndY="0.68" Default="true" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\MotorRotorConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\MotorRotorConstruction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\MotorRotorConstruction_3.mwm" />
+      </BuildProgressModels>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>5</BuildTimeSeconds>
+      <PCU>100</PCU>
+    </Definition>
+
+  </CubeBlocks>
+
+</Definitions>
