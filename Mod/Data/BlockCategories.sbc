@@ -9,7 +9,7 @@
       <DisplayName>MA</DisplayName>
       <Name>AutoMcD_Astronautical</Name>
       <ItemIds>
-        <string>MotorStator/MA_SmartRotor_Solar_Base</string>
+        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Base</string>
       </ItemIds>
     </Category>
   </CategoryClasses>
