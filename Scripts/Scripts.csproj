@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="Extensions\BlockExtensions.cs" />
     <Compile Include="Extensions\GridExtensions.cs" />
+    <Compile Include="Logic\SmartRotorBase.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
