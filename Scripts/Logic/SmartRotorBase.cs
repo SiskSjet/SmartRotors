@@ -1,4 +1,4 @@
-using AutoMcD.SmartRotors.Extensions;
+﻿using AutoMcD.SmartRotors.Extensions;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
@@ -27,13 +27,16 @@ namespace AutoMcD.SmartRotors.Logic {
         public override void Close() {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(Close)) : null) {
                 using (Log.BeginMethod(nameof(Close))) {
-                    // bug: IMyMotorStator.AttachedEntityChanged throws "Cannot bind to the target method because its signature or security transparency is not compatible with that of the delegate type.".
-                    //Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
+                    // todo: check if it is enough if it is executed on the server.
+                    if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                        // bug: IMyMotorStator.AttachedEntityChanged throws "Cannot bind to the target method because its signature or security transparency is not compatible with that of the delegate type.".
+                        //Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
 
-                    // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
-                    var cubeGrid = Stator.CubeGrid as MyCubeGrid;
-                    if (cubeGrid != null) {
-                        cubeGrid.OnHierarchyUpdated -= OnHierarchyUpdated;
+                        // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
+                        var cubeGrid = Stator.CubeGrid as MyCubeGrid;
+                        if (cubeGrid != null) {
+                            cubeGrid.OnHierarchyUpdated -= OnHierarchyUpdated;
+                        }
                     }
                 }
             }
