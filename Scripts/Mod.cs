@@ -83,11 +83,9 @@ namespace AutoMcD.SmartRotors {
         /// </summary>
         public override void SaveData() {
             using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(SaveData)) : null) {
-                using (Log.BeginMethod(nameof(SaveData))) {
-                    Log.Flush();
-                    _profilerLog.Flush();
-                    WriteProfileResults();
-                }
+                Log.Flush();
+                _profilerLog.Flush();
+                WriteProfileResults();
             }
         }
 
