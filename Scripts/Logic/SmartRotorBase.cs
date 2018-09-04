@@ -1,4 +1,4 @@
-﻿using AutoMcD.SmartRotors.Extensions;
+using AutoMcD.SmartRotors.Extensions;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
@@ -75,6 +75,9 @@ namespace AutoMcD.SmartRotors.Logic {
             }
         }
 
+        /// <summary>
+        ///     Place the matching smart rotor on top of this rotor.
+        /// </summary>
         protected abstract void PlaceSmartRotorHinge();
 
         private void OnAttachedEntityChanged(IMyMotorBase @base) {
