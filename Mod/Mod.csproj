@@ -58,6 +58,7 @@
     <None Include="Models\MA_SmartRotor_Part2.mwm" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Textures\GUI\Icons\Cubes\SmartSolarRotor.dds" />
     <Content Include="thumb.png" />
   </ItemGroup>
   <ItemGroup />

@@ -8,7 +8,7 @@
         <SubtypeId>MA_SmartRotor_Solar_Base</SubtypeId>
       </Id>
       <DisplayName>DisplayName_Block_Solar_Base</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\motor.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\SmartSolarRotor.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
