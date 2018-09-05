@@ -11,22 +11,42 @@ using VRage.ObjectBuilders;
 // ReSharper disable InlineOutVariableDeclaration
 
 namespace AutoMcD.SmartRotors.Logic {
+    /// <summary>
+    ///     Shared game logic for all SmartRotor hinges.
+    /// </summary>
     public abstract class SmartRotorHinge : MyGameLogicComponent {
         private const string ADD_HEAD_ACTION_ID = "Add Top Part";
         private readonly string _debugName;
         private bool _isInitialized;
 
+        /// <summary>
+        ///     Initializes a new instance of the abstract game logic component for SmartRotor hinges.
+        /// </summary>
+        /// <param name="debugName">A debug string used to generate <see cref="ComponentTypeDebugString" />.</param>
         protected SmartRotorHinge(string debugName) {
             _debugName = debugName;
             Log = Mod.Static.Log.ForScope<SmartRotorHinge>();
         }
 
+        /// <inheritdoc />
         public override string ComponentTypeDebugString => $"{_debugName} - Game Logic";
 
+        /// <summary>
+        ///     Indicates if the block which holds this game logic is just placed.
+        /// </summary>
         public bool IsJustPlaced { get; private set; }
+
+        /// <summary>
+        ///     Logger used for logging.
+        /// </summary>
         private ILogger Log { get; }
+
+        /// <summary>
+        ///     The entity which holds this game logic component.
+        /// </summary>
         public IMyMotorAdvancedStator Stator { get; private set; }
 
+        /// <inheritdoc />
         public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorHinge), nameof(Init)) : null) {
                 using (Log.BeginMethod(nameof(Init))) {
@@ -42,6 +62,7 @@ namespace AutoMcD.SmartRotors.Logic {
             }
         }
 
+        /// <inheritdoc />
         public override void OnAddedToScene() {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorHinge), nameof(OnAddedToScene)) : null) {
                 using (Log.BeginMethod(nameof(OnAddedToScene))) {
