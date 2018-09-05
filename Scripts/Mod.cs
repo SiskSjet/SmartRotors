@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sandbox.ModAPI;
@@ -14,6 +14,9 @@ using VRage.Game.Components;
 #pragma warning disable 162
 
 namespace AutoMcD.SmartRotors {
+    /// <summary>
+    ///     Main session component which register Logging, Network and SunTracker components.
+    /// </summary>
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
     public class Mod : MySessionComponentBase {
         public const string NAME = "SmartRotors";
@@ -31,6 +34,9 @@ namespace AutoMcD.SmartRotors {
         private static readonly string LogFile = string.Format(LOG_FILE_TEMPLATE, NAME);
         private ILogger _profilerLog;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Mod" /> session component.
+        /// </summary>
         public Mod() {
             Static = this;
             InitializeLogging();
@@ -51,10 +57,27 @@ namespace AutoMcD.SmartRotors {
         /// </summary>
         public static Mod Static { get; private set; }
 
+        /// <summary>
+        ///     The sun tracker component.
+        /// </summary>
+        public SunTracker SunTracker { get; private set; }
+
+        /// <summary>
+        ///     Used to format the <see cref="LogEvent" /> entries.
+        /// </summary>
+        /// <param name="level">The <see cref="LogEventLevel" /> for current event.</param>
+        /// <param name="message">The <see cref="LogEvent" /> message.</param>
+        /// <param name="timestamp">The timestamp of the <see cref="LogEvent" />.</param>
+        /// <param name="scope">The scope of the <see cref="LogEvent" />.</param>
+        /// <param name="method">The called method of this <see cref="LogEvent" />.</param>
+        /// <returns></returns>
         private static string LogFormatter(LogEventLevel level, string message, DateTime timestamp, Type scope, string method) {
             return $"[{timestamp:HH:mm:ss:fff}] [{new string(level.ToString().Take(1).ToArray())}] [{scope}->{method}()]: {message}";
         }
 
+        /// <summary>
+        ///     Writes Profiler results to file.
+        /// </summary>
         private static void WriteProfileResults() {
             if (Profiler.Results.Any()) {
                 using (var writer = MyAPIGateway.Utilities.WriteFileInLocalStorage(PROFILER_SUMMARY_FILE, typeof(Mod))) {

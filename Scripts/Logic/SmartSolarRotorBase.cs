@@ -1,5 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using AutoMcD.SmartRotors.Data;
+using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
@@ -10,14 +12,23 @@ using VRage.Game;
 using VRage.Game.Components;
 
 namespace AutoMcD.SmartRotors.Logic {
+    /// <summary>
+    ///     Provide game logic for Smart Solar Rotors bases.
+    /// </summary>
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, LB_SMART_SOLAR_ROTOR)]
-    public class SmartSolarRotorBase : SmartRotorBase {
+    public sealed class SmartSolarRotorBase : SmartRotorBase {
         private const string LB_SMART_SOLAR_ROTOR = "MA_SmartRotor_Solar_Base";
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="SmartSolarRotorBase" /> game logic component.
+        /// </summary>
         public SmartSolarRotorBase() : base(nameof(SmartSolarRotorBase)) {
             Log = Mod.Static.Log.ForScope<SmartSolarRotorBase>();
         }
 
+        /// <summary>
+        ///     Logger used for logging.
+        /// </summary>
         private ILogger Log { get; }
 
         /// <inheritdoc />

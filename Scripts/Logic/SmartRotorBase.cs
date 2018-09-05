@@ -1,4 +1,6 @@
+﻿using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
+using ParallelTasks;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
@@ -9,21 +11,41 @@ using VRage.ObjectBuilders;
 // ReSharper disable UsePatternMatching
 
 namespace AutoMcD.SmartRotors.Logic {
+    /// <summary>
+    ///     Shared game logic for all SmartRotor bases.
+    /// </summary>
     public abstract class SmartRotorBase : MyGameLogicComponent {
         private readonly string _debugName;
         private bool _lastAttachedState;
 
+        /// <summary>
+        ///     Initializes a new instance of the abstract game logic component for SmartRotor bases.
+        /// </summary>
+        /// <param name="debugName">A debug string used to generate <see cref="ComponentTypeDebugString" />.</param>
         protected SmartRotorBase(string debugName) {
             _debugName = debugName;
             Log = Mod.Static.Log.ForScope<SmartRotorBase>();
         }
 
+        /// <inheritdoc />
         public override string ComponentTypeDebugString => $"{_debugName} - Game Logic";
 
+        /// <summary>
+        ///     Indicates if the block which holds this game logic is just placed.
+        /// </summary>
         public bool IsJustPlaced { get; private set; }
+
+        /// <summary>
+        ///     Logger used for logging.
+        /// </summary>
         private ILogger Log { get; }
+
+        /// <summary>
+        ///     The entity which holds this game logic component.
+        /// </summary>
         public IMyMotorAdvancedStator Stator { get; private set; }
 
+        /// <inheritdoc />
         public override void Close() {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(Close)) : null) {
                 using (Log.BeginMethod(nameof(Close))) {
@@ -42,6 +64,7 @@ namespace AutoMcD.SmartRotors.Logic {
             }
         }
 
+        /// <inheritdoc />
         public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(Init)) : null) {
                 using (Log.BeginMethod(nameof(Init))) {
@@ -57,6 +80,7 @@ namespace AutoMcD.SmartRotors.Logic {
             }
         }
 
+        /// <inheritdoc />
         public override void OnAddedToScene() {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(OnAddedToScene)) : null) {
                 using (Log.BeginMethod(nameof(OnAddedToScene))) {
