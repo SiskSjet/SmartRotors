@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Sandbox.Common.ObjectBuilders;
 using Sandbox.Game.Entities;
@@ -20,14 +20,17 @@ namespace AutoMcD.SmartRotors.Logic {
 
         private ILogger Log { get; }
 
-        protected override void PlaceSmartRotorHinge() {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartSolarRotorBase), nameof(PlaceSmartRotorHinge)) : null) {
-                using (Log.BeginMethod(nameof(PlaceSmartRotorHinge))) {
-                    Log.Debug("Try to place smart solar hinge.");
-                    var head = Stator.Top;
-                    if (head == null) {
+        /// <inheritdoc />
+        protected override void PlaceSmartHinge(WorkData workData) {
+            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartSolarRotorBase), nameof(PlaceSmartHinge)) : null) {
+                using (Log.BeginMethod(nameof(PlaceSmartHinge))) {
+                    var data = workData as PlaceSmartHingeData;
+
+                    if (data?.Head == null) {
                         return;
                     }
+
+                    var head = data.Head;
 
                     var cubeGrid = head.CubeGrid;
                     var gridSize = cubeGrid.GridSize;
@@ -67,13 +70,8 @@ namespace AutoMcD.SmartRotors.Logic {
                         cubeGridBuilder.CubeBlocks.Add(hingeBuilder);
 
                         var gridsToMerge = new List<MyObjectBuilder_CubeGrid> { cubeGridBuilder };
-                        (cubeGrid as MyCubeGrid)?.PasteBlocksToGrid(gridsToMerge, 0, false, false);
 
-                        //MyTransparentGeometry.AddLineBillboard(MyStringId.GetOrCompute("Square"), new Color(Color.WhiteSmoke, 0.8f).ToVector4(), headPosition + up * 1.5, up, 2.5f, .05f);
-                        //MyTransparentGeometry.AddPointBillboard(MyStringId.GetOrCompute("WhiteDot"), new Color(Color.CornflowerBlue, 0.8f).ToVector4(), headPosition + up * 1.5, .5f, 0);
-                        //MyTransparentGeometry.AddBillboardOriented(MyStringId.GetOrCompute("Square"), new Color(Color.CornflowerBlue, 0.8f).ToVector4(), origin, left, up, 1f);
-
-                        Log.Debug("Hinge placed");
+                        MyAPIGateway.Utilities.InvokeOnGameThread(() => (cubeGrid as MyCubeGrid)?.PasteBlocksToGrid(gridsToMerge, 0, false, false));
                     } catch (Exception exception) {
                         Log.Error(exception);
                     }

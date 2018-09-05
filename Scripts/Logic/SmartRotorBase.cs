@@ -1,4 +1,4 @@
-﻿using AutoMcD.SmartRotors.Extensions;
+using AutoMcD.SmartRotors.Extensions;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
@@ -79,25 +79,33 @@ namespace AutoMcD.SmartRotors.Logic {
         }
 
         /// <summary>
-        ///     Place the matching smart rotor on top of this rotor.
+        ///     Place the matching smart rotor on top of this rotor. This is called in an separate thread.
         /// </summary>
-        protected abstract void PlaceSmartRotorHinge();
+        /// <param name="workData">The work data used in this method.</param>
+        protected abstract void PlaceSmartHinge(WorkData workData);
 
-        private void OnAttachedEntityChanged(IMyMotorBase @base) {
+        /// <summary>
+        ///     Called if <see cref="IMyMotorStator.Top" /> changed.
+        /// </summary>
+        /// <param name="base">The base on which the top is changed.</param>
+        private void OnAttachedEntityChanged(IMyMechanicalConnectionBlock @base) {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(OnAttachedEntityChanged)) : null) {
                 using (Log.BeginMethod(nameof(OnAttachedEntityChanged))) {
                     // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
                     _lastAttachedState = @base.Top != null;
 
-                    if (@base.Top != null) {
-                        PlaceSmartRotorHinge();
-                    }
+                    MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
                 }
             }
         }
 
         // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
-        private void OnHierarchyUpdated(MyCubeGrid obj) {
+        /// <summary>
+        ///     Used to check if <see cref="IMyMotorStator.Top" /> is changed, because of a the
+        ///     <see cref="IMyMotorStator.AttachedEntityChanged" /> event bug.
+        /// </summary>
+        /// <param name="cubeGrid">The cube grid on which the hierarchy updated.</param>
+        private void OnHierarchyUpdated(MyCubeGrid cubeGrid) {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(OnHierarchyUpdated)) : null) {
                 using (Log.BeginMethod(nameof(OnHierarchyUpdated))) {
                     if (_lastAttachedState && Stator.TopGrid == null) {
@@ -105,6 +113,18 @@ namespace AutoMcD.SmartRotors.Logic {
                     } else if (!_lastAttachedState && Stator.TopGrid != null) {
                         OnAttachedEntityChanged(Stator);
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Get called after <see cref="PlaceSmartHinge" /> task is completed.
+        /// </summary>
+        /// <param name="workData">The work data used in this method.</param>
+        private void PlaceSmartHingeCompleted(WorkData workData) {
+            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(PlaceSmartHingeCompleted)) : null) {
+                using (Log.BeginMethod(nameof(PlaceSmartHingeCompleted))) {
+                    Log.Debug("Hinge placed");
                 }
             }
         }
