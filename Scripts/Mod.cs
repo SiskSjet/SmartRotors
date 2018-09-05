@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sandbox.ModAPI;
@@ -83,6 +83,19 @@ namespace AutoMcD.SmartRotors {
                 using (var writer = MyAPIGateway.Utilities.WriteFileInLocalStorage(PROFILER_SUMMARY_FILE, typeof(Mod))) {
                     foreach (var result in Profiler.Results.OrderByDescending(x => x.Total)) {
                         writer.WriteLine(result);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Initialize some components that are only available just before the start.
+        /// </summary>
+        public override void BeforeStart() {
+            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(BeforeStart)) : null) {
+                using (Log.BeginMethod(nameof(BeforeStart))) {
+                    if (Network == null || Network.IsServer) {
+                        InitializeSunTracker();
                     }
                 }
             }
@@ -174,6 +187,18 @@ namespace AutoMcD.SmartRotors {
                     Network = new Network(NETWORK_ID);
                     Log.Info($"IsClient {Network.IsClient}, IsServer: {Network.IsServer}, IsDedicated: {Network.IsDedicated}");
                     Log.Info("Network initialized");
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Initialize a sun tracker component.
+        /// </summary>
+        private void InitializeSunTracker() {
+            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(InitializeSunTracker)) : null) {
+                using (Log.BeginMethod(nameof(InitializeSunTracker))) {
+                    SunTracker = new SunTracker();
+                    Log.Info($"{nameof(SunTracker)} initialized");
                 }
             }
         }
