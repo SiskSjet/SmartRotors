@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
@@ -71,8 +71,9 @@ namespace AutoMcD.SmartRotors.Logic {
 
                     var cubeGrid = head.CubeGrid;
                     var gridSize = cubeGrid.GridSize;
-                    var forward = head.WorldMatrix.Forward;
-                    var up = head.WorldMatrix.Up;
+                    var matrix = head.WorldMatrix;
+                    var up = matrix.Up;
+                    var left = matrix.Left;
 
                     var headPosition = head.GetPosition();
                     var origin = headPosition + up * gridSize;
@@ -95,13 +96,17 @@ namespace AutoMcD.SmartRotors.Logic {
                             Owner = Stator.OwnerId,
                             BuiltBy = Stator.OwnerId,
                             BuildPercent = buildPercent,
-                            IntegrityPercent = buildPercent
+                            IntegrityPercent = buildPercent,
+                            LimitsActive = true,
+                            MaxAngle = MathHelper.ToRadians(195),
+                            MinAngle = MathHelper.ToRadians(-15),
+                            CustomName = "Auto Placed"
                         };
 
                         var cubeGridBuilder = new MyObjectBuilder_CubeGrid {
                             CreatePhysics = true,
                             GridSizeEnum = head.CubeGrid.GridSizeEnum,
-                            PositionAndOrientation = new MyPositionAndOrientation(origin, up, forward)
+                            PositionAndOrientation = new MyPositionAndOrientation(origin, up, left)
                         };
 
                         cubeGridBuilder.CubeBlocks.Add(hingeBuilder);
