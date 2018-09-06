@@ -1,8 +1,13 @@
+﻿using AutoMcD.SmartRotors.Extensions;
 using Sandbox.Common.ObjectBuilders;
 using Sisk.Utils.Logging;
+using Sisk.Utils.Profiler;
 using VRage.Game.Components;
+using VRage.ModAPI;
+using VRage.ObjectBuilders;
 
 namespace AutoMcD.SmartRotors.Logic {
+    // todo: set lower and upper limits. Lower: -22 | Upper: 202
     /// <summary>
     ///     Provides game logic for Smart Solar Hinges.
     /// </summary>
@@ -21,5 +26,24 @@ namespace AutoMcD.SmartRotors.Logic {
         ///     Logger used for logging.
         /// </summary>
         private ILogger Log { get; }
+
+        /// <inheritdoc />
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
+            base.Init(objectBuilder);
+
+            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+        }
+
+        /// <inheritdoc />
+        public override void UpdateBeforeSimulation100() {
+            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorSolarHinge), nameof(UpdateBeforeSimulation100)) : null) {
+                if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
+                    return;
+                }
+
+                var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+                Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left);
+            }
+        }
     }
 }
