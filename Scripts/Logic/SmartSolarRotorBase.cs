@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using AutoMcD.SmartRotors.Data;
+using AutoMcD.SmartRotors.Extensions;
 using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
 using Sandbox.Game.Entities;
@@ -10,6 +11,9 @@ using Sisk.Utils.Profiler;
 using VRage;
 using VRage.Game;
 using VRage.Game.Components;
+using VRage.ModAPI;
+using VRage.ObjectBuilders;
+using VRageMath;
 
 namespace AutoMcD.SmartRotors.Logic {
     /// <summary>
@@ -30,6 +34,28 @@ namespace AutoMcD.SmartRotors.Logic {
         ///     Logger used for logging.
         /// </summary>
         private ILogger Log { get; }
+
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
+            base.Init(objectBuilder);
+
+            if (Stator.IsProjected()) {
+                return;
+            }
+
+            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+        }
+
+        /// <inheritdoc />
+        public override void UpdateBeforeSimulation100() {
+            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorSolarHinge), nameof(UpdateBeforeSimulation100)) : null) {
+                if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
+                    return;
+                }
+
+                var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+                Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward);
+            }
+        }
 
         /// <inheritdoc />
         protected override void PlaceSmartHinge(WorkData workData) {

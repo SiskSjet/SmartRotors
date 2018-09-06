@@ -1,13 +1,13 @@
-﻿using Sandbox.Common.ObjectBuilders;
+﻿using AutoMcD.SmartRotors.Extensions;
+using Sandbox.Common.ObjectBuilders;
 using Sisk.Utils.Logging;
-using VRage.Game;
+using Sisk.Utils.Profiler;
 using VRage.Game.Components;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
-using VRage.Utils;
-using VRageMath;
 
 namespace AutoMcD.SmartRotors.Logic {
+    // todo: set lower and upper limits. Lower: -22 | Upper: 202
     /// <summary>
     ///     Provides game logic for Smart Solar Hinges.
     /// </summary>
@@ -31,17 +31,19 @@ namespace AutoMcD.SmartRotors.Logic {
         public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
             base.Init(objectBuilder);
 
-            NeedsUpdate = MyEntityUpdateEnum.EACH_FRAME;
+            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
 
         /// <inheritdoc />
-        public override void UpdateAfterSimulation() {
-            var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+        public override void UpdateBeforeSimulation100() {
+            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorSolarHinge), nameof(UpdateBeforeSimulation100)) : null) {
+                if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
+                    return;
+                }
 
-            var matrix = Stator.WorldMatrix;
-            var start = Stator.GetPosition() + matrix.Forward * 2;
-            MyTransparentGeometry.AddLineBillboard(MyStringId.GetOrCompute("Square"), new Color(Color.WhiteSmoke, 0.8f).ToVector4(), start, sunDirection, 2.5f, .05f);
-            MyTransparentGeometry.AddPointBillboard(MyStringId.GetOrCompute("WhiteDot"), new Color(Color.CornflowerBlue, 0.8f).ToVector4(), start, .5f, 0);
+                var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+                Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left);
+            }
         }
     }
 }

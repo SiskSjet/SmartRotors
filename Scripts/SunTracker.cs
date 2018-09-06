@@ -16,7 +16,6 @@ namespace AutoMcD.SmartRotors {
         private readonly Vector3 _baseSunDirection;
         private readonly bool _enabled;
         private readonly DateTime _offset = new DateTime(2081, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        private readonly float _speed;
         private readonly Vector3 _sunRotationAxis;
 
         /// <summary>
@@ -26,7 +25,7 @@ namespace AutoMcD.SmartRotors {
             var environment = MyAPIGateway.Session.GetSector().Environment;
             var checkpoint = MyAPIGateway.Session.GetCheckpoint("null");
 
-            _speed = 60f * MyAPIGateway.Session.SessionSettings.SunRotationIntervalMinutes;
+            Speed = 60f * MyAPIGateway.Session.SessionSettings.SunRotationIntervalMinutes;
             _enabled = MyAPIGateway.Session.SessionSettings.EnableSunRotation;
 
             Vector3 sunDirectionNormalized;
@@ -48,13 +47,18 @@ namespace AutoMcD.SmartRotors {
         private TimeSpan ElapsedGameTime => MyAPIGateway.Session.GameDateTime - _offset;
 
         /// <summary>
+        ///     The speed of sun rotation.
+        /// </summary>
+        public float Speed { get; }
+
+        /// <summary>
         ///     Calculates the current sun direction.
         /// </summary>
         /// <returns>Returns the sun direction vector.</returns>
-        public Vector3 CalculateSunDirection() {
+        public Vector3D CalculateSunDirection() {
             using (Mod.PROFILE ? Profiler.Measure(nameof(SunTracker), nameof(CalculateSunDirection)) : null) {
                 if (_enabled) {
-                    var vector3 = Vector3.Transform(_baseSunDirection, Matrix.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * ((float) ElapsedGameTime.TotalSeconds / _speed)));
+                    var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * (ElapsedGameTime.TotalSeconds / Speed)));
                     vector3.Normalize();
 
                     return vector3;
