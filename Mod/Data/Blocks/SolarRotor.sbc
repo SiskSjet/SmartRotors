@@ -27,9 +27,8 @@
         <MountPoint Side="Bottom" StartX="0.08" StartY="0.08" EndX="0.92" EndY="0.92" />
       </MountPoints>
       <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\MotorStatorConstruction_1.mwm" />
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\MotorStatorConstruction_2.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\MotorStatorConstruction_3.mwm" />
+        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor_Base_Constr1.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor_Base_Constr2.mwm" />
       </BuildProgressModels>
       <BlockPairName>MA_SmartRotor_Base</BlockPairName>
       <MirroringY>Z</MirroringY>
@@ -88,9 +87,8 @@
         <MountPoint Side="Back" StartX="0.19" StartY="0.19" EndX="0.81" EndY="0.81" />
       </MountPoints>
       <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\MotorStatorConstruction_1.mwm" />
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\MotorStatorConstruction_2.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\MotorStatorConstruction_3.mwm" />
+        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor_Base_2_Constr1.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor_Base_2_Constr2.mwm" />
       </BuildProgressModels>
       <BlockPairName>MA_SmartRotor_Solar_Hinge</BlockPairName>
       <MirroringY>Z</MirroringY>
@@ -111,7 +109,7 @@
       <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -145,9 +143,8 @@
         <MountPoint Side="Left" StartX="0.09" StartY="0.09" EndX="0.91" EndY="0.91" />
       </MountPoints>
       <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\MotorRotorConstruction_1.mwm" />
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\MotorRotorConstruction_2.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\MotorRotorConstruction_3.mwm" />
+        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor_Part2_Constr1.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor_Part2_Constr2.mwm" />
       </BuildProgressModels>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>

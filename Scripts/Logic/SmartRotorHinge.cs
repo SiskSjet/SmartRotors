@@ -74,7 +74,9 @@ namespace AutoMcD.SmartRotors.Logic {
                         return;
                     }
 
-                    if (Stator.Top == null) {
+                    if (Stator.Top == null && Stator.CustomName == "Auto Placed") {
+                        Stator.CustomName = Stator.DefinitionDisplayNameText;
+
                         var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
 
                         List<IMyTerminalAction> defaultActions;

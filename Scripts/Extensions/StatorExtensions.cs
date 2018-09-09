@@ -1,4 +1,5 @@
-﻿using Sandbox.ModAPI;
+﻿using System;
+using Sandbox.ModAPI;
 using VRageMath;
 
 namespace AutoMcD.SmartRotors.Extensions {
@@ -11,16 +12,10 @@ namespace AutoMcD.SmartRotors.Extensions {
         /// <param name="currentDirection">Current direction of the rotor.</param>
         /// <param name="maxVelocity">Max velocity with which the rotor rotates.</param>
         public static void PointRotorAtVector(this IMyMotorStator stator, Vector3D targetDirection, Vector3D currentDirection, float maxVelocity = 5f * MathHelper.RPMToRadiansPerSecond) {
-            var angle = Vector3D.Cross(targetDirection, currentDirection);
-            var dot = angle.Dot(stator.WorldMatrix.Up);
+            var cross = Vector3D.Cross(targetDirection, currentDirection);
+            var dot = cross.Dot(stator.WorldMatrix.Up);
 
-            if (dot > maxVelocity) {
-                stator.TargetVelocityRad = maxVelocity;
-            } else if (dot * -1 > maxVelocity) {
-                stator.TargetVelocityRad = maxVelocity * -1;
-            } else {
-                stator.TargetVelocityRad = (float) dot;
-            }
+            stator.TargetVelocityRad = (float) (dot > 0 ? Math.Min(maxVelocity, dot) : Math.Max(maxVelocity * -1, dot));
         }
     }
 }
