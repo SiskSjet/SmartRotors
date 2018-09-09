@@ -54,8 +54,23 @@
     <None Include="Data\BlockCategories.sbc" />
     <None Include="Models\MA_SmartRotor_Base.mwm" />
     <None Include="Models\MA_SmartRotor_Base_2.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_2_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_2_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor_Base_LOD2.mwm" />
     <None Include="Models\MA_SmartRotor_Part1.mwm" />
+    <None Include="Models\MA_SmartRotor_Part1_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor_Part1_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor_Part1_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor_Part1_LOD2.mwm" />
     <None Include="Models\MA_SmartRotor_Part2.mwm" />
+    <None Include="Models\MA_SmartRotor_Part2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor_Part2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor_Part2_LOD1.mwm" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Textures\GUI\Icons\Cubes\SmartSolarRotor.dds" />
