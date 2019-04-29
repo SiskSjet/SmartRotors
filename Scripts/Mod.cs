@@ -120,7 +120,7 @@ namespace AutoMcD.SmartRotors {
         /// </summary>
         private void InitializeLogging() {
             Log = Logger.ForScope<Mod>();
-            Log.Register(new LocalStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 500));
+            Log.Register(new WorldStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 500));
 
 
             using (Log.BeginMethod(nameof(InitializeLogging))) {
