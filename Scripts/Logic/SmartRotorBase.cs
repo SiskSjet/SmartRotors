@@ -4,7 +4,6 @@ using ParallelTasks;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
-using Sisk.Utils.Profiler;
 using VRage.Game.Components;
 using VRage.ObjectBuilders;
 
@@ -47,18 +46,16 @@ namespace AutoMcD.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void Close() {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(Close)) : null) {
-                using (Log.BeginMethod(nameof(Close))) {
-                    // todo: check if it is enough if it is executed on the server.
-                    if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
-                        // bug: IMyMotorStator.AttachedEntityChanged throws "Cannot bind to the target method because its signature or security transparency is not compatible with that of the delegate type.".
-                        //Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
+            using (Log.BeginMethod(nameof(Close))) {
+                // todo: check if it is enough if it is executed on the server.
+                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    // bug: IMyMotorStator.AttachedEntityChanged throws "Cannot bind to the target method because its signature or security transparency is not compatible with that of the delegate type.".
+                    //Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
 
-                        // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
-                        var cubeGrid = Stator.CubeGrid as MyCubeGrid;
-                        if (cubeGrid != null) {
-                            cubeGrid.OnHierarchyUpdated -= OnHierarchyUpdated;
-                        }
+                    // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
+                    var cubeGrid = Stator.CubeGrid as MyCubeGrid;
+                    if (cubeGrid != null) {
+                        cubeGrid.OnHierarchyUpdated -= OnHierarchyUpdated;
                     }
                 }
             }
@@ -66,38 +63,34 @@ namespace AutoMcD.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(Init)) : null) {
-                using (Log.BeginMethod(nameof(Init))) {
-                    base.Init(objectBuilder);
+            using (Log.BeginMethod(nameof(Init))) {
+                base.Init(objectBuilder);
 
-                    Stator = Entity as IMyMotorAdvancedStator;
-                    if (Stator == null) {
-                        return;
-                    }
-
-                    IsJustPlaced = Stator.CubeGrid?.Physics != null;
+                Stator = Entity as IMyMotorAdvancedStator;
+                if (Stator == null) {
+                    return;
                 }
+
+                IsJustPlaced = Stator.CubeGrid?.Physics != null;
             }
         }
 
         /// <inheritdoc />
         public override void OnAddedToScene() {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(OnAddedToScene)) : null) {
-                using (Log.BeginMethod(nameof(OnAddedToScene))) {
-                    if (Stator.IsProjected()) {
-                        return;
-                    }
+            using (Log.BeginMethod(nameof(OnAddedToScene))) {
+                if (Stator.IsProjected()) {
+                    return;
+                }
 
-                    _lastAttachedState = Stator.Top != null;
+                _lastAttachedState = Stator.Top != null;
 
-                    // bug: IMyMotorStator.AttachedEntityChanged throws "Cannot bind to the target method because its signature or security transparency is not compatible with that of the delegate type.".
-                    //Stator.AttachedEntityChanged += OnAttachedEntityChanged;
+                // bug: IMyMotorStator.AttachedEntityChanged throws "Cannot bind to the target method because its signature or security transparency is not compatible with that of the delegate type.".
+                //Stator.AttachedEntityChanged += OnAttachedEntityChanged;
 
-                    // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
-                    var cubeGrid = Stator.CubeGrid as MyCubeGrid;
-                    if (cubeGrid != null) {
-                        cubeGrid.OnHierarchyUpdated += OnHierarchyUpdated;
-                    }
+                // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
+                var cubeGrid = Stator.CubeGrid as MyCubeGrid;
+                if (cubeGrid != null) {
+                    cubeGrid.OnHierarchyUpdated += OnHierarchyUpdated;
                 }
             }
         }
@@ -113,13 +106,11 @@ namespace AutoMcD.SmartRotors.Logic {
         /// </summary>
         /// <param name="base">The base on which the top is changed.</param>
         private void OnAttachedEntityChanged(IMyMechanicalConnectionBlock @base) {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(OnAttachedEntityChanged)) : null) {
-                using (Log.BeginMethod(nameof(OnAttachedEntityChanged))) {
-                    // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
-                    _lastAttachedState = @base.Top != null;
+            using (Log.BeginMethod(nameof(OnAttachedEntityChanged))) {
+                // hack: until IMyMotorStator.AttachedEntityChanged event is fixed.
+                _lastAttachedState = @base.Top != null;
 
-                    MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
-                }
+                MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
             }
         }
 
@@ -130,13 +121,11 @@ namespace AutoMcD.SmartRotors.Logic {
         /// </summary>
         /// <param name="cubeGrid">The cube grid on which the hierarchy updated.</param>
         private void OnHierarchyUpdated(MyCubeGrid cubeGrid) {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(OnHierarchyUpdated)) : null) {
-                using (Log.BeginMethod(nameof(OnHierarchyUpdated))) {
-                    if (_lastAttachedState && Stator.TopGrid == null) {
-                        OnAttachedEntityChanged(Stator);
-                    } else if (!_lastAttachedState && Stator.TopGrid != null) {
-                        OnAttachedEntityChanged(Stator);
-                    }
+            using (Log.BeginMethod(nameof(OnHierarchyUpdated))) {
+                if (_lastAttachedState && Stator.TopGrid == null) {
+                    OnAttachedEntityChanged(Stator);
+                } else if (!_lastAttachedState && Stator.TopGrid != null) {
+                    OnAttachedEntityChanged(Stator);
                 }
             }
         }
@@ -146,10 +135,8 @@ namespace AutoMcD.SmartRotors.Logic {
         /// </summary>
         /// <param name="workData">The work data used in this method.</param>
         private void PlaceSmartHingeCompleted(WorkData workData) {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorBase), nameof(PlaceSmartHingeCompleted)) : null) {
-                using (Log.BeginMethod(nameof(PlaceSmartHingeCompleted))) {
-                    Log.Debug("Hinge placed");
-                }
+            using (Log.BeginMethod(nameof(PlaceSmartHingeCompleted))) {
+                Log.Debug("Hinge placed");
             }
         }
     }

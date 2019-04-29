@@ -1,7 +1,6 @@
 ﻿using AutoMcD.SmartRotors.Extensions;
 using Sandbox.Common.ObjectBuilders;
 using Sisk.Utils.Logging;
-using Sisk.Utils.Profiler;
 using VRage.Game.Components;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
@@ -36,14 +35,12 @@ namespace AutoMcD.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void UpdateBeforeSimulation100() {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorSolarHinge), nameof(UpdateBeforeSimulation100)) : null) {
-                if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
-                    return;
-                }
-
-                var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
-                Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left);
+            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
+                return;
             }
+
+            var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+            Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left);
         }
     }
 }

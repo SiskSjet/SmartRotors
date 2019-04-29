@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -116,10 +117,6 @@
     <ProjectReference Include="..\Utils\Net\Net.csproj">
       <Project>{2285e3a1-63a2-4632-aa74-caa8dac96c71}</Project>
       <Name>Net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utils\Profiler\Profiler.csproj">
-      <Project>{30c726df-f15b-4df0-b579-dfc84c74d6e2}</Project>
-      <Name>Profiler</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

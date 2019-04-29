@@ -7,7 +7,6 @@ using Sandbox.Common.ObjectBuilders;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
-using Sisk.Utils.Profiler;
 using VRage;
 using VRage.Game;
 using VRage.Game.Components;
@@ -47,76 +46,72 @@ namespace AutoMcD.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void UpdateBeforeSimulation100() {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartRotorSolarHinge), nameof(UpdateBeforeSimulation100)) : null) {
-                if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
-                    return;
-                }
-
-                var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
-                Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward);
+            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
+                return;
             }
+
+            var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+            Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward);
         }
 
         /// <inheritdoc />
         protected override void PlaceSmartHinge(WorkData workData) {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SmartSolarRotorBase), nameof(PlaceSmartHinge)) : null) {
-                using (Log.BeginMethod(nameof(PlaceSmartHinge))) {
-                    var data = workData as PlaceSmartHingeData;
+            using (Log.BeginMethod(nameof(PlaceSmartHinge))) {
+                var data = workData as PlaceSmartHingeData;
 
-                    if (data?.Head == null) {
-                        return;
-                    }
+                if (data?.Head == null) {
+                    return;
+                }
 
-                    var head = data.Head;
+                var head = data.Head;
 
-                    var cubeGrid = head.CubeGrid;
-                    var gridSize = cubeGrid.GridSize;
-                    var matrix = head.WorldMatrix;
-                    var up = matrix.Up;
-                    var left = matrix.Left;
+                var cubeGrid = head.CubeGrid;
+                var gridSize = cubeGrid.GridSize;
+                var matrix = head.WorldMatrix;
+                var up = matrix.Up;
+                var left = matrix.Left;
 
-                    var headPosition = head.GetPosition();
-                    var origin = headPosition + up * gridSize;
-                    var hingePosition = cubeGrid.WorldToGridInteger(origin);
-                    if (cubeGrid.CubeExists(hingePosition)) {
-                        Log.Debug($"There is already a block on this position: {hingePosition}.");
-                        return;
-                    }
+                var headPosition = head.GetPosition();
+                var origin = headPosition + up * gridSize;
+                var hingePosition = cubeGrid.WorldToGridInteger(origin);
+                if (cubeGrid.CubeExists(hingePosition)) {
+                    Log.Debug($"There is already a block on this position: {hingePosition}.");
+                    return;
+                }
 
-                    var canPlaceCube = cubeGrid.CanAddCube(hingePosition);
-                    if (!canPlaceCube) {
-                        Log.Debug($"Unable to place block on this position: {hingePosition}.");
-                    }
+                var canPlaceCube = cubeGrid.CanAddCube(hingePosition);
+                if (!canPlaceCube) {
+                    Log.Debug($"Unable to place block on this position: {hingePosition}.");
+                }
 
-                    try {
-                        var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
-                        var buildPercent = instantBuild ? 1 : 0.00001525902f;
-                        var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
-                            SubtypeName = "MA_SmartRotor_Solar_Hinge",
-                            Owner = Stator.OwnerId,
-                            BuiltBy = Stator.OwnerId,
-                            BuildPercent = buildPercent,
-                            IntegrityPercent = buildPercent,
-                            LimitsActive = true,
-                            MaxAngle = MathHelper.ToRadians(195),
-                            MinAngle = MathHelper.ToRadians(-15),
-                            CustomName = "Auto Placed"
-                        };
+                try {
+                    var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
+                    var buildPercent = instantBuild ? 1 : 0.00001525902f;
+                    var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
+                        SubtypeName = "MA_SmartRotor_Solar_Hinge",
+                        Owner = Stator.OwnerId,
+                        BuiltBy = Stator.OwnerId,
+                        BuildPercent = buildPercent,
+                        IntegrityPercent = buildPercent,
+                        LimitsActive = true,
+                        MaxAngle = MathHelper.ToRadians(195),
+                        MinAngle = MathHelper.ToRadians(-15),
+                        CustomName = "Auto Placed"
+                    };
 
-                        var cubeGridBuilder = new MyObjectBuilder_CubeGrid {
-                            CreatePhysics = true,
-                            GridSizeEnum = head.CubeGrid.GridSizeEnum,
-                            PositionAndOrientation = new MyPositionAndOrientation(origin, up, left)
-                        };
+                    var cubeGridBuilder = new MyObjectBuilder_CubeGrid {
+                        CreatePhysics = true,
+                        GridSizeEnum = head.CubeGrid.GridSizeEnum,
+                        PositionAndOrientation = new MyPositionAndOrientation(origin, up, left)
+                    };
 
-                        cubeGridBuilder.CubeBlocks.Add(hingeBuilder);
+                    cubeGridBuilder.CubeBlocks.Add(hingeBuilder);
 
-                        var gridsToMerge = new List<MyObjectBuilder_CubeGrid> { cubeGridBuilder };
+                    var gridsToMerge = new List<MyObjectBuilder_CubeGrid> { cubeGridBuilder };
 
-                        MyAPIGateway.Utilities.InvokeOnGameThread(() => (cubeGrid as MyCubeGrid)?.PasteBlocksToGrid(gridsToMerge, 0, false, false));
-                    } catch (Exception exception) {
-                        Log.Error(exception);
-                    }
+                    MyAPIGateway.Utilities.InvokeOnGameThread(() => (cubeGrid as MyCubeGrid)?.PasteBlocksToGrid(gridsToMerge, 0, false, false));
+                } catch (Exception exception) {
+                    Log.Error(exception);
                 }
             }
         }

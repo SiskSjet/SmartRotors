@@ -5,13 +5,8 @@ using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
 using Sisk.Utils.Logging.DefaultHandler;
 using Sisk.Utils.Net;
-using Sisk.Utils.Profiler;
 using VRage;
 using VRage.Game.Components;
-
-// ReSharper disable ConditionIsAlwaysTrueOrFalse
-// ReSharper disable UnreachableCode
-#pragma warning disable 162
 
 namespace AutoMcD.SmartRotors {
     /// <summary>
@@ -21,18 +16,12 @@ namespace AutoMcD.SmartRotors {
     public class Mod : MySessionComponentBase {
         public const string NAME = "SmartRotors";
 
-        // important: set profile to false before publishing this mod.
-        public const bool PROFILE = true;
-
         // important: change to info | warning | error or none before publishing this mod.
         private const LogEventLevel DEFAULT_LOG_EVENT_LEVEL = LogEventLevel.All;
 
         private const string LOG_FILE_TEMPLATE = "{0}.log";
         private const ushort NETWORK_ID = 51511;
-        private const string PROFILER_LOG_FILE = "profiler.log";
-        private const string PROFILER_SUMMARY_FILE = "profiler_summary.txt";
         private static readonly string LogFile = string.Format(LOG_FILE_TEMPLATE, NAME);
-        private ILogger _profilerLog;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="Mod" /> session component.
@@ -76,27 +65,12 @@ namespace AutoMcD.SmartRotors {
         }
 
         /// <summary>
-        ///     Writes Profiler results to file.
-        /// </summary>
-        private static void WriteProfileResults() {
-            if (Profiler.Results.Any()) {
-                using (var writer = MyAPIGateway.Utilities.WriteFileInLocalStorage(PROFILER_SUMMARY_FILE, typeof(Mod))) {
-                    foreach (var result in Profiler.Results.OrderByDescending(x => x.Total)) {
-                        writer.WriteLine(result);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
         ///     Initialize some components that are only available just before the start.
         /// </summary>
         public override void BeforeStart() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(BeforeStart)) : null) {
-                using (Log.BeginMethod(nameof(BeforeStart))) {
-                    if (Network == null || Network.IsServer) {
-                        InitializeSunTracker();
-                    }
+            using (Log.BeginMethod(nameof(BeforeStart))) {
+                if (Network == null || Network.IsServer) {
+                    InitializeSunTracker();
                 }
             }
         }
@@ -105,12 +79,10 @@ namespace AutoMcD.SmartRotors {
         ///     Load mod settings and create localizations.
         /// </summary>
         public override void LoadData() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(LoadData)) : null) {
-                LoadTranslation();
+            LoadTranslation();
 
-                if (MyAPIGateway.Multiplayer.MultiplayerActive) {
-                    InitializeNetwork();
-                }
+            if (MyAPIGateway.Multiplayer.MultiplayerActive) {
+                InitializeNetwork();
             }
         }
 
@@ -118,11 +90,7 @@ namespace AutoMcD.SmartRotors {
         ///     Save mod settings and fire OnSave event.
         /// </summary>
         public override void SaveData() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(SaveData)) : null) {
-                Log.Flush();
-                _profilerLog.Flush();
-                WriteProfileResults();
-            }
+            Log.Flush();
         }
 
         /// <summary>
@@ -130,16 +98,6 @@ namespace AutoMcD.SmartRotors {
         /// </summary>
         protected override void UnloadData() {
             Log?.EnterMethod(nameof(UnloadData));
-            if (PROFILE) {
-                Log?.Info("Writing profiler data");
-                WriteProfileResults();
-                if (_profilerLog != null) {
-                    Log?.Info("Profiler logging stopped");
-                    _profilerLog.Flush();
-                    _profilerLog.Close();
-                    _profilerLog = null;
-                }
-            }
 
             if (Log != null) {
                 Log.Info("Logging stopped");
@@ -161,19 +119,12 @@ namespace AutoMcD.SmartRotors {
         ///     Initialize the logging system.
         /// </summary>
         private void InitializeLogging() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(InitializeLogging)) : null) {
-                Log = Logger.ForScope<Mod>();
-                Log.Register(new LocalStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, PROFILE ? -1 : 500));
+            Log = Logger.ForScope<Mod>();
+            Log.Register(new LocalStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 500));
 
-                if (PROFILE) {
-                    _profilerLog = Logger.ForScope<Mod>();
-                    _profilerLog.Register(new LocalStorageHandler(PROFILER_LOG_FILE, (level, message, timestamp, scope, method) => message, LogEventLevel.All, 0));
-                    Profiler.SetLogger(_profilerLog.Info);
-                }
 
-                using (Log.BeginMethod(nameof(InitializeLogging))) {
-                    Log.Info("Logging initialized");
-                }
+            using (Log.BeginMethod(nameof(InitializeLogging))) {
+                Log.Info("Logging initialized");
             }
         }
 
@@ -181,13 +132,11 @@ namespace AutoMcD.SmartRotors {
         ///     Initialize the network system.
         /// </summary>
         private void InitializeNetwork() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(InitializeNetwork)) : null) {
-                using (Log.BeginMethod(nameof(InitializeNetwork))) {
-                    Log.Info("Initialize Network");
-                    Network = new Network(NETWORK_ID);
-                    Log.Info($"IsClient {Network.IsClient}, IsServer: {Network.IsServer}, IsDedicated: {Network.IsDedicated}");
-                    Log.Info("Network initialized");
-                }
+            using (Log.BeginMethod(nameof(InitializeNetwork))) {
+                Log.Info("Initialize Network");
+                Network = new Network(NETWORK_ID);
+                Log.Info($"IsClient {Network.IsClient}, IsServer: {Network.IsServer}, IsDedicated: {Network.IsDedicated}");
+                Log.Info("Network initialized");
             }
         }
 
@@ -195,11 +144,9 @@ namespace AutoMcD.SmartRotors {
         ///     Initialize a sun tracker component.
         /// </summary>
         private void InitializeSunTracker() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(InitializeSunTracker)) : null) {
-                using (Log.BeginMethod(nameof(InitializeSunTracker))) {
-                    SunTracker = new SunTracker();
-                    Log.Info($"{nameof(SunTracker)} initialized");
-                }
+            using (Log.BeginMethod(nameof(InitializeSunTracker))) {
+                SunTracker = new SunTracker();
+                Log.Info($"{nameof(SunTracker)} initialized");
             }
         }
 
@@ -207,19 +154,17 @@ namespace AutoMcD.SmartRotors {
         ///     Load translations for this mod.
         /// </summary>
         private void LoadTranslation() {
-            using (PROFILE ? Profiler.Measure(nameof(Mod), nameof(LoadTranslation)) : null) {
-                using (Log.BeginMethod(nameof(LoadTranslation))) {
-                    var currentLanguage = MyAPIGateway.Session.Config.Language;
-                    var supportedLanguages = new HashSet<MyLanguagesEnum>();
+            using (Log.BeginMethod(nameof(LoadTranslation))) {
+                var currentLanguage = MyAPIGateway.Session.Config.Language;
+                var supportedLanguages = new HashSet<MyLanguagesEnum>();
 
-                    MyTexts.LoadSupportedLanguages($"{ModContext.ModPathData}\\Localization", supportedLanguages);
-                    if (supportedLanguages.Contains(currentLanguage)) {
-                        MyTexts.LoadTexts($"{ModContext.ModPathData}\\Localization", MyTexts.Languages[currentLanguage].CultureName);
-                        Log.Info($"Loaded {MyTexts.Languages[currentLanguage].FullCultureName} translations.");
-                    } else if (supportedLanguages.Contains(MyLanguagesEnum.English)) {
-                        MyTexts.LoadTexts($"{ModContext.ModPathData}\\Localization", MyTexts.Languages[MyLanguagesEnum.English].CultureName);
-                        Log.Warning($"No {MyTexts.Languages[currentLanguage].FullCultureName} translations found. Fall back to {MyTexts.Languages[MyLanguagesEnum.English].FullCultureName} translations.");
-                    }
+                MyTexts.LoadSupportedLanguages($"{ModContext.ModPathData}\\Localization", supportedLanguages);
+                if (supportedLanguages.Contains(currentLanguage)) {
+                    MyTexts.LoadTexts($"{ModContext.ModPathData}\\Localization", MyTexts.Languages[currentLanguage].CultureName);
+                    Log.Info($"Loaded {MyTexts.Languages[currentLanguage].FullCultureName} translations.");
+                } else if (supportedLanguages.Contains(MyLanguagesEnum.English)) {
+                    MyTexts.LoadTexts($"{ModContext.ModPathData}\\Localization", MyTexts.Languages[MyLanguagesEnum.English].CultureName);
+                    Log.Warning($"No {MyTexts.Languages[currentLanguage].FullCultureName} translations found. Fall back to {MyTexts.Languages[MyLanguagesEnum.English].FullCultureName} translations.");
                 }
             }
         }
