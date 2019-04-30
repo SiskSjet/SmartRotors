@@ -1,12 +1,10 @@
-using AutoMcD.SmartRotors.Data;
+﻿using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
 using ParallelTasks;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 using VRage.ObjectBuilders;
-
-// ReSharper disable UsePatternMatching
 
 namespace AutoMcD.SmartRotors.Logic {
     /// <summary>

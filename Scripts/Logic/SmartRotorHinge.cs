@@ -7,8 +7,6 @@ using Sisk.Utils.Logging;
 using VRage.Game.Components;
 using VRage.ObjectBuilders;
 
-// ReSharper disable InlineOutVariableDeclaration
-
 namespace AutoMcD.SmartRotors.Logic {
     /// <summary>
     ///     Shared game logic for all SmartRotor hinges.
