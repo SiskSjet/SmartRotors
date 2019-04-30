@@ -1,4 +1,5 @@
-﻿using AutoMcD.SmartRotors.Data;
+﻿using System;
+using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
 using ParallelTasks;
 using Sandbox.ModAPI;
@@ -99,7 +100,25 @@ namespace AutoMcD.SmartRotors.Logic {
         /// <param name="workData">The work data used in this method.</param>
         private void PlaceSmartHingeCompleted(WorkData workData) {
             using (Log.BeginMethod(nameof(PlaceSmartHingeCompleted))) {
-                Log.Debug("Hinge placed");
+                var data = workData as PlaceSmartHingeData;
+
+                if (data?.Head == null) {
+                    return;
+                }
+
+                switch (data.Result) {
+                    case PlaceSmartHingeData.DataResult.Running:
+                        break;
+                    case PlaceSmartHingeData.DataResult.Success:
+                        Log.Debug("Hinge placed");
+                        break;
+                    case PlaceSmartHingeData.DataResult.Failed:
+                        Log.Error("Something went wrong when trying to place hinge.");
+                        break;
+                    default:
+                        break;
+
+                }
             }
         }
     }

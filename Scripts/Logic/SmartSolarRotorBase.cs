@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
@@ -101,6 +101,7 @@ namespace AutoMcD.SmartRotors.Logic {
                 if (cubeGrid.CubeExists(hingePosition)) {
                     Log.Error(ERROR_BUILD_SPOT_OCCUPIED);
                     MyAPIGateway.Utilities.ShowNotification(ERROR_BUILD_SPOT_OCCUPIED);
+                    data.FlagAsFailed();
                     return;
                 }
 
@@ -108,6 +109,7 @@ namespace AutoMcD.SmartRotors.Logic {
                 if (!canPlaceCube) {
                     Log.Error(ERROR_UNABLE_TO_PLACE);
                     MyAPIGateway.Utilities.ShowNotification(ERROR_UNABLE_TO_PLACE);
+                    data.FlagAsFailed();
                 }
 
                 try {
@@ -137,9 +139,11 @@ namespace AutoMcD.SmartRotors.Logic {
                         var gridsToMerge = new List<MyObjectBuilder_CubeGrid> { cubeGridBuilder };
 
                         MyAPIGateway.Utilities.InvokeOnGameThread(() => (cubeGrid as MyCubeGrid)?.PasteBlocksToGrid(gridsToMerge, 0, false, false));
+                        data.FlagAsSucceeded();
                     }
                 } catch (Exception exception) {
                     Log.Error(exception);
+                    data.FlagAsFailed();
                 }
             }
         }
