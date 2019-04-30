@@ -194,7 +194,6 @@
       </Id>
       <DisplayName>SmartRotor:Solar, Type B</DisplayName>
       <Description>Smart Rotors: Solar. Non-Conveyored version with dual rotor heads. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
-
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -357,7 +356,6 @@
       </Id>
       <DisplayName>SmartRotor:Solar, Type B small grid</DisplayName>
       <Description>Smart Rotors: Solar. Non-Conveyored version with dual rotor heads. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
-
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -407,6 +405,7 @@
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
     </Definition>
+
     <!-- MA_SmartRotor_Solar_Hinge_TypeB_sm -->
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
       <Id>

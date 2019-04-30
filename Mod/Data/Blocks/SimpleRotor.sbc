@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <CubeBlocks>
+
     <!-- 	MA_SmartRotor_Base -->
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
       <Id>
@@ -152,6 +153,8 @@
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>1</PCU>
     </Definition>
+
+
 
     <!-- 	MA_SmartRotor_Part2 -->
     <Definition>
