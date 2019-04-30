@@ -15,12 +15,19 @@
         <string>MotorAdvancedRotor/MA_SmartRotor_Part2</string>
 
         <string>MotorAdvancedStator/MA_SmartRotor_Solar_Base</string>
+        <string>MotorAdvancedRotor/MA_SmartRotor_Part1</string>
         <string>MotorAdvancedStator/MA_SmartRotor_Solar_Hinge</string>
         <string>MotorAdvancedRotor/MA_SmartRotor_Solar_Part2</string>
 
-        <string>MotorAdvacedStator/MA_SmartRotor_Solar_Base_TypeB</string>
-        <string>MotorStator/MA_SmartRotor_Solar_Hinge_TypeB</string>
-        <string>MotorRotor/MA_SmartRotor_Solar_Part2_TypeB</string>
+        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Base_TypeB</string>
+        <string>MotorAdvancedRotor/MA_SmartRotor_Part1</string>
+        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Hinge_TypeB</string>
+        <string>MotorAdvancedRotor/MA_SmartRotor_Solar_Part2_TypeB</string>
+
+        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Base_TypeB_sm</string>
+        <string>MotorAdvancedRotor/MA_SmartRotor_Part1_sm</string>
+        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Hinge_TypeB_sm</string>
+        <string>MotorAdvancedRotor/MA_SmartRotor_Solar_Part2_TypeB_sm</string>
 
         <string>CubeBlock/MA_Solar_Support</string>
       </ItemIds>

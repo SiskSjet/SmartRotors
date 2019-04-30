@@ -11,6 +11,7 @@
       <DisplayName>SmartRotor:Solar</DisplayName>
       <Description>Smart Rotors: Solar. Conveyored version for O2 farms. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -65,17 +66,6 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
-
-      <BlockVariants>
-        <BlockVariant>
-          <TypeId>MotorAdvancedStator</TypeId>
-          <SubtypeId>MA_SmartRotor_Solar_Base</SubtypeId>
-        </BlockVariant>
-        <BlockVariant>
-          <TypeId>MotorAdvancedStator</TypeId>
-          <SubtypeId>MA_SmartRotor_Solar_Base_TypeB</SubtypeId>
-        </BlockVariant>
-      </BlockVariants>
     </Definition>
 
     <!-- MA_SmartRotor_Solar_Hinge -->
@@ -84,7 +74,7 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Hinge</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor_Solar_Hinge</DisplayName>
+      <DisplayName>SmartRotor:Solar Hinge</DisplayName>
       <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds</Icon>
       <GuiVisible>false</GuiVisible>
@@ -155,7 +145,6 @@
       <DisplayName>Solar_Hinge_Part</DisplayName>
       <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Solar_Part2</BlockPairName>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -178,13 +167,13 @@
         <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_Constr1.mwm" />
         <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_Constr2.mwm" />
       </BuildProgressModels>
+      <BlockPairName>MA_SmartRotor_Solar_Part2</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <PCU>1</PCU>
     </Definition>
-
 
     <!-- MA_SmartRotor_Solar_Base_TypeB -->
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
@@ -249,15 +238,22 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>MotorAdvancedStator</TypeId>
+          <SubtypeId>MA_SmartRotor_Solar_Base</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
     </Definition>
 
     <!-- MA_SmartRotor_Solar_Hinge_TypeB -->
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
       <Id>
-        <TypeId>MotorStator</TypeId>
+        <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Hinge_TypeB</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor_Solar_Hinge_TypeB</DisplayName>
+      <DisplayName>SmartRotor:Solar Hinge TypeB</DisplayName>
       <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Hinge_TypeB.dds</Icon>
       <GuiVisible>false</GuiVisible>
@@ -313,13 +309,12 @@
     <!-- MA_SmartRotor_Solar_Part2_TypeB	-->
     <Definition>
       <Id>
-        <TypeId>MotorRotor</TypeId>
+        <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Part2_TypeB</SubtypeId>
       </Id>
       <DisplayName>Solar_Hinge_Part_TypeB</DisplayName>
       <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Solar_Part2_TypeB</BlockPairName>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -339,14 +334,13 @@
         <MountPoint Side="Bottom" StartX="0.01" StartY="0.01" EndX="1.00" EndY="1.00" />
         <MountPoint Side="Top" StartX="0.01" StartY="0.01" EndX="1.00" EndY="1.00" />
       </MountPoints>
+      <BlockPairName>MA_SmartRotor_Solar_Part2_TypeB</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <PCU>1</PCU>
     </Definition>
-
-
 
     <!-- MA_SmartRotor_Solar_Base_TypeB_sm -->
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
@@ -357,6 +351,7 @@
       <DisplayName>SmartRotor:Solar, Type B small grid</DisplayName>
       <Description>Smart Rotors: Solar. Non-Conveyored version with dual rotor heads. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
@@ -389,7 +384,7 @@
       <MaxForceMagnitude>1E+08</MaxForceMagnitude>
       <PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part1_sm</RotorPart>
+      <RotorPart>MA_SmartRotor_Part1</RotorPart>
 
       <RotorDisplacementMin>-0.1</RotorDisplacementMin>
       <RotorDisplacementMax>0.1</RotorDisplacementMax>
@@ -409,7 +404,7 @@
     <!-- MA_SmartRotor_Solar_Hinge_TypeB_sm -->
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
       <Id>
-        <TypeId>MotorStator</TypeId>
+        <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Hinge_TypeB_sm</SubtypeId>
       </Id>
       <DisplayName>SmartRotor:Solar Hinge TypeB small grid</DisplayName>
@@ -468,13 +463,12 @@
     <!-- MA_SmartRotor_Solar_Part2_TypeB_sm	-->
     <Definition>
       <Id>
-        <TypeId>MotorRotor</TypeId>
+        <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Part2_TypeB_sm</SubtypeId>
       </Id>
       <DisplayName>Solar_Hinge_Part_TypeB_sm</DisplayName>
       <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Solar_Part2_TypeB</BlockPairName>
       <RotorPart>MA_SmartRotor_Solar_Part2_TypeB_sm</RotorPart>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
@@ -495,6 +489,7 @@
         <MountPoint Side="Bottom" StartX="0.08" StartY="0.08" EndX="2.92" EndY="2.92" />
         <MountPoint Side="Top" StartX="0.08" StartY="0.08" EndX="2.92" EndY="2.92" />
       </MountPoints>
+      <BlockPairName>MA_SmartRotor_Solar_Part2_TypeB</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
@@ -511,7 +506,6 @@
       <DisplayName>Solar_Support</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\MA_Solar_Support.dds</Icon>
       <Description>Support structure for Solar Panels. By AutoMcD Astronautical and SISK.</Description>
-      <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="4" z="1" />

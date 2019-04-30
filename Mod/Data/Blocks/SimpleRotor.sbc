@@ -69,7 +69,6 @@
       <DisplayName>Slim Rotor Part</DisplayName>
       <Description>Top part to the slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -88,6 +87,7 @@
         <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr1.mwm" />
         <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr2.mwm" />
       </BuildProgressModels>
+      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
@@ -154,8 +154,6 @@
       <PCU>1</PCU>
     </Definition>
 
-
-
     <!-- 	MA_SmartRotor_Part2 -->
     <Definition>
       <Id>
@@ -165,7 +163,6 @@
       <DisplayName>Rotor Hinge Part</DisplayName>
       <Description>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Part2</BlockPairName>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -184,6 +181,7 @@
       <MountPoints>
         <MountPoint Side="Left" StartX="0.09" StartY="0.09" EndX="0.91" EndY="0.91" />
       </MountPoints>
+      <BlockPairName>MA_SmartRotor_Part2</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
@@ -258,8 +256,6 @@
       <DisplayName>Slim Rotor Part, small grid</DisplayName>
       <Description>Top part to the slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Part1_sm</BlockPairName>
-
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
@@ -278,6 +274,7 @@
       <MountPoints>
         <MountPoint Side="Top" StartX="0.96" StartY="0.96" EndX="2.04" EndY="2.04" />
       </MountPoints>
+      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
@@ -354,7 +351,6 @@
       <DisplayName>Rotor Hinge Part, small grid</DisplayName>
       <Description>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Part2</BlockPairName>
       <RotorPart>MA_SmartRotor_Part2_sm</RotorPart>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -374,6 +370,7 @@
       <MountPoints>
         <MountPoint Side="Left" StartX="0.26" StartY="0.26" EndX="2.74" EndY="2.74" />
       </MountPoints>
+      <BlockPairName>MA_SmartRotor_Part2</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
@@ -450,7 +447,6 @@
       </Id>
       <DisplayName>SmartRotor Armored Part1</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>
-      <BlockPairName>MA_SmartRotor_PMW_Part1</BlockPairName>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -471,6 +467,7 @@
         <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor_Part1_Constr1.mwm" />
         <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor_Part1_Constr2.mwm" />
       </BuildProgressModels>
+      <BlockPairName>MA_SmartRotor_PMW_Part1</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
@@ -546,7 +543,6 @@
       </Id>
       <DisplayName>SmartRotor Armored Part2</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>
-      <BlockPairName>MA_SmartRotor_PMW_Part2</BlockPairName>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -567,6 +563,7 @@
         <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor_Part2_Constr1.mwm" />
         <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor_Part2_Constr2.mwm" />
       </BuildProgressModels>
+      <BlockPairName>MA_SmartRotor_PMW_Part2</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>

@@ -10,9 +10,11 @@ namespace AutoMcD.SmartRotors.Logic {
     /// <summary>
     ///     Provides game logic for Smart Solar Hinges.
     /// </summary>
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, LB_SMART_SOLAR_HINGE)]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, LB_SMART_SOLAR_HINGE, LB_SMART_SOLAR_HINGE_B, SB_SMART_SOLAR_HINGE_B)]
     public sealed class SmartRotorSolarHinge : SmartRotorHinge {
         private const string LB_SMART_SOLAR_HINGE = "MA_SmartRotor_Solar_Hinge";
+        private const string LB_SMART_SOLAR_HINGE_B = "MA_SmartRotor_Solar_Hinge_TypeB";
+        private const string SB_SMART_SOLAR_HINGE_B = "MA_SmartRotor_Solar_Hinge_TypeB_sm";
 
         /// <summary>
         ///     Initializes a new instance of <see cref="SmartRotorSolarHinge" />.

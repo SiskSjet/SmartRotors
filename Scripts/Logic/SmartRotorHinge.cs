@@ -87,8 +87,6 @@ namespace AutoMcD.SmartRotors.Logic {
                         var slimBlock = Stator.Top.SlimBlock;
                         var welderMountAmount = slimBlock.MaxIntegrity - slimBlock.Integrity;
                         slimBlock.IncreaseMountLevel(welderMountAmount, Stator.OwnerId);
-
-                        Log.Debug("Hinge Head placed.");
                     }
                 }
 
