@@ -1,11 +1,9 @@
-﻿using System;
-using AutoMcD.SmartRotors.Data;
+﻿using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
 using ParallelTasks;
 using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
-using VRage.ObjectBuilders;
 
 namespace AutoMcD.SmartRotors.Logic {
     /// <summary>
@@ -25,11 +23,6 @@ namespace AutoMcD.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override string ComponentTypeDebugString => $"{_debugName} - Game Logic";
-
-        /// <summary>
-        ///     Indicates if the block which holds this game logic is just placed.
-        /// </summary>
-        public bool IsJustPlaced { get; private set; }
 
         /// <summary>
         ///     Logger used for logging.
@@ -52,26 +45,18 @@ namespace AutoMcD.SmartRotors.Logic {
         }
 
         /// <inheritdoc />
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
-            using (Log.BeginMethod(nameof(Init))) {
-                base.Init(objectBuilder);
-
+        public override void OnAddedToScene() {
+            using (Log.BeginMethod(nameof(OnAddedToScene))) {
                 Stator = Entity as IMyMotorAdvancedStator;
                 if (Stator == null) {
                     return;
                 }
 
-                IsJustPlaced = Stator.CubeGrid?.Physics != null;
-            }
-        }
-
-        /// <inheritdoc />
-        public override void OnAddedToScene() {
-            using (Log.BeginMethod(nameof(OnAddedToScene))) {
                 if (Stator.IsProjected()) {
                     return;
                 }
 
+                // todo: check if it is enough if it is executed on the server.
                 Stator.AttachedEntityChanged += OnAttachedEntityChanged;
             }
         }
@@ -115,9 +100,6 @@ namespace AutoMcD.SmartRotors.Logic {
                     case PlaceSmartHingeData.DataResult.Failed:
                         Log.Error("Something went wrong when trying to place hinge.");
                         break;
-                    default:
-                        break;
-
                 }
             }
         }

@@ -5,7 +5,6 @@ using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
-using VRage.ObjectBuilders;
 
 namespace AutoMcD.SmartRotors.Logic {
     /// <summary>
@@ -15,7 +14,6 @@ namespace AutoMcD.SmartRotors.Logic {
         public const string AUTO_PLACED_TAG = "AUTO PLACED: YOU SHOULD NEVER SEE THIS";
         private const string ADD_HEAD_ACTION_ID = "Add Top Part";
         private readonly string _debugName;
-        private bool _isInitialized;
 
         /// <summary>
         ///     Initializes a new instance of the abstract game logic component for SmartRotor hinges.
@@ -30,11 +28,6 @@ namespace AutoMcD.SmartRotors.Logic {
         public override string ComponentTypeDebugString => $"{_debugName} - Game Logic";
 
         /// <summary>
-        ///     Indicates if the block which holds this game logic is just placed.
-        /// </summary>
-        public bool IsJustPlaced { get; private set; }
-
-        /// <summary>
         ///     Logger used for logging.
         /// </summary>
         private ILogger Log { get; }
@@ -45,23 +38,10 @@ namespace AutoMcD.SmartRotors.Logic {
         public IMyMotorAdvancedStator Stator { get; private set; }
 
         /// <inheritdoc />
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
-            using (Log.BeginMethod(nameof(Init))) {
-                base.Init(objectBuilder);
-
-                Stator = Entity as IMyMotorAdvancedStator;
-                if (Stator == null) {
-                    return;
-                }
-
-                IsJustPlaced = Stator.CubeGrid?.Physics != null;
-            }
-        }
-
-        /// <inheritdoc />
         public override void OnAddedToScene() {
             using (Log.BeginMethod(nameof(OnAddedToScene))) {
-                if (_isInitialized) {
+                Stator = Entity as IMyMotorAdvancedStator;
+                if (Stator == null) {
                     return;
                 }
 
@@ -90,8 +70,6 @@ namespace AutoMcD.SmartRotors.Logic {
                         slimBlock.IncreaseMountLevel(welderMountAmount, Stator.OwnerId);
                     }
                 }
-
-                _isInitialized = true;
             }
         }
     }

@@ -3,7 +3,6 @@ using Sandbox.Common.ObjectBuilders;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 using VRage.ModAPI;
-using VRage.ObjectBuilders;
 
 namespace AutoMcD.SmartRotors.Logic {
     // todo: set lower and upper limits. Lower: -22 | Upper: 202
@@ -28,10 +27,11 @@ namespace AutoMcD.SmartRotors.Logic {
         /// </summary>
         private ILogger Log { get; }
 
-        /// <inheritdoc />
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
-            base.Init(objectBuilder);
-
+        /// <summary>
+        ///     Called if entity is added to scene.
+        /// </summary>
+        public override void OnAddedToScene() {
+            base.OnAddedToScene();
             NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
 

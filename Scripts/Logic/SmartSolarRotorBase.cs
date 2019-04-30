@@ -11,7 +11,6 @@ using VRage;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.ModAPI;
-using VRage.ObjectBuilders;
 using VRageMath;
 
 namespace AutoMcD.SmartRotors.Logic {
@@ -44,12 +43,11 @@ namespace AutoMcD.SmartRotors.Logic {
         /// </summary>
         private ILogger Log { get; }
 
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
-            base.Init(objectBuilder);
-
-            if (Stator.IsProjected()) {
-                return;
-            }
+        /// <summary>
+        ///     Called if entity is added to scene.
+        /// </summary>
+        public override void OnAddedToScene() {
+            base.OnAddedToScene();
 
             NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
