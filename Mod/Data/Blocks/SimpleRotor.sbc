@@ -58,6 +58,13 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>MotorAdvancedStator</TypeId>
+          <SubtypeId>MA_SmartRotor_Base_2</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
     </Definition>
 
     <!-- 	MA_SmartRotor_Part1 -->
@@ -92,6 +99,13 @@
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>MotorAdvancedRotor</TypeId>
+          <SubtypeId>MA_SmartRotor_Part2</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
     </Definition>
 
     <!-- >MA_SmartRotor_Base_2 -->
@@ -103,6 +117,7 @@
       <DisplayName>Rotor Hinge Base</DisplayName>
       <Description>Rotor Hinge, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -163,6 +178,7 @@
       <DisplayName>Rotor Hinge Part</DisplayName>
       <Description>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -198,6 +214,7 @@
       <DisplayName>Slim Rotor Base, small grid</DisplayName>
       <Description>Slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
@@ -230,7 +247,7 @@
       <MaxForceMagnitude>1E+08</MaxForceMagnitude>
       <PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part1_sm</RotorPart>
+      <RotorPart>MA_SmartRotor_Part1</RotorPart>
 
       <RotorDisplacementMin>-0.1</RotorDisplacementMin>
       <RotorDisplacementMax>0.1</RotorDisplacementMax>
@@ -245,6 +262,13 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>MotorAdvancedStator</TypeId>
+          <SubtypeId>MA_SmartRotor_Base_2_sm</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
     </Definition>
 
     <!-- 	MA_SmartRotor_Part1_sm -->
@@ -256,6 +280,7 @@
       <DisplayName>Slim Rotor Part, small grid</DisplayName>
       <Description>Top part to the slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
@@ -280,6 +305,13 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <PCU>1</PCU>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>MotorAdvancedRotor</TypeId>
+          <SubtypeId>MA_SmartRotor_Part2_sm</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
     </Definition>
 
     <!-- >MA_SmartRotor_Base_2_sm -->
@@ -290,7 +322,8 @@
       </Id>
       <DisplayName>Rotor Hinge Base, small grid</DisplayName>
       <Description>Rotor Hinge Base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
-      <Icon>Textures\GUI\Icons\Cubes\motor.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
@@ -325,7 +358,7 @@
       <MaxForceMagnitude>1E+08</MaxForceMagnitude>
       <PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part2_sm</RotorPart>
+      <RotorPart>MA_SmartRotor_Part2</RotorPart>
 
       <RotorDisplacementMin>0</RotorDisplacementMin>
       <RotorDisplacementMax>0</RotorDisplacementMax>
@@ -350,7 +383,8 @@
       </Id>
       <DisplayName>Rotor Hinge Part, small grid</DisplayName>
       <Description>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
-      <Icon>Textures\GUI\Icons\Cubes\RotorPart.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
+      <GuiVisible>false</GuiVisible>
       <RotorPart>MA_SmartRotor_Part2_sm</RotorPart>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
