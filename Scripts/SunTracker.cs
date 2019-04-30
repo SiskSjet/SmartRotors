@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Sandbox.ModAPI;
-using Sisk.Utils.Profiler;
 using VRage.Game.ObjectBuilders;
 using VRageMath;
 
-// ReSharper disable UsePatternMatching
-// ReSharper disable InlineOutVariableDeclaration
-
-namespace AutoMcD.SmartRotors {
+namespace Sisk.SmartRotors {
     /// <summary>
     ///     Track the sun direction.
     /// </summary>
@@ -56,16 +52,14 @@ namespace AutoMcD.SmartRotors {
         /// </summary>
         /// <returns>Returns the sun direction vector.</returns>
         public Vector3D CalculateSunDirection() {
-            using (Mod.PROFILE ? Profiler.Measure(nameof(SunTracker), nameof(CalculateSunDirection)) : null) {
-                if (_enabled) {
-                    var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * (ElapsedGameTime.TotalSeconds / Speed)));
-                    vector3.Normalize();
+            if (_enabled) {
+                var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * (ElapsedGameTime.TotalSeconds / Speed)));
+                vector3.Normalize();
 
-                    return vector3;
-                }
-
-                return _baseSunDirection;
+                return vector3;
             }
+
+            return _baseSunDirection;
         }
     }
 }
