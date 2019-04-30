@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ResearchGroups>
+    <ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="51500" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_SolarPanel" Subtype="LargeBlockSolarPanel" />
+        <BlockId Type="MyObjectBuilder_SolarPanel" Subtype="SmallBlockSolarPanel" />
+      </Members>
+    </ResearchGroup>
+  </ResearchGroups>
+
+  <ResearchBlocks>
+
+    <!--Solar Stuff-->
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Solar_Base" />
+      <UnlockedByGroups>
+        <GroupSubtype>51500</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Solar_Base_TypeB" />
+      <UnlockedByGroups>
+        <GroupSubtype>51500</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Solar_Base_TypeB_sm" />
+      <UnlockedByGroups>
+        <GroupSubtype>51500</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_CubeBlock" Subtype="MA_Solar_Support" />
+      <UnlockedByGroups>
+        <GroupSubtype>51500</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <!--Generic Stuff-->
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part1" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base_2" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part2" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base_sm" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part1_sm" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base_2_sm" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part2_sm" />
+      <UnlockedByGroups>
+        <GroupSubtype>22</GroupSubtype>
+        <GroupSubtype>27</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    </ResearchBlocks>
+</Definitions>

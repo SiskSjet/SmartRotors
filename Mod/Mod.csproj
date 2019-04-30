@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -54,6 +54,7 @@
     <None Include="Data\Blocks\SolarRotor.sbc" />
     <None Include="Data\BlockCategories.sbc" />
     <None Include="Data\BlueprintClasses.sbc" />
+    <None Include="Data\Research.sbc" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base.mwm" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr1.mwm" />
