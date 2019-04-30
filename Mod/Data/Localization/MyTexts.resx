@@ -97,16 +97,100 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DisplayName_Block_Solar_Base" xml:space="preserve">
-    <value>Smart Solar Rotor</value>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Base" xml:space="preserve">
+    <value>SmartRotor: Solar</value>
   </data>
-  <data name="DisplayName_Block_Solar_Hinge" xml:space="preserve">
-    <value>Solar Hinge</value>
+  <data name="Description_MA_SmartRotor_Solar_Base" xml:space="preserve">
+    <value>Smart Rotors: Solar.
+Conveyored version for O2 farms.
+
+Placing this base automatically places all subparts, it tracks the sun automatically, no setup required.
+By AutoMcD Astronautical and SISK.</value>
   </data>
-  <data name="DisplayName_Block_Solar_Hinge_Part" xml:space="preserve">
-    <value>Solor Hinge Head</value>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Hinge" xml:space="preserve">
+    <value>SmartRotor: Solar Hinge</value>
   </data>
-  <data name="DisplayName_Block_Smart_Rotor_Base_Part" xml:space="preserve">
-    <value>Smart Rotor Head</value>
+  <data name="Description_MA_SmartRotor_Solar" xml:space="preserve">
+    <value>Smart Rotors: Solar.
+
+By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Part2" xml:space="preserve">
+    <value>SmartRotor: Solar Hinge Part</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB" xml:space="preserve">
+    <value>SmartRotor: Solar, Type B</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Solar_Base_TypeB" xml:space="preserve">
+    <value>Smart Rotors: Solar.
+Non-Conveyored version with dual rotor heads.
+
+Placing this base automatically places all subparts, it tracks the sun automatically, no setup required.
+By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB" xml:space="preserve">
+    <value>SmartRotor: Solar Hinge, Type B</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB" xml:space="preserve">
+    <value>SmartRotor: Solar Hinge Part, Type B</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB_sm" xml:space="preserve">
+    <value>SmartRotor: Solar, Type B small grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB_sm" xml:space="preserve">
+    <value>SmartRotor: Solar Hinge, Type B small grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB_sm" xml:space="preserve">
+    <value>SmartRotor: Solar Hinge Part, Type B small grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_Solar_Support" xml:space="preserve">
+    <value>SmartRotors: Solar Support</value>
+  </data>
+  <data name="Description_MA_Solar_Support" xml:space="preserve">
+    <value>Support structure for Solar Panels.
+
+By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base" xml:space="preserve">
+    <value>Slim Rotor Base</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Base" xml:space="preserve">
+    <value>Slim rotor base, used by MA SmartRotors.
+
+By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part1" xml:space="preserve">
+    <value>Slim Rotor Part</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Part1" xml:space="preserve">
+    <value>Top part to the slim rotor base, used by MA SmartRotors.
+
+By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base_2" xml:space="preserve">
+    <value>Rotor Hinge Base</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Base_2" xml:space="preserve">
+    <value>Rotor Hinge Base, used by MA SmartRotors.
+
+By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part2" xml:space="preserve">
+    <value>Rotor Hinge Part</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Part2" xml:space="preserve">
+    <value>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base_sm" xml:space="preserve">
+    <value>Slim Rotor Base, small grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part1_sm" xml:space="preserve">
+    <value>Slim Rotor Part, small grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base_2_sm" xml:space="preserve">
+    <value>Rotor Hinge Base, small grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part2_sm" xml:space="preserve">
+    <value>Rotor Hinge Part, small grid</value>
   </data>
 </root>

@@ -8,8 +8,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Base</SubtypeId>
       </Id>
-      <DisplayName>Slim Rotor Base</DisplayName>
-      <Description>Slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Base</DisplayName>
+      <Description>Description_MA_SmartRotor_Base</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -73,8 +73,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Part1</SubtypeId>
       </Id>
-      <DisplayName>Slim Rotor Part</DisplayName>
-      <Description>Top part to the slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Part1</DisplayName>
+      <Description>Description_MA_SmartRotor_Part1</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -114,8 +114,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Base_2</SubtypeId>
       </Id>
-      <DisplayName>Rotor Hinge Base</DisplayName>
-      <Description>Rotor Hinge, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Base_2</DisplayName>
+      <Description>Description_MA_SmartRotor_Base_2</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -175,8 +175,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Part2</SubtypeId>
       </Id>
-      <DisplayName>Rotor Hinge Part</DisplayName>
-      <Description>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Part2</DisplayName>
+      <Description>Description_MA_SmartRotor_Part2</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -211,8 +211,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Base_sm</SubtypeId>
       </Id>
-      <DisplayName>Slim Rotor Base, small grid</DisplayName>
-      <Description>Slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Base_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Base</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
@@ -277,8 +277,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Part1_sm</SubtypeId>
       </Id>
-      <DisplayName>Slim Rotor Part, small grid</DisplayName>
-      <Description>Top part to the slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Part1_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Part1</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
@@ -320,8 +320,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Base_2_sm</SubtypeId>
       </Id>
-      <DisplayName>Rotor Hinge Base, small grid</DisplayName>
-      <Description>Rotor Hinge Base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Base_2_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Base_2</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
@@ -381,8 +381,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Part2_sm</SubtypeId>
       </Id>
-      <DisplayName>Rotor Hinge Part, small grid</DisplayName>
-      <Description>Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Part2_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Part2</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <RotorPart>MA_SmartRotor_Part2_sm</RotorPart>

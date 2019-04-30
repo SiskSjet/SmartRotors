@@ -61,38 +61,254 @@ namespace Mod.Data.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Smart Rotor Head ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Slim rotor base, used by MA SmartRotors.
+        ///
+        ///By AutoMcD Astronautical and SISK. ähnelt.
         /// </summary>
-        internal static string DisplayName_Block_Smart_Rotor_Base_Part {
+        internal static string Description_MA_SmartRotor_Base {
             get {
-                return ResourceManager.GetString("DisplayName_Block_Smart_Rotor_Base_Part", resourceCulture);
+                return ResourceManager.GetString("Description_MA_SmartRotor_Base", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Smart Solar Rotor ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rotor Hinge Base, used by MA SmartRotors.
+        ///
+        ///By AutoMcD Astronautical and SISK. ähnelt.
         /// </summary>
-        internal static string DisplayName_Block_Solar_Base {
+        internal static string Description_MA_SmartRotor_Base_2 {
             get {
-                return ResourceManager.GetString("DisplayName_Block_Solar_Base", resourceCulture);
+                return ResourceManager.GetString("Description_MA_SmartRotor_Base_2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Solar Hinge ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Top part to the slim rotor base, used by MA SmartRotors.
+        ///
+        ///By AutoMcD Astronautical and SISK. ähnelt.
         /// </summary>
-        internal static string DisplayName_Block_Solar_Hinge {
+        internal static string Description_MA_SmartRotor_Part1 {
             get {
-                return ResourceManager.GetString("DisplayName_Block_Solar_Hinge", resourceCulture);
+                return ResourceManager.GetString("Description_MA_SmartRotor_Part1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Solor Hinge Head ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rotor Hinge Part, used by MA SmartRotors. By AutoMcD Astronautical and SISK. ähnelt.
         /// </summary>
-        internal static string DisplayName_Block_Solar_Hinge_Part {
+        internal static string Description_MA_SmartRotor_Part2 {
             get {
-                return ResourceManager.GetString("DisplayName_Block_Solar_Hinge_Part", resourceCulture);
+                return ResourceManager.GetString("Description_MA_SmartRotor_Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Smart Rotors: Solar.
+        ///
+        ///By AutoMcD Astronautical and SISK. ähnelt.
+        /// </summary>
+        internal static string Description_MA_SmartRotor_Solar {
+            get {
+                return ResourceManager.GetString("Description_MA_SmartRotor_Solar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Smart Rotors: Solar.
+        ///Conveyored version for O2 farms.
+        ///
+        ///Placing this base automatically places all subparts, it tracks the sun automatically, no setup required.
+        ///By AutoMcD Astronautical and SISK. ähnelt.
+        /// </summary>
+        internal static string Description_MA_SmartRotor_Solar_Base {
+            get {
+                return ResourceManager.GetString("Description_MA_SmartRotor_Solar_Base", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Smart Rotors: Solar.
+        ///Non-Conveyored version with dual rotor heads.
+        ///
+        ///Placing this base automatically places all subparts, it tracks the sun automatically, no setup required.
+        ///By AutoMcD Astronautical and SISK. ähnelt.
+        /// </summary>
+        internal static string Description_MA_SmartRotor_Solar_Base_TypeB {
+            get {
+                return ResourceManager.GetString("Description_MA_SmartRotor_Solar_Base_TypeB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Support structure for Solar Panels.
+        ///
+        ///By AutoMcD Astronautical and SISK. ähnelt.
+        /// </summary>
+        internal static string Description_MA_Solar_Support {
+            get {
+                return ResourceManager.GetString("Description_MA_Solar_Support", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Slim Rotor Base ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Base {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Base", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rotor Hinge Base ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Base_2 {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Base_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rotor Hinge Base, small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Base_2_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Base_2_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Slim Rotor Base, small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Base_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Base_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Slim Rotor Part ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Part1 {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Part1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Slim Rotor Part, small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Part1_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Part1_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rotor Hinge Part ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Part2 {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rotor Hinge Part, small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Part2_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Part2_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Base {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Base", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar, Type B ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar, Type B small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar Hinge ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Hinge {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Hinge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar Hinge, Type B ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar Hinge, Type B small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar Hinge Part ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Part2 {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar Hinge Part, Type B ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotor: Solar Hinge Part, Type B small grid ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB_sm {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB_sm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SmartRotors: Solar Support ähnelt.
+        /// </summary>
+        internal static string DisplayName_Block_MA_Solar_Support {
+            get {
+                return ResourceManager.GetString("DisplayName_Block_MA_Solar_Support", resourceCulture);
             }
         }
     }

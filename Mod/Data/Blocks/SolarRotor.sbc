@@ -8,8 +8,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Base</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor:Solar</DisplayName>
-      <Description>Smart Rotors: Solar. Conveyored version for O2 farms. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar_Base</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -74,8 +74,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Hinge</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor:Solar Hinge</DisplayName>
-      <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Hinge</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -142,8 +142,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Part2</SubtypeId>
       </Id>
-      <DisplayName>Solar_Hinge_Part</DisplayName>
-      <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Part2</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -181,8 +181,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Base_TypeB</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor:Solar, Type B</DisplayName>
-      <Description>Smart Rotors: Solar. Non-Conveyored version with dual rotor heads. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar_Base_TypeB</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -253,8 +253,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Hinge_TypeB</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor:Solar Hinge TypeB</DisplayName>
-      <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Hinge_TypeB.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -312,8 +312,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Part2_TypeB</SubtypeId>
       </Id>
-      <DisplayName>Solar_Hinge_Part_TypeB</DisplayName>
-      <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Large</CubeSize>
@@ -348,8 +348,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Base_TypeB_sm</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor:Solar, Type B small grid</DisplayName>
-      <Description>Smart Rotors: Solar. Non-Conveyored version with dual rotor heads. Placing this base automatically places all subparts, it tracks the sun automatically, no setup required. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar_Base_TypeB</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
@@ -407,8 +407,8 @@
         <TypeId>MotorAdvancedStator</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Hinge_TypeB_sm</SubtypeId>
       </Id>
-      <DisplayName>SmartRotor:Solar Hinge TypeB small grid</DisplayName>
-      <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Hinge_TypeB.dds</Icon>
       <GuiVisible>false</GuiVisible>
       <CubeSize>Small</CubeSize>
@@ -466,8 +466,8 @@
         <TypeId>MotorAdvancedRotor</TypeId>
         <SubtypeId>MA_SmartRotor_Solar_Part2_TypeB_sm</SubtypeId>
       </Id>
-      <DisplayName>Solar_Hinge_Part_TypeB_sm</DisplayName>
-      <Description>Smart Rotors: Solar. By AutoMcD Astronautical and SISK.</Description>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB_sm</DisplayName>
+      <Description>Description_MA_SmartRotor_Solar</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds</Icon>
       <RotorPart>MA_SmartRotor_Solar_Part2_TypeB_sm</RotorPart>
       <GuiVisible>false</GuiVisible>
@@ -503,9 +503,9 @@
         <TypeId>CubeBlock</TypeId>
         <SubtypeId>MA_Solar_Support</SubtypeId>
       </Id>
-      <DisplayName>Solar_Support</DisplayName>
+      <DisplayName>DisplayName_Block_MA_Solar_Support</DisplayName>
+      <Description>Description_MA_Solar_Support</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_Solar_Support.dds</Icon>
-      <Description>Support structure for Solar Panels. By AutoMcD Astronautical and SISK.</Description>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="4" z="1" />
