@@ -258,8 +258,8 @@
       <DisplayName>Slim Rotor Part, small grid</DisplayName>
       <Description>Top part to the slim rotor base, used by MA SmartRotors. By AutoMcD Astronautical and SISK.</Description>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
-      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
-      <RotorPart>MA_SmartRotor_Part1_sm</RotorPart>
+      <BlockPairName>MA_SmartRotor_Part1_sm</BlockPairName>
+
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="3" z="3" />
