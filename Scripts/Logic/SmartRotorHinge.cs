@@ -12,6 +12,7 @@ namespace AutoMcD.SmartRotors.Logic {
     ///     Shared game logic for all SmartRotor hinges.
     /// </summary>
     public abstract class SmartRotorHinge : MyGameLogicComponent {
+        public const string AUTO_PLACED_TAG = "AUTO PLACED: YOU SHOULD NEVER SEE THIS";
         private const string ADD_HEAD_ACTION_ID = "Add Top Part";
         private readonly string _debugName;
         private bool _isInitialized;
@@ -68,7 +69,7 @@ namespace AutoMcD.SmartRotors.Logic {
                     return;
                 }
 
-                if (Stator.Top == null && Stator.CustomName == "Auto Placed") {
+                if (Stator.Top == null && Stator.CustomName == AUTO_PLACED_TAG) {
                     Stator.CustomName = Stator.DefinitionDisplayNameText;
 
                     var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;

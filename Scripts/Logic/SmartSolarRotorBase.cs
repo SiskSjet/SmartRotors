@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AutoMcD.SmartRotors.Data;
 using AutoMcD.SmartRotors.Extensions;
@@ -126,7 +126,7 @@ namespace AutoMcD.SmartRotors.Logic {
                             LimitsActive = true,
                             MaxAngle = MathHelper.ToRadians(195),
                             MinAngle = MathHelper.ToRadians(-15),
-                            CustomName = "Auto Placed"
+                            CustomName = SmartRotorHinge.AUTO_PLACED_TAG
                         };
 
                         var cubeGridBuilder = new MyObjectBuilder_CubeGrid {
