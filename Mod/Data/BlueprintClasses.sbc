@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlueprintClassEntries>
+
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Solar_Base" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Solar_Base_TypeB" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="CubeBlock/MA_Solar_Support" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Base" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="MotorAdvancedRotor/MA_SmartRotor_Part1" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Base_2" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="MotorAdvancedRotor/MA_SmartRotor_Part2" />
+
+    <Entry Class="SmallBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Solar_Base_TypeB_sm" />
+    <Entry Class="SmallBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Base_sm" />
+    <Entry Class="SmallBlocks" BlueprintSubtypeId="MotorAdvancedRotor/MA_SmartRotor_Part1_sm" />
+    <Entry Class="SmallBlocks" BlueprintSubtypeId="MotorAdvancedStator/MA_SmartRotor_Base_2_sm" />
+    <Entry Class="SmallBlocks" BlueprintSubtypeId="MotorAdvancedRotor/MA_SmartRotor_Part2_sm" />
+
+  </BlueprintClassEntries>
+</Definitions>
