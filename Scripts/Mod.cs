@@ -8,7 +8,7 @@ using Sisk.Utils.Net;
 using VRage;
 using VRage.Game.Components;
 
-namespace AutoMcD.SmartRotors {
+namespace Sisk.SmartRotors {
     /// <summary>
     ///     Main session component which register Logging, Network and SunTracker components.
     /// </summary>

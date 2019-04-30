@@ -1,11 +1,11 @@
-﻿using AutoMcD.SmartRotors.Data;
-using AutoMcD.SmartRotors.Extensions;
-using ParallelTasks;
+﻿using ParallelTasks;
 using Sandbox.ModAPI;
+using Sisk.SmartRotors.Data;
+using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 
-namespace AutoMcD.SmartRotors.Logic {
+namespace Sisk.SmartRotors.Logic {
     /// <summary>
     ///     Shared game logic for all SmartRotor bases.
     /// </summary>

@@ -1,10 +1,10 @@
-﻿using AutoMcD.SmartRotors.Extensions;
-using Sandbox.Common.ObjectBuilders;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 using VRage.ModAPI;
 
-namespace AutoMcD.SmartRotors.Logic {
+namespace Sisk.SmartRotors.Logic {
     // todo: set lower and upper limits. Lower: -22 | Upper: 202
     /// <summary>
     ///     Provides game logic for Smart Solar Hinges.

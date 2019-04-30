@@ -1,7 +1,7 @@
 ﻿using ParallelTasks;
 using Sandbox.ModAPI;
 
-namespace AutoMcD.SmartRotors.Data {
+namespace Sisk.SmartRotors.Data {
     /// <summary>
     ///     A <see cref="WorkData" /> type for <see cref="ParallelTasks" />.
     /// </summary>

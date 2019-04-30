@@ -1,6 +1,6 @@
 ﻿using VRage.Game.ModAPI;
 
-namespace AutoMcD.SmartRotors.Extensions {
+namespace Sisk.SmartRotors.Extensions {
     public static class BlockExtensions {
         /// <summary>
         ///     Checks if given slim block is projected or a preview.

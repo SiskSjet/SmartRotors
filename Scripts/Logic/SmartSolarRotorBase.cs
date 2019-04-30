@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using AutoMcD.SmartRotors.Data;
-using AutoMcD.SmartRotors.Extensions;
 using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
+using Sisk.SmartRotors.Data;
+using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage;
 using VRage.Game;
@@ -13,7 +13,7 @@ using VRage.Game.Components;
 using VRage.ModAPI;
 using VRageMath;
 
-namespace AutoMcD.SmartRotors.Logic {
+namespace Sisk.SmartRotors.Logic {
     /// <summary>
     ///     Provide game logic for Smart Solar Rotors bases.
     /// </summary>

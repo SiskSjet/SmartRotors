@@ -2,7 +2,7 @@
 using Sandbox.ModAPI;
 using VRageMath;
 
-namespace AutoMcD.SmartRotors.Extensions {
+namespace Sisk.SmartRotors.Extensions {
     public static class StatorExtensions {
         /// <summary>
         ///     Rotate rotor to given direction.

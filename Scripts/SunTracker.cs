@@ -4,7 +4,7 @@ using Sandbox.ModAPI;
 using VRage.Game.ObjectBuilders;
 using VRageMath;
 
-namespace AutoMcD.SmartRotors {
+namespace Sisk.SmartRotors {
     /// <summary>
     ///     Track the sun direction.
     /// </summary>

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMcD.SmartRotors.Extensions;
 using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
+using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 
-namespace AutoMcD.SmartRotors.Logic {
+namespace Sisk.SmartRotors.Logic {
     /// <summary>
     ///     Shared game logic for all SmartRotor hinges.
     /// </summary>
