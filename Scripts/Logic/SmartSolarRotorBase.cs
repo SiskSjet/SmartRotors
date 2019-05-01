@@ -17,19 +17,10 @@ namespace Sisk.SmartRotors.Logic {
     /// <summary>
     ///     Provide game logic for Smart Solar Rotors bases.
     /// </summary>
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, LB_SMART_SOLAR_ROTOR, LB_SMART_SOLAR_ROTOR_B, SB_SMART_SOLAR_ROTOR_B)]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_ROTOR, Defs.SolarDefs.LB_SMART_SOLAR_ROTOR_B, Defs.SolarDefs.SB_SMART_SOLAR_ROTOR_B)]
     public sealed class SmartSolarRotorBase : SmartRotorBase {
         private const string ERROR_BUILD_SPOT_OCCUPIED = "Solar hinge cannot be placed. Build spot occupied.";
         private const string ERROR_UNABLE_TO_PLACE = "Solar hinge cannot be placed.";
-        private const string LB_SMART_SOLAR_ROTOR = "MA_SmartRotor_Solar_Base";
-        private const string LB_SMART_SOLAR_ROTOR_B = "MA_SmartRotor_Solar_Base_TypeB";
-        private const string SB_SMART_SOLAR_ROTOR_B = "MA_SmartRotor_Solar_Base_TypeB_sm";
-
-        private readonly Dictionary<string, string> _baseToHinge = new Dictionary<string, string> {
-            { LB_SMART_SOLAR_ROTOR, "MA_SmartRotor_Solar_Hinge" },
-            { LB_SMART_SOLAR_ROTOR_B, "MA_SmartRotor_Solar_Hinge_TypeB" },
-            { SB_SMART_SOLAR_ROTOR_B, "MA_SmartRotor_Solar_Hinge_TypeB_sm" }
-        };
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="SmartSolarRotorBase" /> game logic component.
@@ -48,6 +39,10 @@ namespace Sisk.SmartRotors.Logic {
         /// </summary>
         public override void OnAddedToScene() {
             base.OnAddedToScene();
+
+            if (!Mod.Static.Controls.AreTerminalControlsInitialized) {
+                Mod.Static.Controls.InitializeControls();
+            }
 
             NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
@@ -84,12 +79,12 @@ namespace Sisk.SmartRotors.Logic {
                 var baseSubtype = Stator.BlockDefinition.SubtypeId;
                 Vector3D origin;
                 switch (baseSubtype) {
-                    case LB_SMART_SOLAR_ROTOR:
-                    case LB_SMART_SOLAR_ROTOR_B:
+                    case Defs.SolarDefs.LB_SMART_SOLAR_ROTOR:
+                    case Defs.SolarDefs.LB_SMART_SOLAR_ROTOR_B:
                     default:
                         origin = headPosition + up * gridSize;
                         break;
-                    case SB_SMART_SOLAR_ROTOR_B:
+                    case Defs.SolarDefs.SB_SMART_SOLAR_ROTOR_B:
                         origin = headPosition + up * 4 * gridSize - left * gridSize + forward * gridSize;
                         break;
                 }
@@ -114,7 +109,7 @@ namespace Sisk.SmartRotors.Logic {
                     var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
                     var buildPercent = instantBuild ? 1 : 0.00001525902f;
                     string hingeSubtype;
-                    if (_baseToHinge.TryGetValue(baseSubtype, out hingeSubtype)) {
+                    if (Mod.Static.Defs.Solar.BaseToHinge.TryGetValue(baseSubtype, out hingeSubtype)) {
                         var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
                             SubtypeName = hingeSubtype,
                             Owner = Stator.OwnerId,

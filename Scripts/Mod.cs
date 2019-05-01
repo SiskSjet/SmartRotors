@@ -29,8 +29,18 @@ namespace Sisk.SmartRotors {
         /// </summary>
         public Mod() {
             Static = this;
+            Defs = new Defs();
+            Controls = new Controls();
             InitializeLogging();
         }
+        /// <summary>
+        /// Helper for modifying vanilla terminal controls and actions.
+        /// </summary>
+        public Controls Controls { get; private set; }
+        /// <summary>
+        ///     Holds Subtype ids for blocks in this mod.
+        /// </summary>
+        public Defs Defs { get; private set; }
 
         /// <summary>
         ///     Language used to localize this mod.
@@ -87,11 +97,11 @@ namespace Sisk.SmartRotors {
         public override void LoadData() {
             LoadLocalization();
 
-            MyAPIGateway.Gui.GuiControlRemoved += OnGuiControlRemoved;
-
             if (MyAPIGateway.Multiplayer.MultiplayerActive) {
                 InitializeNetwork();
             }
+
+            MyAPIGateway.Gui.GuiControlRemoved += OnGuiControlRemoved;
         }
 
         /// <summary>
@@ -107,6 +117,12 @@ namespace Sisk.SmartRotors {
         protected override void UnloadData() {
             Log?.EnterMethod(nameof(UnloadData));
             MyAPIGateway.Gui.GuiControlRemoved -= OnGuiControlRemoved;
+            
+            if (Network != null) {
+                Log?.Info("Cap network connections");
+                Network.Close();
+                Network = null;
+            }
 
             if (Log != null) {
                 Log.Info("Logging stopped");
@@ -115,10 +131,12 @@ namespace Sisk.SmartRotors {
                 Log = null;
             }
 
-            if (Network != null) {
-                Log?.Info("Cap network connections");
-                Network.Close();
-                Network = null;
+            if (Controls != null) {
+                Controls = null;
+            }
+
+            if (Defs != null) {
+                Defs = null;
             }
 
             Static = null;

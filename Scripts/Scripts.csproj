@@ -97,6 +97,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls.cs" />
+    <Compile Include="Defs.cs" />
     <Compile Include="Extensions\BlockExtensions.cs" />
     <Compile Include="Extensions\GridExtensions.cs" />
     <Compile Include="Data\PlaceSmartHingeData.cs" />
