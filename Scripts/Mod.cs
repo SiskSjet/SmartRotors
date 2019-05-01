@@ -149,7 +149,11 @@ namespace Sisk.SmartRotors {
         /// </summary>
         private void InitializeLogging() {
             Log = Logger.ForScope<Mod>();
-            Log.Register(new WorldStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 0));
+            if (MyAPIGateway.Multiplayer.IsServer) {
+                Log.Register(new WorldStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 0));
+            } else {
+                Log.Register(new GlobalStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 0));
+            }
 
             using (Log.BeginMethod(nameof(InitializeLogging))) {
                 Log.Info("Logging initialized");
