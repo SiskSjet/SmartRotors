@@ -44,7 +44,9 @@ namespace Sisk.SmartRotors.Logic {
                 Mod.Static.Controls.InitializeControls();
             }
 
-            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+            if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+            }
         }
 
         /// <inheritdoc />

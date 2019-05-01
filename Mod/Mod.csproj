@@ -56,6 +56,7 @@
     <None Include="Data\BlueprintClasses.sbc" />
     <None Include="Data\Blueprints.sbc" />
     <None Include="Data\Research.sbc" />
+    <None Include="dev\modinfo.sbmi" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base.mwm" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr1.mwm" />
@@ -133,11 +134,12 @@
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr2.mwm" />
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr3.mwm" />
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD1.mwm" />
+    <None Include="modinfo.sbmi" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="beta\thumb.png" />
+    <Content Include="dev\metadata.mod" />
     <Content Include="dev\thumb.png" />
-    <Content Include="metadata.mod" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds" />

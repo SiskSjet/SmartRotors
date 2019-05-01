@@ -31,7 +31,6 @@ namespace Sisk.SmartRotors {
             Static = this;
             Defs = new Defs();
             Controls = new Controls();
-            InitializeLogging();
         }
 
         /// <summary>
@@ -97,6 +96,7 @@ namespace Sisk.SmartRotors {
         ///     Load mod settings and create localizations.
         /// </summary>
         public override void LoadData() {
+            InitializeLogging();
             LoadLocalization();
 
             if (MyAPIGateway.Multiplayer.MultiplayerActive) {
@@ -186,22 +186,26 @@ namespace Sisk.SmartRotors {
         ///     Load localizations for this mod.
         /// </summary>
         private void LoadLocalization() {
-            var path = Path.Combine(ModContext.ModPathData, "Localization");
-            var supportedLanguages = new HashSet<MyLanguagesEnum>();
-            MyTexts.LoadSupportedLanguages(path, supportedLanguages);
+            using (Log.BeginMethod(nameof(LoadLocalization))) {
+                var path = Path.Combine(ModContext.ModPathData, "Localization");
+                var supportedLanguages = new HashSet<MyLanguagesEnum>();
+                MyTexts.LoadSupportedLanguages(path, supportedLanguages);
 
-            var currentLanguage = supportedLanguages.Contains(MyAPIGateway.Session.Config.Language) ? MyAPIGateway.Session.Config.Language : MyLanguagesEnum.English;
-            if (Language != null && Language == currentLanguage) {
-                return;
-            }
+                Log.Debug($"Localization path: {path}");
+                Log.Debug($"Supported Languages: {string.Join(", ", supportedLanguages)}");
+                var currentLanguage = supportedLanguages.Contains(MyAPIGateway.Session.Config.Language) ? MyAPIGateway.Session.Config.Language : MyLanguagesEnum.English;
+                if (Language != null && Language == currentLanguage) {
+                    return;
+                }
 
-            Language = currentLanguage;
-            var languageDescription = MyTexts.Languages.Where(x => x.Key == currentLanguage).Select(x => x.Value).FirstOrDefault();
-            if (languageDescription != null) {
-                var cultureName = string.IsNullOrWhiteSpace(languageDescription.CultureName) ? null : languageDescription.CultureName;
-                var subcultureName = string.IsNullOrWhiteSpace(languageDescription.SubcultureName) ? null : languageDescription.SubcultureName;
+                Language = currentLanguage;
+                var languageDescription = MyTexts.Languages.Where(x => x.Key == currentLanguage).Select(x => x.Value).FirstOrDefault();
+                if (languageDescription != null) {
+                    var cultureName = string.IsNullOrWhiteSpace(languageDescription.CultureName) ? null : languageDescription.CultureName;
+                    var subcultureName = string.IsNullOrWhiteSpace(languageDescription.SubcultureName) ? null : languageDescription.SubcultureName;
 
-                MyTexts.LoadTexts(path, cultureName, subcultureName);
+                    MyTexts.LoadTexts(path, cultureName, subcultureName);
+                }
             }
         }
 

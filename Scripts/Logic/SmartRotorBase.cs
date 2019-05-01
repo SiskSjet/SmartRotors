@@ -57,7 +57,9 @@ namespace Sisk.SmartRotors.Logic {
                 }
 
                 // todo: check if it is enough if it is executed on the server.
-                Stator.AttachedEntityChanged += OnAttachedEntityChanged;
+                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    Stator.AttachedEntityChanged += OnAttachedEntityChanged;
+                }
             }
         }
 
