@@ -9,7 +9,7 @@ namespace Sisk.SmartRotors.Logic {
     /// <summary>
     ///     Provides game logic for Smart Solar Hinges.
     /// </summary>
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_HINGE, Defs.SolarDefs.LB_SMART_SOLAR_HINGE_B, Defs.SolarDefs.SB_SMART_SOLAR_HINGE_B)]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_HINGE, Defs.SolarDefs.LB_SMART_SOLAR_HINGE_TYPE_B, Defs.SolarDefs.SB_SMART_SOLAR_HINGE_TYPE_B)]
     public sealed class SmartRotorSolarHinge : SmartRotorHinge {
         /// <summary>
         ///     Initializes a new instance of <see cref="SmartRotorSolarHinge" />.

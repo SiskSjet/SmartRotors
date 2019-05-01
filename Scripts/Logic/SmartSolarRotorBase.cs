@@ -17,7 +17,7 @@ namespace Sisk.SmartRotors.Logic {
     /// <summary>
     ///     Provide game logic for Smart Solar Rotors bases.
     /// </summary>
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_ROTOR, Defs.SolarDefs.LB_SMART_SOLAR_ROTOR_B, Defs.SolarDefs.SB_SMART_SOLAR_ROTOR_B)]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_BASE, Defs.SolarDefs.LB_SMART_SOLAR_BASE_TYPE_B, Defs.SolarDefs.SB_SMART_SOLAR_BASE_TYPE_B)]
     public sealed class SmartSolarRotorBase : SmartRotorBase {
         private const string ERROR_BUILD_SPOT_OCCUPIED = "Solar hinge cannot be placed. Build spot occupied.";
         private const string ERROR_UNABLE_TO_PLACE = "Solar hinge cannot be placed.";
@@ -79,12 +79,12 @@ namespace Sisk.SmartRotors.Logic {
                 var baseSubtype = Stator.BlockDefinition.SubtypeId;
                 Vector3D origin;
                 switch (baseSubtype) {
-                    case Defs.SolarDefs.LB_SMART_SOLAR_ROTOR:
-                    case Defs.SolarDefs.LB_SMART_SOLAR_ROTOR_B:
+                    case Defs.SolarDefs.LB_SMART_SOLAR_BASE:
+                    case Defs.SolarDefs.LB_SMART_SOLAR_BASE_TYPE_B:
                     default:
                         origin = headPosition + up * gridSize;
                         break;
-                    case Defs.SolarDefs.SB_SMART_SOLAR_ROTOR_B:
+                    case Defs.SolarDefs.SB_SMART_SOLAR_BASE_TYPE_B:
                         origin = headPosition + up * 4 * gridSize - left * gridSize + forward * gridSize;
                         break;
                 }
