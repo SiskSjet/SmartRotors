@@ -134,6 +134,8 @@
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD1.mwm" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="beta\thumb.png" />
+    <Content Include="dev\thumb.png" />
     <Content Include="metadata.mod" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds" />
