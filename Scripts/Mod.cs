@@ -33,10 +33,12 @@ namespace Sisk.SmartRotors {
             Controls = new Controls();
             InitializeLogging();
         }
+
         /// <summary>
-        /// Helper for modifying vanilla terminal controls and actions.
+        ///     Helper for modifying vanilla terminal controls and actions.
         /// </summary>
         public Controls Controls { get; private set; }
+
         /// <summary>
         ///     Holds Subtype ids for blocks in this mod.
         /// </summary>
@@ -117,7 +119,7 @@ namespace Sisk.SmartRotors {
         protected override void UnloadData() {
             Log?.EnterMethod(nameof(UnloadData));
             MyAPIGateway.Gui.GuiControlRemoved -= OnGuiControlRemoved;
-            
+
             if (Network != null) {
                 Log?.Info("Cap network connections");
                 Network.Close();
@@ -147,7 +149,7 @@ namespace Sisk.SmartRotors {
         /// </summary>
         private void InitializeLogging() {
             Log = Logger.ForScope<Mod>();
-            Log.Register(new WorldStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 500));
+            Log.Register(new WorldStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 0));
 
             using (Log.BeginMethod(nameof(InitializeLogging))) {
                 Log.Info("Logging initialized");

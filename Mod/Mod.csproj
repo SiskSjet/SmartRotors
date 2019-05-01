@@ -54,6 +54,7 @@
     <None Include="Data\Blocks\SolarRotor.sbc" />
     <None Include="Data\BlockCategories.sbc" />
     <None Include="Data\BlueprintClasses.sbc" />
+    <None Include="Data\Blueprints.sbc" />
     <None Include="Data\Research.sbc" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base.mwm" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm" />
