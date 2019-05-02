@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
 using Sandbox.ModAPI;
+using Sandbox.ModAPI.Interfaces.Terminal;
 using Sisk.SmartRotors.Data;
 using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
@@ -16,6 +19,7 @@ namespace Sisk.SmartRotors.Logic {
     /// </summary>
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_BASE, Defs.SolarDefs.LB_SMART_SOLAR_BASE_TYPE_B, Defs.SolarDefs.SB_SMART_SOLAR_BASE_TYPE_B)]
     public sealed class SmartSolarRotorBase : SmartRotorBase {
+        private const string ADD_HEAD_ACTION_ID = "Add Top Part";
         private const string ERROR_BUILD_SPOT_OCCUPIED = "Solar hinge cannot be placed. Build spot occupied.";
         private const string ERROR_UNABLE_TO_PLACE = "Solar hinge cannot be placed.";
 
@@ -89,8 +93,23 @@ namespace Sisk.SmartRotors.Logic {
                 }
 
                 var hingePosition = cubeGrid.WorldToGridInteger(origin);
+                string hingeSubtype;
+                if (!Mod.Static.Defs.Solar.BaseToHinge.TryGetValue(baseSubtype, out hingeSubtype)) {
+                    Log.Error($"No matching hinge found for '{baseSubtype}'");
+                    data.FlagAsFailed();
+                    return;
+                }
 
                 if (cubeGrid.CubeExists(hingePosition)) {
+                    var slimBlock = cubeGrid.GetCubeBlock(hingePosition);
+                    var hinge = slimBlock?.FatBlock as IMyMotorAdvancedStator;
+                    if (hinge != null) {
+                        if (hinge.BlockDefinition.SubtypeId == hingeSubtype) {
+                            data.FlagAsSucceeded();
+                            return;
+                        }
+                    }
+
                     Log.Error(ERROR_BUILD_SPOT_OCCUPIED);
                     MyAPIGateway.Utilities.ShowNotification(ERROR_BUILD_SPOT_OCCUPIED);
                     data.FlagAsFailed();
@@ -105,29 +124,46 @@ namespace Sisk.SmartRotors.Logic {
                 }
 
                 try {
-                    // todo: fix instant build in multiplayer.
-                    var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
-                    var buildPercent = instantBuild ? 1 : 0.00001525902f;
-                    string hingeSubtype;
+                    var buildPercent = head.SlimBlock.IsFullIntegrity ? 1 : 0.00001525902f;
+                    var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
+                        SubtypeName = hingeSubtype,
+                        Owner = Stator.OwnerId,
+                        BuiltBy = Stator.OwnerId,
+                        BuildPercent = buildPercent,
+                        IntegrityPercent = buildPercent,
+                        LimitsActive = true,
+                        MaxAngle = MathHelper.ToRadians(195),
+                        MinAngle = MathHelper.ToRadians(-15),
 
-                    if (Mod.Static.Defs.Solar.BaseToHinge.TryGetValue(baseSubtype, out hingeSubtype)) {
-                        var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
-                            SubtypeName = hingeSubtype,
-                            Owner = Stator.OwnerId,
-                            BuiltBy = Stator.OwnerId,
-                            BuildPercent = buildPercent,
-                            IntegrityPercent = buildPercent,
-                            LimitsActive = true,
-                            MaxAngle = MathHelper.ToRadians(195),
-                            MinAngle = MathHelper.ToRadians(-15),
-                            CustomName = SmartRotorHinge.AUTO_PLACED_TAG,
+                        Min = hingePosition,
+                        BlockOrientation = new SerializableBlockOrientation(head.Orientation.Up, head.Orientation.Left)
+                    };
 
-                            Min = hingePosition,
-                            BlockOrientation = new SerializableBlockOrientation(head.Orientation.Up, head.Orientation.Left)
-                        };
+                    cubeGrid.AddBlock(hingeBuilder, false);
+                    var slimBlock = cubeGrid.GetCubeBlock(hingePosition);
+                    var hinge = slimBlock?.FatBlock as IMyMotorAdvancedStator;
+                    if (hinge != null) {
+                        if (hinge.BlockDefinition.SubtypeId == hingeSubtype) {
+                            List<IMyTerminalAction> defaultActions;
+                            MyAPIGateway.TerminalControls.GetActions<IMyMotorAdvancedStator>(out defaultActions);
 
-                        cubeGrid.AddBlock(hingeBuilder, false);
-                        data.FlagAsSucceeded();
+                            var attach = defaultActions.FirstOrDefault(x => x.Id == ADD_HEAD_ACTION_ID)?.Action;
+                            if (attach == null) {
+                                return;
+                            }
+
+                            attach(hinge);
+
+                            if (hinge.Top != null) {
+                                if (head.SlimBlock.IsFullIntegrity) {
+                                    var topSlimBlock = hinge.Top.SlimBlock;
+                                    var welderMountAmount = topSlimBlock.MaxIntegrity - topSlimBlock.Integrity;
+                                    topSlimBlock.IncreaseMountLevel(welderMountAmount, hinge.OwnerId);
+                                }
+
+                                data.FlagAsSucceeded();
+                            }
+                        }
                     }
                 } catch (Exception exception) {
                     Log.Error(exception);
