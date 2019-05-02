@@ -140,6 +140,7 @@
     <Content Include="beta\thumb.png" />
     <Content Include="dev\metadata.mod" />
     <Content Include="dev\thumb.png" />
+    <Content Include="metadata.mod" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds" />

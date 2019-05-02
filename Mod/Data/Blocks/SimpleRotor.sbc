@@ -46,11 +46,11 @@
       <RotorPart>MA_SmartRotor_Part1</RotorPart>
 
       <RotorDisplacementMin>-0.1</RotorDisplacementMin>
-      <RotorDisplacementMax>0.1</RotorDisplacementMax>
-      <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
-      <RotorDisplacementMaxSmall>0.11</RotorDisplacementMaxSmall>
+      <RotorDisplacementMax>0.04</RotorDisplacementMax>
+      <RotorDisplacementMinSmall>-0.61</RotorDisplacementMinSmall>
+      <RotorDisplacementMaxSmall>-0.43</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      <GuiVisible>true</GuiVisible>
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -159,7 +159,7 @@
       <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      <GuiVisible>true</GuiVisible>
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -252,9 +252,9 @@
       <RotorDisplacementMin>-0.1</RotorDisplacementMin>
       <RotorDisplacementMax>0.1</RotorDisplacementMax>
       <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
-      <RotorDisplacementMaxSmall>0.11</RotorDisplacementMaxSmall>
+      <RotorDisplacementMaxSmall>0.02</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      <GuiVisible>true</GuiVisible>
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -365,7 +365,7 @@
       <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      <GuiVisible>true</GuiVisible>
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -464,7 +464,7 @@
       <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0.11</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      <GuiVisible>true</GuiVisible>
+      
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -560,7 +560,7 @@
       <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0.11</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      <GuiVisible>true</GuiVisible>
+      
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
