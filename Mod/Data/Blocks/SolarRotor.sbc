@@ -323,8 +323,8 @@
       <Model>Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="SteelPlate" Count="30" />
-        <Component Subtype="LargeTube" Count="24" />
+        <Component Subtype="SteelPlate" Count="15" />
+        <Component Subtype="LargeTube" Count="6" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <BuildProgressModels>
@@ -358,12 +358,12 @@
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\MA_SmartRotor\MA_SmartRotor_Base_sm.mwm</Model>
       <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="10" />
-        <Component Subtype="LargeTube" Count="4" />
-        <Component Subtype="Motor" Count="4" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="SmallTube" Count="1" />
+        <Component Subtype="Motor" Count="1" />
         <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="SteelPlate" Count="2" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <BuildProgressModels>
@@ -417,13 +417,14 @@
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm.mwm</Model>
       <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="10" />
-        <Component Subtype="LargeTube" Count="4" />
-        <Component Subtype="Motor" Count="4" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="SmallTube" Count="1" />
+        <Component Subtype="Motor" Count="1" />
         <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="SteelPlate" Count="2" />
       </Components>
+
       <CriticalComponent Subtype="Computer" Index="0" />
       <BuildProgressModels>
         <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm_Constr1.mwm" />
@@ -478,8 +479,8 @@
       <Model>Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="SteelPlate" Count="30" />
-        <Component Subtype="LargeTube" Count="24" />
+        <Component Subtype="SteelPlate" Count="15" />
+        <Component Subtype="LargeTube" Count="6" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <BuildProgressModels>

@@ -2,6 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Blueprints>
 
+    <!--MA_SmartRotor_Solar_Base-->
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
@@ -10,20 +11,21 @@
       <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds</Icon>
       <Prerequisites>
-        <Item Amount="3892" TypeId="MyObjectBuilder_Ingot" SubtypeId="Iron" />
-        <Item Amount="40" TypeId="MyObjectBuilder_Ingot" SubtypeId="Nickel" />
-        <Item Amount="0.8" TypeId="MyObjectBuilder_Ingot" SubtypeId="Silicon" />
+        <Item Amount="3892" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="40" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="0.8" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>
       <Results>
-        <Item Amount="90" TypeId="MyObjectBuilder_Component" SubtypeId="SteelPlate" />
-        <Item Amount="20" TypeId="MyObjectBuilder_Component" SubtypeId="Construction" />
-        <Item Amount="56" TypeId="MyObjectBuilder_Component" SubtypeId="LargeTube" />
-        <Item Amount="8" TypeId="MyObjectBuilder_Component" SubtypeId="Motor" />
-        <Item Amount="4" TypeId="MyObjectBuilder_Component" SubtypeId="Computer" />
+        <Item Amount="90" TypeId="Component" SubtypeId="SteelPlate" />
+        <Item Amount="20" TypeId="Component" SubtypeId="Construction" />
+        <Item Amount="56" TypeId="Component" SubtypeId="LargeTube" />
+        <Item Amount="8" TypeId="Component" SubtypeId="Motor" />
+        <Item Amount="4" TypeId="Component" SubtypeId="Computer" />
       </Results>
       <BaseProductionTimeInSeconds>47</BaseProductionTimeInSeconds>
     </Blueprint>
 
+    <!--MA_SmartRotor_Solar_Base_TypeB-->
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
@@ -32,20 +34,21 @@
       <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <Prerequisites>
-        <Item Amount="3892" TypeId="MyObjectBuilder_Ingot" SubtypeId="Iron" />
-        <Item Amount="40" TypeId="MyObjectBuilder_Ingot" SubtypeId="Nickel" />
-        <Item Amount="0.8" TypeId="MyObjectBuilder_Ingot" SubtypeId="Silicon" />
+        <Item Amount="3892" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="40" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="0.8" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>
       <Results>
-        <Item Amount="90" TypeId="MyObjectBuilder_Component" SubtypeId="SteelPlate" />
-        <Item Amount="20" TypeId="MyObjectBuilder_Component" SubtypeId="Construction" />
-        <Item Amount="56" TypeId="MyObjectBuilder_Component" SubtypeId="LargeTube" />
-        <Item Amount="8" TypeId="MyObjectBuilder_Component" SubtypeId="Motor" />
-        <Item Amount="4" TypeId="MyObjectBuilder_Component" SubtypeId="Computer" />
+        <Item Amount="90" TypeId="Component" SubtypeId="SteelPlate" />
+        <Item Amount="20" TypeId="Component" SubtypeId="Construction" />
+        <Item Amount="56" TypeId="Component" SubtypeId="LargeTube" />
+        <Item Amount="8" TypeId="Component" SubtypeId="Motor" />
+        <Item Amount="4" TypeId="Component" SubtypeId="Computer" />
       </Results>
       <BaseProductionTimeInSeconds>47</BaseProductionTimeInSeconds>
     </Blueprint>
 
+    <!--MA_SmartRotor_Solar_Base_TypeB_sm-->
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
@@ -54,16 +57,17 @@
       <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base</DisplayName>
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <Prerequisites>
-        <Item Amount="3892" TypeId="MyObjectBuilder_Ingot" SubtypeId="Iron" />
-        <Item Amount="40" TypeId="MyObjectBuilder_Ingot" SubtypeId="Nickel" />
-        <Item Amount="0.8" TypeId="MyObjectBuilder_Ingot" SubtypeId="Silicon" />
+        <Item Amount="1332" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="0.8" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>
       <Results>
-        <Item Amount="90" TypeId="MyObjectBuilder_Component" SubtypeId="SteelPlate" />
-        <Item Amount="20" TypeId="MyObjectBuilder_Component" SubtypeId="Construction" />
-        <Item Amount="56" TypeId="MyObjectBuilder_Component" SubtypeId="LargeTube" />
-        <Item Amount="8" TypeId="MyObjectBuilder_Component" SubtypeId="Motor" />
-        <Item Amount="4" TypeId="MyObjectBuilder_Component" SubtypeId="Computer" />
+        <Item Amount="40" TypeId="Component" SubtypeId="SteelPlate" />
+        <Item Amount="10" TypeId="Component" SubtypeId="Construction" />
+        <Item Amount="2" TypeId="Component" SubtypeId="SmallTube" />
+        <Item Amount="2" TypeId="Component" SubtypeId="Motor" />
+        <Item Amount="4" TypeId="Component" SubtypeId="Computer" />
+        <Item Amount="12" TypeId="Component" SubtypeId="LargeTube" />
       </Results>
       <BaseProductionTimeInSeconds>47</BaseProductionTimeInSeconds>
     </Blueprint>
