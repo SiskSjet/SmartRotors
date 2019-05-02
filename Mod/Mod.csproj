@@ -55,6 +55,7 @@
     <None Include="Data\BlockCategories.sbc" />
     <None Include="Data\BlueprintClasses.sbc" />
     <None Include="Data\Blueprints.sbc" />
+    <None Include="Data\EntityComponents.sbc" />
     <None Include="Data\Research.sbc" />
     <None Include="dev\modinfo.sbmi" />
     <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base.mwm" />

@@ -1,9 +1,13 @@
-﻿using ParallelTasks;
+﻿using System;
+using ParallelTasks;
+using Sandbox.Game.EntityComponents;
 using Sandbox.ModAPI;
 using Sisk.SmartRotors.Data;
 using Sisk.SmartRotors.Extensions;
+using Sisk.SmartRotors.Settings;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
+using VRage.ObjectBuilders;
 
 namespace Sisk.SmartRotors.Logic {
     /// <summary>
@@ -11,6 +15,7 @@ namespace Sisk.SmartRotors.Logic {
     /// </summary>
     public abstract class SmartRotorBase : MyGameLogicComponent {
         private readonly string _debugName;
+        private SmartRotorSettings _settings;
 
         /// <summary>
         ///     Initializes a new instance of the abstract game logic component for SmartRotor bases.
@@ -25,6 +30,18 @@ namespace Sisk.SmartRotors.Logic {
         public override string ComponentTypeDebugString => $"{_debugName} - Game Logic";
 
         /// <summary>
+        ///     Indicates the hinge attached status.
+        /// </summary>
+        public bool IsHingeAttached {
+            get { return _settings.IsHingeAttached; }
+            set {
+                if (value != _settings.IsHingeAttached) {
+                    _settings.IsHingeAttached = value;
+                }
+            }
+        }
+
+        /// <summary>
         ///     Logger used for logging.
         /// </summary>
         private ILogger Log { get; }
@@ -37,10 +54,37 @@ namespace Sisk.SmartRotors.Logic {
         /// <inheritdoc />
         public override void Close() {
             using (Log.BeginMethod(nameof(Close))) {
-                // todo: check if it is enough if it is executed on the server.
                 if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
                     Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
                 }
+            }
+        }
+
+        /// <inheritdoc />
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
+            base.Init(objectBuilder);
+
+            if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                if (Entity.Storage == null) {
+                    Entity.Storage = new MyModStorageComponent();
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Tells the component container serializer whether this component should be saved.
+        ///     I use it to call the <see cref="IMyEntity.Save" /> extension method.
+        /// </summary>
+        /// <returns></returns>
+        public override bool IsSerialized() {
+            using (Log.BeginMethod(nameof(IsSerialized))) {
+                try {
+                    Stator.Save(new Guid(SmartRotorSettings.GUID), _settings);
+                } catch (Exception exception) {
+                    Log.Error(exception);
+                }
+
+                return base.IsSerialized();
             }
         }
 
@@ -56,8 +100,21 @@ namespace Sisk.SmartRotors.Logic {
                     return;
                 }
 
-                // todo: check if it is enough if it is executed on the server.
                 if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    try {
+                        _settings = Stator.Load<SmartRotorSettings>(new Guid(SmartRotorSettings.GUID));
+                        if (_settings != null) {
+                            if (_settings.Version < SmartRotorSettings.VERSION) {
+                                // todo: merge old and new settings in future versions.
+                            }
+                        } else {
+                            _settings = new SmartRotorSettings();
+                        }
+                    } catch (Exception exception) {
+                        Log.Error(exception);
+                        _settings = new SmartRotorSettings();
+                    }
+
                     Stator.AttachedEntityChanged += OnAttachedEntityChanged;
                 }
             }
@@ -75,8 +132,10 @@ namespace Sisk.SmartRotors.Logic {
         /// <param name="base">The base on which the top is changed.</param>
         private void OnAttachedEntityChanged(IMyMechanicalConnectionBlock @base) {
             using (Log.BeginMethod(nameof(OnAttachedEntityChanged))) {
-                if (@base.Top != null) {
+                if (@base.Top != null && !IsHingeAttached) {
                     MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
+                } else {
+                    IsHingeAttached = false;
                 }
             }
         }
@@ -97,6 +156,7 @@ namespace Sisk.SmartRotors.Logic {
                     case PlaceSmartHingeData.DataResult.Running:
                         break;
                     case PlaceSmartHingeData.DataResult.Success:
+                        IsHingeAttached = true;
                         Log.Debug("Hinge placed");
                         break;
                     case PlaceSmartHingeData.DataResult.Failed:
