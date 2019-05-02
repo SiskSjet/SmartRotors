@@ -18,7 +18,7 @@ namespace Sisk.SmartRotors {
         public const string NAME = "SmartRotors";
 
         // important: change to info | warning | error or none before publishing this mod.
-        private const LogEventLevel DEFAULT_LOG_EVENT_LEVEL = LogEventLevel.Info | LogEventLevel.Warning | LogEventLevel.Error;
+        private const LogEventLevel DEFAULT_LOG_EVENT_LEVEL = LogEventLevel.All;
 
         private const string LOG_FILE_TEMPLATE = "{0}.log";
         private const ushort NETWORK_ID = 51511;
