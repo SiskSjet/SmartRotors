@@ -6,6 +6,7 @@ using VRage.ModAPI;
 
 namespace Sisk.SmartRotors.Logic {
     // todo: set lower and upper limits. Lower: -22 | Upper: 202
+    // todo: set lower and upper limits. Lower: -42 | Upper: 222 Type B
     /// <summary>
     ///     Provides game logic for Smart Solar Hinges.
     /// </summary>
@@ -34,7 +35,7 @@ namespace Sisk.SmartRotors.Logic {
             }
 
             if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
-                NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+                NeedsUpdate |= MyEntityUpdateEnum.EACH_100TH_FRAME;
             }
         }
 

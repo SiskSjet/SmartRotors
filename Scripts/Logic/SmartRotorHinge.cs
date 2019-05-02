@@ -5,6 +5,7 @@ using Sandbox.ModAPI.Interfaces.Terminal;
 using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
+using VRage.ModAPI;
 
 namespace Sisk.SmartRotors.Logic {
     /// <summary>
@@ -49,27 +50,43 @@ namespace Sisk.SmartRotors.Logic {
                     return;
                 }
 
-                if (Stator.Top == null && Stator.CustomName == AUTO_PLACED_TAG) {
-                    Stator.CustomName = Stator.DefinitionDisplayNameText;
+                NeedsUpdate |= MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
+            }
+        }
 
-                    var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
+        public override void UpdateOnceBeforeFrame() {
+            NeedsUpdate &= ~MyEntityUpdateEnum.NONE;
 
-                    List<IMyTerminalAction> defaultActions;
-                    MyAPIGateway.TerminalControls.GetActions<IMyMotorAdvancedStator>(out defaultActions);
+            if (Stator.Top == null && Stator.CustomName == AUTO_PLACED_TAG) {
+                Stator.CustomName = Stator.DefinitionDisplayNameText;
 
-                    var attach = defaultActions.FirstOrDefault(x => x.Id == ADD_HEAD_ACTION_ID)?.Action;
-                    if (attach == null) {
-                        return;
-                    }
+                List<IMyTerminalAction> defaultActions;
+                MyAPIGateway.TerminalControls.GetActions<IMyMotorAdvancedStator>(out defaultActions);
 
-                    attach(Stator);
+                var attach = defaultActions.FirstOrDefault(x => x.Id == ADD_HEAD_ACTION_ID)?.Action;
+                if (attach == null) {
+                    return;
+                }
 
-                    if (instantBuild && Stator.Top != null) {
-                        var slimBlock = Stator.Top.SlimBlock;
-                        var welderMountAmount = slimBlock.MaxIntegrity - slimBlock.Integrity;
-                        slimBlock.IncreaseMountLevel(welderMountAmount, Stator.OwnerId);
+                attach(Stator);
+
+                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    // todo: fix instant build in multiplayer.
+                    if (MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste) {
+                        InstantBuild();
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        ///     Fake creative mode.
+        /// </summary>
+        private void InstantBuild() {
+            if (Stator.Top != null) {
+                var slimBlock = Stator.Top.SlimBlock;
+                var welderMountAmount = slimBlock.MaxIntegrity - slimBlock.Integrity;
+                slimBlock.IncreaseMountLevel(welderMountAmount, Stator.OwnerId);
             }
         }
     }

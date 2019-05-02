@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
-using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sisk.SmartRotors.Data;
 using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
-using VRage;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.ModAPI;
@@ -45,7 +42,7 @@ namespace Sisk.SmartRotors.Logic {
             }
 
             if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
-                NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+                NeedsUpdate |= MyEntityUpdateEnum.EACH_100TH_FRAME;
             }
         }
 
@@ -87,7 +84,7 @@ namespace Sisk.SmartRotors.Logic {
                         origin = headPosition + up * gridSize;
                         break;
                     case Defs.SolarDefs.SB_SMART_SOLAR_BASE_TYPE_B:
-                        origin = headPosition + up * 4 * gridSize - left * gridSize + forward * gridSize;
+                        origin = headPosition + up + left * gridSize + forward * gridSize;
                         break;
                 }
 
@@ -108,9 +105,11 @@ namespace Sisk.SmartRotors.Logic {
                 }
 
                 try {
+                    // todo: fix instant build in multiplayer.
                     var instantBuild = MyAPIGateway.Session.CreativeMode || MyAPIGateway.Session.HasCreativeRights && MyAPIGateway.Session.EnableCopyPaste;
                     var buildPercent = instantBuild ? 1 : 0.00001525902f;
                     string hingeSubtype;
+
                     if (Mod.Static.Defs.Solar.BaseToHinge.TryGetValue(baseSubtype, out hingeSubtype)) {
                         var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
                             SubtypeName = hingeSubtype,
@@ -121,23 +120,18 @@ namespace Sisk.SmartRotors.Logic {
                             LimitsActive = true,
                             MaxAngle = MathHelper.ToRadians(195),
                             MinAngle = MathHelper.ToRadians(-15),
-                            CustomName = SmartRotorHinge.AUTO_PLACED_TAG
+                            CustomName = SmartRotorHinge.AUTO_PLACED_TAG,
+
+                            Min = hingePosition,
+                            BlockOrientation = new SerializableBlockOrientation(head.Orientation.Up, head.Orientation.Left)
                         };
 
-                        var cubeGridBuilder = new MyObjectBuilder_CubeGrid {
-                            CreatePhysics = true,
-                            GridSizeEnum = head.CubeGrid.GridSizeEnum,
-                            PositionAndOrientation = new MyPositionAndOrientation(origin, up, left)
-                        };
-
-                        cubeGridBuilder.CubeBlocks.Add(hingeBuilder);
-                        var gridsToMerge = new List<MyObjectBuilder_CubeGrid> { cubeGridBuilder };
-
-                        MyAPIGateway.Utilities.InvokeOnGameThread(() => (cubeGrid as MyCubeGrid)?.PasteBlocksToGrid(gridsToMerge, 0, false, false));
+                        cubeGrid.AddBlock(hingeBuilder, false);
                         data.FlagAsSucceeded();
                     }
                 } catch (Exception exception) {
                     Log.Error(exception);
+                    Log.Error(exception.StackTrace);
                     data.FlagAsFailed();
                 }
             }
