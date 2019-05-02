@@ -9,7 +9,7 @@ namespace Sisk.SmartRotors {
     /// </summary>
     public class Controls {
         private readonly HashSet<string> _hiddenActions = new HashSet<string> { "Add Small Top Part", "Reverse", "IncreaseVelocity", "DecreaseVelocity", "ResetVelocity" };
-        private readonly HashSet<string> _hiddenControls = new HashSet<string> { "Add Small Top Part", "Velocity" };
+        private readonly HashSet<string> _hiddenControls = new HashSet<string> { "Add Small Top Part", "Reverse", "Velocity" };
 
         /// <summary>
         ///     Indicates if terminal controls are initialized.
