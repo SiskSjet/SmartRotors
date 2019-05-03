@@ -135,6 +135,7 @@
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr2.mwm" />
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr3.mwm" />
     <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD2.mwm" />
     <None Include="modinfo.sbmi" />
   </ItemGroup>
   <ItemGroup>
