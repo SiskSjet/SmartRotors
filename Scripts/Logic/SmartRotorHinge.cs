@@ -1,5 +1,4 @@
 ﻿using Sandbox.ModAPI;
-using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 

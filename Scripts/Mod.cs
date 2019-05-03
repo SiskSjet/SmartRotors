@@ -85,10 +85,8 @@ namespace Sisk.SmartRotors {
         ///     Initialize some components that are only available just before the start.
         /// </summary>
         public override void BeforeStart() {
-            using (Log.BeginMethod(nameof(BeforeStart))) {
-                if (Network == null || Network.IsServer) {
-                    InitializeSunTracker();
-                }
+            if (Network == null || Network.IsServer) {
+                InitializeSunTracker();
             }
         }
 

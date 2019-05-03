@@ -7,6 +7,7 @@ using Sisk.SmartRotors.Extensions;
 using Sisk.SmartRotors.Settings;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
+using VRage.ModAPI;
 using VRage.ObjectBuilders;
 
 namespace Sisk.SmartRotors.Logic {
@@ -53,10 +54,8 @@ namespace Sisk.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void Close() {
-            using (Log.BeginMethod(nameof(Close))) {
-                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
-                    Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
-                }
+            if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
             }
         }
 
@@ -131,12 +130,12 @@ namespace Sisk.SmartRotors.Logic {
         /// </summary>
         /// <param name="base">The base on which the top is changed.</param>
         private void OnAttachedEntityChanged(IMyMechanicalConnectionBlock @base) {
-            using (Log.BeginMethod(nameof(OnAttachedEntityChanged))) {
-                if (@base.Top != null && !IsHingeAttached) {
+            if (@base.Top != null) {
+                if (!IsHingeAttached) {
                     MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
-                } else {
-                    IsHingeAttached = false;
                 }
+            } else {
+                IsHingeAttached = false;
             }
         }
 
