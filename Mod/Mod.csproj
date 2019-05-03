@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mod</RootNamespace>
     <AssemblyName>Mod</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,15 +50,110 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Blocks\BasePart.sbc" />
+    <None Include="Data\Blocks\SimpleRotor.sbc" />
     <None Include="Data\Blocks\SolarRotor.sbc" />
     <None Include="Data\BlockCategories.sbc" />
-    <None Include="Models\MA_SmartRotor_Base.mwm" />
-    <None Include="Models\MA_SmartRotor_Base_2.mwm" />
-    <None Include="Models\MA_SmartRotor_Part1.mwm" />
-    <None Include="Models\MA_SmartRotor_Part2.mwm" />
+    <None Include="Data\BlueprintClasses.sbc" />
+    <None Include="Data\Blueprints.sbc" />
+    <None Include="Data\EntityComponents.sbc" />
+    <None Include="Data\Research.sbc" />
+    <None Include="dev\modinfo.sbmi" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_LOD2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_Constr3.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm_Constr3.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr2.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr3.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD1.mwm" />
+    <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD2.mwm" />
+    <None Include="modinfo.sbmi" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="beta\thumb.png" />
+    <Content Include="dev\metadata.mod" />
+    <Content Include="dev\thumb.png" />
+    <Content Include="metadata.mod" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Hinge_TypeB.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_Smart_Rotor.dds" />
+    <Content Include="Textures\GUI\Icons\Cubes\MA_Solar_Support.dds" />
     <Content Include="thumb.png" />
   </ItemGroup>
   <ItemGroup />

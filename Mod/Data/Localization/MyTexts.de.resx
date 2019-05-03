@@ -117,16 +117,102 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DisplayName_Block_Solar_Base" xml:space="preserve">
-    <value>Intelligenter Solarrotor</value>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Base" xml:space="preserve">
+    <value>SmartRotor: Solar</value>
   </data>
-  <data name="DisplayName_Block_Solar_Hinge" xml:space="preserve">
-    <value>Solar Scharnier</value>
+  <data name="Description_MA_SmartRotor_Solar_Base" xml:space="preserve">
+    <value>Intelligente Solar Rotoren.
+Version mit Förderband-Anschluss für O2-Farmen.
+
+Wenn Sie diese Basis platzieren, werden automatisch alle Unterteile platziert, die Sonne wird automatisch verfolgt, es sind keine weiteren Einstellungen erforderlich.
+Von AutoMcD Astronautical und SISK.</value>
   </data>
-  <data name="DisplayName_Block_Solar_Hinge_Part" xml:space="preserve">
-    <value>Solar Schanier Kopf</value>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Hinge" xml:space="preserve">
+    <value>SmartRotor: Solarscharnier</value>
   </data>
-  <data name="DisplayName_Block_Smart_Rotor_Base_Part" xml:space="preserve">
-    <value>Intelligenter Rotor Kopf</value>
+  <data name="Description_MA_SmartRotor_Solar" xml:space="preserve">
+    <value>Intelligente Solar Rotoren.
+
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Part2" xml:space="preserve">
+    <value>SmartRotor: Solarscharnierteil</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB" xml:space="preserve">
+    <value>SmartRotor: Solar, Typ B</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Solar_Base_TypeB" xml:space="preserve">
+    <value>Intelligente Solar Rotoren.
+T-Form Version ohne Förderband-Anschlüsse.
+
+Wenn Sie diese Basis platzieren, werden automatisch alle Unterteile platziert, die Sonne wird automatisch verfolgt, es sind keine weiteren Einstellungen erforderlich.
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB" xml:space="preserve">
+    <value>SmartRotor: Solarscharnier, Typ B</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB" xml:space="preserve">
+    <value>SmartRotor: Solarscharnierteil, Typ B</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB_sm" xml:space="preserve">
+    <value>SmartRotor: Solar, Typ B - Kleines Grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Hinge_TypeB_sm" xml:space="preserve">
+    <value>SmartRotor: Solarscharnier, Typ B - Kleines Grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Solar_Part2_TypeB_sm" xml:space="preserve">
+    <value>SmartRotor: Solarscharnierteil, Typ B - Kleines Grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_Solar_Support" xml:space="preserve">
+    <value>SmartRotors: Solar-Träger</value>
+  </data>
+  <data name="Description_MA_Solar_Support" xml:space="preserve">
+    <value>Unterstützungsstruktur für Sonnenkollektoren.
+
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base" xml:space="preserve">
+    <value>Schlanker Rotor: Unterteil</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Base" xml:space="preserve">
+    <value>Schlanker Rotor: Unterteil, wird verwendet von MA SmartRotors.
+
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part1" xml:space="preserve">
+    <value>Schlankes Rotor: Oberteil</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Part1" xml:space="preserve">
+    <value>Oberteil des schlanken Rotor Unterteils, welches von MA SmartRotors verwendet wird.
+
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base_2" xml:space="preserve">
+    <value>Rotorscharnier Basis</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Base_2" xml:space="preserve">
+    <value>Rotorscharnier Basis, wird von MA SmartRotors verwendet.
+
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part2" xml:space="preserve">
+    <value>Rotorscharnierteil</value>
+  </data>
+  <data name="Description_MA_SmartRotor_Part2" xml:space="preserve">
+    <value>Rotorscharnierteil, verwendet von MA SmartRotors.
+
+Von AutoMcD Astronautical und SISK.</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base_sm" xml:space="preserve">
+    <value>Schlanker Rotor: Unterteil - Kleines Grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part1_sm" xml:space="preserve">
+    <value>Schlankes Rotor: Oberteil - Kleines Grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Base_2_sm" xml:space="preserve">
+    <value>Rotorscharnier Basis - Kleines Grid</value>
+  </data>
+  <data name="DisplayName_Block_MA_SmartRotor_Part2_sm" xml:space="preserve">
+    <value>Rotorscharnierteil - Kleines Teil</value>
   </data>
 </root>

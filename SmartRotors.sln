@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2016
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mod", "Mod\Mod.csproj", "{441ADEE1-8DBA-4DDA-8892-41E2B0C460FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C9ED8CE-83A5-4D54-B6D7-A82B1640F068}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
 		deploy.cmd = deploy.cmd
 		exclude.txt = exclude.txt
 		GitVersion.yml = GitVersion.yml
@@ -21,8 +22,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{769C43A3-19A5-42D8-B525-8B5EE64036D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Utils\Logging\Logging.csproj", "{D8581C43-F65D-49EB-BFE3-75F185371512}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profiler", "Utils\Profiler\Profiler.csproj", "{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net", "Utils\Net\Net.csproj", "{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}"
 EndProject
@@ -58,14 +57,6 @@ Global
 		{D8581C43-F65D-49EB-BFE3-75F185371512}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8581C43-F65D-49EB-BFE3-75F185371512}.Release|x64.ActiveCfg = Release|x64
 		{D8581C43-F65D-49EB-BFE3-75F185371512}.Release|x64.Build.0 = Release|x64
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Debug|x64.Build.0 = Debug|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Release|x64.ActiveCfg = Release|Any CPU
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2}.Release|x64.Build.0 = Release|Any CPU
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -80,7 +71,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D8581C43-F65D-49EB-BFE3-75F185371512} = {769C43A3-19A5-42D8-B525-8B5EE64036D0}
-		{30C726DF-F15B-4DF0-B579-DFC84C74D6E2} = {769C43A3-19A5-42D8-B525-8B5EE64036D0}
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71} = {769C43A3-19A5-42D8-B525-8B5EE64036D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
