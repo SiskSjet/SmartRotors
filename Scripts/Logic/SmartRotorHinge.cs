@@ -1,6 +1,7 @@
 ﻿using Sandbox.ModAPI;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
+using VRage.ObjectBuilders;
 
 namespace Sisk.SmartRotors.Logic {
     /// <summary>
@@ -32,7 +33,9 @@ namespace Sisk.SmartRotors.Logic {
         public IMyMotorAdvancedStator Stator { get; private set; }
 
         /// <inheritdoc />
-        public override void OnAddedToScene() {
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
+            base.Init(objectBuilder);
+
             Stator = Entity as IMyMotorAdvancedStator;
         }
     }

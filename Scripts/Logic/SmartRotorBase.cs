@@ -54,7 +54,7 @@ namespace Sisk.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void Close() {
-            if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+            if (Stator != null && (Mod.Static.Network == null || Mod.Static.Network.IsServer)) {
                 Stator.AttachedEntityChanged -= OnAttachedEntityChanged;
             }
         }
@@ -62,6 +62,8 @@ namespace Sisk.SmartRotors.Logic {
         /// <inheritdoc />
         public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
             base.Init(objectBuilder);
+
+            Stator = Entity as IMyMotorAdvancedStator;
 
             if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
                 if (Entity.Storage == null) {
@@ -77,7 +79,7 @@ namespace Sisk.SmartRotors.Logic {
         /// <returns></returns>
         public override bool IsSerialized() {
             using (Log.BeginMethod(nameof(IsSerialized))) {
-                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                if (Stator != null && (Mod.Static.Network == null || Mod.Static.Network.IsServer)) {
                     try {
                         Stator.Save(new Guid(SmartRotorSettings.GUID), _settings);
                     } catch (Exception exception) {
@@ -92,11 +94,6 @@ namespace Sisk.SmartRotors.Logic {
         /// <inheritdoc />
         public override void OnAddedToScene() {
             using (Log.BeginMethod(nameof(OnAddedToScene))) {
-                Stator = Entity as IMyMotorAdvancedStator;
-                if (Stator == null) {
-                    return;
-                }
-
                 if (Stator.IsProjected()) {
                     return;
                 }
