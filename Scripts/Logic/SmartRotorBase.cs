@@ -77,10 +77,12 @@ namespace Sisk.SmartRotors.Logic {
         /// <returns></returns>
         public override bool IsSerialized() {
             using (Log.BeginMethod(nameof(IsSerialized))) {
-                try {
-                    Stator.Save(new Guid(SmartRotorSettings.GUID), _settings);
-                } catch (Exception exception) {
-                    Log.Error(exception);
+                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    try {
+                        Stator.Save(new Guid(SmartRotorSettings.GUID), _settings);
+                    } catch (Exception exception) {
+                        Log.Error(exception);
+                    }
                 }
 
                 return base.IsSerialized();
