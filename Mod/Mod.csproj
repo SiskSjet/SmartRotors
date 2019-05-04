@@ -154,6 +154,7 @@
     <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_Smart_Rotor.dds" />
     <Content Include="Textures\GUI\Icons\Cubes\MA_Solar_Support.dds" />
+    <Content Include="Textures\SISK_Terminal_cm.dds" />
     <Content Include="thumb.png" />
   </ItemGroup>
   <ItemGroup />
