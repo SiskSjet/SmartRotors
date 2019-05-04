@@ -1,3 +1,12 @@
+# [1.0.1](https://github.com/SiskSjet/SmartRotors/compare/v1.0.0...v1.0.1) (2019-05-04)
+
+
+### Bug Fixes
+
+* color hinge and hinge part like the base rotor when build ([51a2108](https://github.com/SiskSjet/SmartRotors/commit/51a2108)), closes [#4](https://github.com/SiskSjet/SmartRotors/issues/4)
+
+
+
 # 1.0.0 (2019-05-03)
 
 
