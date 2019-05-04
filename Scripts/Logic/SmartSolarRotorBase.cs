@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
+using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
 using Sisk.SmartRotors.Data;
@@ -124,6 +125,7 @@ namespace Sisk.SmartRotors.Logic {
                 }
 
                 try {
+                    var colorMask = Stator.SlimBlock.ColorMaskHSV;
                     var buildPercent = head.SlimBlock.IsFullIntegrity ? 1 : 0.00001525902f;
                     var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
                         SubtypeName = hingeSubtype,
@@ -136,7 +138,8 @@ namespace Sisk.SmartRotors.Logic {
                         MinAngle = MathHelper.ToRadians(-15),
 
                         Min = hingePosition,
-                        BlockOrientation = new SerializableBlockOrientation(head.Orientation.Up, head.Orientation.Left)
+                        BlockOrientation = new SerializableBlockOrientation(head.Orientation.Up, head.Orientation.Left),
+                        ColorMaskHSV = colorMask
                     };
 
                     cubeGrid.AddBlock(hingeBuilder, false);
@@ -155,6 +158,11 @@ namespace Sisk.SmartRotors.Logic {
                             attach(hinge);
 
                             if (hinge.Top != null) {
+                                var hingePartCubeGrid = hinge.TopGrid as MyCubeGrid;
+                                if (hingePartCubeGrid != null) {
+                                    hingePartCubeGrid.ChangeColor(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask);
+                                }
+
                                 if (head.SlimBlock.IsFullIntegrity) {
                                     var topSlimBlock = hinge.Top.SlimBlock;
                                     var welderMountAmount = topSlimBlock.MaxIntegrity - topSlimBlock.Integrity;
