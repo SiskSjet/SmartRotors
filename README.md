@@ -1,5 +1,5 @@
 # SmartRotors
-![SmartRotors](./Mod/thumb.png)
+![SmartRotors](./Mod/thumb.jpg)
 
 * [Info](#info)
 * [Credits](#credits)
