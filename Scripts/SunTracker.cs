@@ -53,7 +53,8 @@ namespace Sisk.SmartRotors {
         /// <returns>Returns the sun direction vector.</returns>
         public Vector3D CalculateSunDirection() {
             if (_enabled) {
-                var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * (ElapsedGameTime.TotalSeconds / Speed)));
+                const float predict = 16f * 100 / 1000;
+                var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * ((ElapsedGameTime.TotalSeconds + predict) / Speed)));
                 vector3.Normalize();
 
                 return vector3;
