@@ -3,6 +3,7 @@ using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
 using VRage.ModAPI;
+using VRageMath;
 
 namespace Sisk.SmartRotors.Logic {
     // todo: set lower and upper limits. Lower: -22 | Upper: 202
@@ -46,7 +47,7 @@ namespace Sisk.SmartRotors.Logic {
             }
 
             var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
-            Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left);
+            Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left, 3 * MathHelper.RPMToRadiansPerSecond);
         }
     }
 }

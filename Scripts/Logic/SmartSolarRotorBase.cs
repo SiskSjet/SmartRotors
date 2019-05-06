@@ -58,7 +58,7 @@ namespace Sisk.SmartRotors.Logic {
             }
 
             var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
-            Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward);
+            Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward, 3 * MathHelper.RPMToRadiansPerSecond);
         }
 
         /// <inheritdoc />
