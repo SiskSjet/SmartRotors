@@ -1,3 +1,14 @@
+# [1.0.3](https://github.com/SiskSjet/SmartRotors/compare/v1.0.2...v1.0.3) (2019-05-09)
+
+
+### Bug Fixes
+
+* fix a speculative issue which may causes the rare crashes ([c42fa54](https://github.com/SiskSjet/SmartRotors/commit/c42fa54)), closes [#7](https://github.com/SiskSjet/SmartRotors/issues/7)
+* fix hard to weld or grind bases and parts ([27178df](https://github.com/SiskSjet/SmartRotors/commit/27178df))
+* fix the support blockpairname conflict with the sloped window. ([6380b83](https://github.com/SiskSjet/SmartRotors/commit/6380b83))
+
+
+
 # [1.0.2](https://github.com/SiskSjet/SmartRotors/compare/v1.0.1...v1.0.2) (2019-05-06)
 
 
