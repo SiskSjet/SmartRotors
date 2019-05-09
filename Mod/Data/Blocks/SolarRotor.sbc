@@ -531,7 +531,7 @@
         <MountPoint Side="Bottom" StartX="0.03" StartY="0.03" EndX="0.97" EndY="0.97" />
         <MountPoint Side="Top" StartX="0.03" StartY="0.03" EndX="0.97" EndY="0.97" />
       </MountPoints>
-      <BlockPairName>Window1x2Slope</BlockPairName>
+      <BlockPairName>MA_Solar_Support</BlockPairName>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>8</BuildTimeSeconds>
       <IsAirTight>true</IsAirTight>
