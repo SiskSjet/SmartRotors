@@ -142,37 +142,39 @@ namespace Sisk.SmartRotors.Logic {
                         ColorMaskHSV = colorMask
                     };
 
-                    cubeGrid.AddBlock(hingeBuilder, false);
-                    var slimBlock = cubeGrid.GetCubeBlock(hingePosition);
-                    var hinge = slimBlock?.FatBlock as IMyMotorAdvancedStator;
-                    if (hinge != null) {
-                        if (hinge.BlockDefinition.SubtypeId == hingeSubtype) {
-                            List<IMyTerminalAction> defaultActions;
-                            MyAPIGateway.TerminalControls.GetActions<IMyMotorAdvancedStator>(out defaultActions);
+                    MyAPIGateway.Utilities.InvokeOnGameThread(() => {
+                        cubeGrid.AddBlock(hingeBuilder, false);
+                        var slimBlock = cubeGrid.GetCubeBlock(hingePosition);
+                        var hinge = slimBlock?.FatBlock as IMyMotorAdvancedStator;
+                        if (hinge != null) {
+                            if (hinge.BlockDefinition.SubtypeId == hingeSubtype) {
+                                List<IMyTerminalAction> defaultActions;
+                                MyAPIGateway.TerminalControls.GetActions<IMyMotorAdvancedStator>(out defaultActions);
 
-                            var attach = defaultActions.FirstOrDefault(x => x.Id == ADD_HEAD_ACTION_ID)?.Action;
-                            if (attach == null) {
-                                return;
-                            }
-
-                            attach(hinge);
-
-                            if (hinge.Top != null) {
-                                var hingePartCubeGrid = hinge.TopGrid as MyCubeGrid;
-                                if (hingePartCubeGrid != null) {
-                                    hingePartCubeGrid.ChangeColor(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask);
+                                var attach = defaultActions.FirstOrDefault(x => x.Id == ADD_HEAD_ACTION_ID)?.Action;
+                                if (attach == null) {
+                                    return;
                                 }
 
-                                if (head.SlimBlock.IsFullIntegrity) {
-                                    var topSlimBlock = hinge.Top.SlimBlock;
-                                    var welderMountAmount = topSlimBlock.MaxIntegrity - topSlimBlock.Integrity;
-                                    topSlimBlock.IncreaseMountLevel(welderMountAmount, hinge.OwnerId);
-                                }
+                                attach(hinge);
 
-                                data.FlagAsSucceeded();
+                                if (hinge.Top != null) {
+                                    var hingePartCubeGrid = hinge.TopGrid as MyCubeGrid;
+                                    if (hingePartCubeGrid != null) {
+                                        hingePartCubeGrid.ChangeColor(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask);
+                                    }
+
+                                    if (head.SlimBlock.IsFullIntegrity) {
+                                        var topSlimBlock = hinge.Top.SlimBlock;
+                                        var welderMountAmount = topSlimBlock.MaxIntegrity - topSlimBlock.Integrity;
+                                        topSlimBlock.IncreaseMountLevel(welderMountAmount, hinge.OwnerId);
+                                    }
+
+                                    data.FlagAsSucceeded();
+                                }
                             }
                         }
-                    }
+                    });
                 } catch (Exception exception) {
                     Log.Error(exception);
                     Log.Error(exception.StackTrace);
