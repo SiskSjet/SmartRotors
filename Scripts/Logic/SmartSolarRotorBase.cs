@@ -126,6 +126,7 @@ namespace Sisk.SmartRotors.Logic {
 
                 try {
                     var colorMask = Stator.SlimBlock.ColorMaskHSV;
+                    var skin = Stator.SlimBlock.SkinSubtypeId;
                     var buildPercent = head.SlimBlock.IsFullIntegrity ? 1 : 0.00001525902f;
                     var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
                         SubtypeName = hingeSubtype,
@@ -161,7 +162,7 @@ namespace Sisk.SmartRotors.Logic {
                                 if (hinge.Top != null) {
                                     var hingePartCubeGrid = hinge.TopGrid as MyCubeGrid;
                                     if (hingePartCubeGrid != null) {
-                                        hingePartCubeGrid.ChangeColor(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask);
+                                        hingePartCubeGrid.ChangeColorAndSkin(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask, skin);
                                     }
 
                                     if (head.SlimBlock.IsFullIntegrity) {
