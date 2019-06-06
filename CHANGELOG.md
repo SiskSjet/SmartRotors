@@ -1,3 +1,15 @@
+# [1.0.4](https://github.com/SiskSjet/SmartRotors/compare/v1.0.3...v1.0.4) (2019-06-06)
+
+
+* fix: fix exception with last update of SE ([0102eb7](https://github.com/SiskSjet/SmartRotors/commit/0102eb7))
+
+
+### Features
+
+* feat: add support for the new skin feature ([898ddab](https://github.com/SiskSjet/SmartRotors/commit/898ddab))
+
+
+
 # [1.0.3](https://github.com/SiskSjet/SmartRotors/compare/v1.0.2...v1.0.3) (2019-05-09)
 
 
