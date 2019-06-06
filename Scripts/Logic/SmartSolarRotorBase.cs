@@ -161,7 +161,7 @@ namespace Sisk.SmartRotors.Logic {
                                 if (hinge.Top != null) {
                                     var hingePartCubeGrid = hinge.TopGrid as MyCubeGrid;
                                     if (hingePartCubeGrid != null) {
-                                        hingePartCubeGrid.ChangeColor(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask);
+                                        hingePartCubeGrid.ChangeColorAndSkin(hingePartCubeGrid.GetCubeBlock(hinge.Top.Position), colorMask);
                                     }
 
                                     if (head.SlimBlock.IsFullIntegrity) {
