@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Sandbox.ModAPI;
+using Sisk.SmartRotors.TerminalControls;
 using Sisk.Utils.Logging;
 using Sisk.Utils.Logging.DefaultHandler;
 using Sisk.Utils.Net;

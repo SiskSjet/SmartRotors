@@ -115,7 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls.cs" />
+    <Compile Include="TerminalControls\Controls.cs" />
     <Compile Include="Defs.cs" />
     <Compile Include="Extensions\BlockExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
