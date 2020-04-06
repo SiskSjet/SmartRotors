@@ -1,3 +1,26 @@
+# [1.0.5](https://github.com/SiskSjet/SmartRotors/compare/v1.0.4...v1.0.5) (2020-04-06)
+
+
+### Bug Fixes
+
+* fix * is not in the same block-variant group error ([eda9fed](https://github.com/SiskSjet/SmartRotors/commit/eda9fed896290040f9764dfbffef63c933d3b177))
+* fix an issue where scenario task would not work after a reload ([3ff7fce](https://github.com/SiskSjet/SmartRotors/commit/3ff7fce8932326ba746a74e24c54dbc7770bd226))
+* fix BlockVariants are obsolete warning ([7aae20b](https://github.com/SiskSjet/SmartRotors/commit/7aae20bed01075ea4f854562d1758b1e1c903eb5))
+
+
+
+# [1.0.4](https://github.com/SiskSjet/SmartRotors/compare/v1.0.3...v1.0.4) (2019-06-06)
+
+
+* fix: fix exception with last update of SE ([0102eb7](https://github.com/SiskSjet/SmartRotors/commit/0102eb7))
+
+
+### Features
+
+* feat: add support for the new skin feature ([898ddab](https://github.com/SiskSjet/SmartRotors/commit/898ddab))
+
+
+
 # [1.0.3](https://github.com/SiskSjet/SmartRotors/compare/v1.0.2...v1.0.3) (2019-05-09)
 
 

@@ -238,13 +238,6 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
-
-      <BlockVariants>
-        <BlockVariant>
-          <TypeId>MotorAdvancedStator</TypeId>
-          <SubtypeId>MA_SmartRotor_Solar_Base</SubtypeId>
-        </BlockVariant>
-      </BlockVariants>
     </Definition>
 
     <!-- MA_SmartRotor_Solar_Hinge_TypeB -->

@@ -58,13 +58,6 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
-
-      <BlockVariants>
-        <BlockVariant>
-          <TypeId>MotorAdvancedStator</TypeId>
-          <SubtypeId>MA_SmartRotor_Base_2</SubtypeId>
-        </BlockVariant>
-      </BlockVariants>
     </Definition>
 
     <!-- 	MA_SmartRotor_Part1 -->
@@ -99,13 +92,6 @@
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
-
-      <BlockVariants>
-        <BlockVariant>
-          <TypeId>MotorAdvancedRotor</TypeId>
-          <SubtypeId>MA_SmartRotor_Part2</SubtypeId>
-        </BlockVariant>
-      </BlockVariants>
     </Definition>
 
     <!-- >MA_SmartRotor_Base_2 -->
@@ -262,13 +248,6 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
-
-      <BlockVariants>
-        <BlockVariant>
-          <TypeId>MotorAdvancedStator</TypeId>
-          <SubtypeId>MA_SmartRotor_Base_2_sm</SubtypeId>
-        </BlockVariant>
-      </BlockVariants>
     </Definition>
 
     <!-- 	MA_SmartRotor_Part1_sm -->
@@ -305,13 +284,6 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <PCU>1</PCU>
-
-      <BlockVariants>
-        <BlockVariant>
-          <TypeId>MotorAdvancedRotor</TypeId>
-          <SubtypeId>MA_SmartRotor_Part2_sm</SubtypeId>
-        </BlockVariant>
-      </BlockVariants>
     </Definition>
 
     <!-- >MA_SmartRotor_Base_2_sm -->
