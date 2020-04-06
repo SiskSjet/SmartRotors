@@ -53,6 +53,7 @@
     <None Include="Data\Blocks\SimpleRotor.sbc" />
     <None Include="Data\Blocks\SolarRotor.sbc" />
     <None Include="Data\BlockCategories.sbc" />
+    <None Include="Data\BlockVariantGroup.sbc" />
     <None Include="Data\BlueprintClasses.sbc" />
     <None Include="Data\Blueprints.sbc" />
     <None Include="Data\EntityComponents.sbc" />
