@@ -82,15 +82,6 @@ namespace Sisk.SmartRotors {
         }
 
         /// <summary>
-        ///     Initialize some components that are only available just before the start.
-        /// </summary>
-        public override void BeforeStart() {
-            if (Network == null || Network.IsServer) {
-                InitializeSunTracker();
-            }
-        }
-
-        /// <summary>
         ///     Load mod settings and create localizations.
         /// </summary>
         public override void LoadData() {
@@ -102,6 +93,9 @@ namespace Sisk.SmartRotors {
             }
 
             MyAPIGateway.Gui.GuiControlRemoved += OnGuiControlRemoved;
+            if (Network == null || Network.IsServer) {
+                MyAPIGateway.Session.OnSessionReady += OnSessionReady;
+            }
         }
 
         /// <summary>
@@ -117,6 +111,7 @@ namespace Sisk.SmartRotors {
         protected override void UnloadData() {
             Log?.EnterMethod(nameof(UnloadData));
             MyAPIGateway.Gui.GuiControlRemoved -= OnGuiControlRemoved;
+            MyAPIGateway.Session.OnSessionReady -= OnSessionReady;
 
             if (Network != null) {
                 Log?.Info("Cap network connections");
@@ -216,6 +211,15 @@ namespace Sisk.SmartRotors {
             if (obj.ToString().EndsWith("ScreenOptionsSpace")) {
                 LoadLocalization();
             }
+        }
+
+        /// <summary>
+        ///     Executed if Session is ready.
+        /// </summary>
+        private void OnSessionReady() {
+            MyAPIGateway.Session.OnSessionReady -= OnSessionReady;
+
+            InitializeSunTracker();
         }
     }
 }
