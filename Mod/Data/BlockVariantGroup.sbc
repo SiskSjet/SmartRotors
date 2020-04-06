@@ -3,6 +3,32 @@
   <BlockVariantGroups>
 
     <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="MA_SmartRotor_Base" />
+      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Base</DisplayName>
+      <Description>Description_MA_SmartRotor_Base</Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base" />
+        <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base_2" />
+        <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base_sm" />
+        <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Base_2_sm" />
+      </Blocks>
+    </BlockVariantGroup>
+    
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="MA_SmartRotor_Part1" />
+      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds</Icon>
+      <DisplayName>DisplayName_Block_MA_SmartRotor_Part1</DisplayName>
+      <Description>Description_MA_SmartRotor_Part1</Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part1" />
+        <Block Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part2" />
+        <Block Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part1_sm" />
+        <Block Type="MyObjectBuilder_MotorAdvancedRotor" Subtype="MA_SmartRotor_Part2_sm" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
       <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="MA_SmartRotor_Solar_Base_TypeB" />
       <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds</Icon>
       <DisplayName>DisplayName_Block_MA_SmartRotor_Solar_Base_TypeB</DisplayName>
@@ -12,6 +38,16 @@
         <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Solar_Base" />
         <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Solar_Base_TypeB_sm" />
         <Block Type="MyObjectBuilder_MotorAdvancedStator" Subtype="MA_SmartRotor_Solar_Base_TypeB_sm" />
+      </Blocks>
+    </BlockVariantGroup>
+    
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="MA_Solar_Support" />
+      <Icon>Textures\GUI\Icons\Cubes\MA_Solar_Support.dds</Icon>
+      <DisplayName>DisplayName_Block_MA_Solar_Support</DisplayName>
+      <Description>Description_MA_Solar_Support</Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_CubeBlock" Subtype="MA_Solar_Support" />
       </Blocks>
     </BlockVariantGroup>
 
