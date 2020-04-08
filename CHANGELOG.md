@@ -1,3 +1,12 @@
+# [1.0.6](https://github.com/SiskSjet/SmartRotors/compare/v1.0.5...v1.0.6) (2020-04-08)
+
+
+### Bug Fixes
+
+* fix NullReferenceException introduced with latest hotfix ([cc0bb41](https://github.com/SiskSjet/SmartRotors/commit/cc0bb419c2ca9f43b0a277cd7ac2e35cedbd7508))
+
+
+
 # [1.0.5](https://github.com/SiskSjet/SmartRotors/compare/v1.0.4...v1.0.5) (2020-04-06)
 
 
