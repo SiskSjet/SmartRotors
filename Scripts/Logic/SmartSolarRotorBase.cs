@@ -53,7 +53,7 @@ namespace Sisk.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void UpdateBeforeSimulation100() {
-            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
+            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed || Mod.Static.SunTracker == null) {
                 return;
             }
 
