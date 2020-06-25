@@ -34,6 +34,11 @@ namespace Sisk.SmartRotors {
         }
 
         /// <summary>
+        ///     Indicates if mod is a dev version.
+        /// </summary>
+        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
+
+        /// <summary>
         ///     Helper for modifying vanilla terminal controls and actions.
         /// </summary>
         public Controls Controls { get; private set; }
@@ -142,10 +147,14 @@ namespace Sisk.SmartRotors {
         /// </summary>
         private void InitializeLogging() {
             Log = Logger.ForScope<Mod>();
-            if (MyAPIGateway.Multiplayer.IsServer) {
-                Log.Register(new WorldStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 0));
+            if (MyAPIGateway.Multiplayer.MultiplayerActive) {
+                if (MyAPIGateway.Multiplayer.IsServer) {
+                    Log.Register(new WorldStorageHandler(LogFile, LogFormatter, IsDevVersion ? LogEventLevel.All : DEFAULT_LOG_EVENT_LEVEL, IsDevVersion ? 0 : 500));
+                } else {
+                    Log.Register(new GlobalStorageHandler(LogFile, LogFormatter, IsDevVersion ? LogEventLevel.All : DEFAULT_LOG_EVENT_LEVEL, IsDevVersion ? 0 : 500));
+                }
             } else {
-                Log.Register(new GlobalStorageHandler(LogFile, LogFormatter, DEFAULT_LOG_EVENT_LEVEL, 0));
+                Log.Register(new WorldStorageHandler(LogFile, LogFormatter, IsDevVersion ? LogEventLevel.All : DEFAULT_LOG_EVENT_LEVEL, IsDevVersion ? 0 : 500));
             }
 
             using (Log.BeginMethod(nameof(InitializeLogging))) {
