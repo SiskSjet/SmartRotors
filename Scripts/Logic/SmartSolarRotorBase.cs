@@ -20,7 +20,7 @@ namespace Sisk.SmartRotors.Logic {
     /// </summary>
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_BASE, Defs.SolarDefs.LB_SMART_SOLAR_BASE_TYPE_B, Defs.SolarDefs.SB_SMART_SOLAR_BASE_TYPE_B)]
     public sealed class SmartSolarRotorBase : SmartRotorBase {
-        private const string ADD_HEAD_ACTION_ID = "Add Top Part";
+        private const string ADD_HEAD_ACTION_ID = "AddRotorTopPart";
         private const string ERROR_BUILD_SPOT_OCCUPIED = "Solar hinge cannot be placed. Build spot occupied.";
         private const string ERROR_UNABLE_TO_PLACE = "Solar hinge cannot be placed.";
 
