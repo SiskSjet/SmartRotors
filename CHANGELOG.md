@@ -1,3 +1,12 @@
+# [1.0.7](https://github.com/SiskSjet/SmartRotors/compare/v1.0.6...v1.0.7) (2020-06-25)
+
+
+### Bug Fixes
+
+* fix an issue which prevent the rotor head of the hinge to spawn ([35d2091](https://github.com/SiskSjet/SmartRotors/commit/35d20911cb1393845db1f76588ef735b0194a005))
+
+
+
 # [1.0.6](https://github.com/SiskSjet/SmartRotors/compare/v1.0.5...v1.0.6) (2020-04-08)
 
 
