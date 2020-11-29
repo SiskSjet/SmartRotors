@@ -34,11 +34,6 @@ namespace Sisk.SmartRotors {
         }
 
         /// <summary>
-        ///     Indicates if mod is a dev version.
-        /// </summary>
-        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
-
-        /// <summary>
         ///     Helper for modifying vanilla terminal controls and actions.
         /// </summary>
         public Controls Controls { get; private set; }
@@ -47,6 +42,11 @@ namespace Sisk.SmartRotors {
         ///     Holds Subtype ids for blocks in this mod.
         /// </summary>
         public Defs Defs { get; private set; }
+
+        /// <summary>
+        ///     Indicates if mod is a dev version.
+        /// </summary>
+        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
 
         /// <summary>
         ///     Language used to localize this mod.
