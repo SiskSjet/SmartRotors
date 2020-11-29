@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ParallelTasks;
@@ -12,6 +12,7 @@ using Sisk.Utils.Logging;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.ModAPI;
+using VRage.ObjectBuilders;
 using VRageMath;
 
 namespace Sisk.SmartRotors.Logic {
@@ -36,18 +37,20 @@ namespace Sisk.SmartRotors.Logic {
         /// </summary>
         private ILogger Log { get; }
 
-        /// <summary>
-        ///     Called if entity is added to scene.
-        /// </summary>
-        public override void OnAddedToScene() {
-            base.OnAddedToScene();
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
+            using (Log.BeginMethod(nameof(Init))) {
+                Log.Debug($"START {nameof(Init)}");
+                base.Init(objectBuilder);
 
-            if (!Mod.Static.Controls.AreTerminalControlsInitialized) {
-                Mod.Static.Controls.InitializeControls();
-            }
+                if (!Mod.Static.Controls.AreTerminalControlsInitialized) {
+                    Mod.Static.Controls.InitializeControls();
+                }
 
-            if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
-                NeedsUpdate |= MyEntityUpdateEnum.EACH_100TH_FRAME;
+                if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    NeedsUpdate |= MyEntityUpdateEnum.EACH_100TH_FRAME;
+                }
+
+                Log.Debug($"END {nameof(Init)}");
             }
         }
 
