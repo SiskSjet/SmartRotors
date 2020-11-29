@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 using Sandbox.ModAPI;
-using VRage.Game.ObjectBuilders;
+using VRage.Game;
 using VRageMath;
 
 namespace Sisk.SmartRotors {
@@ -18,23 +17,11 @@ namespace Sisk.SmartRotors {
         ///     Creates a new instance of <see cref="SunTracker" />.
         /// </summary>
         public SunTracker() {
-            var environment = MyAPIGateway.Session.GetSector().Environment;
-            var checkpoint = MyAPIGateway.Session.GetCheckpoint("null");
-
             Speed = 60f * MyAPIGateway.Session.SessionSettings.SunRotationIntervalMinutes;
             _enabled = MyAPIGateway.Session.SessionSettings.EnableSunRotation;
 
-            Vector3 sunDirectionNormalized;
-            Vector3.CreateFromAzimuthAndElevation(environment.SunAzimuth, environment.SunElevation, out sunDirectionNormalized);
-
-            var weatherComponent = checkpoint.SessionComponents.OfType<MyObjectBuilder_SectorWeatherComponent>().FirstOrDefault();
-            if (weatherComponent != null && !weatherComponent.BaseSunDirection.IsZero) {
-                _baseSunDirection = weatherComponent.BaseSunDirection;
-            }
-
-            var cross = Vector3.Cross(Math.Abs(Vector3.Dot(sunDirectionNormalized, Vector3.Up)) > 0.95f ? Vector3.Cross(sunDirectionNormalized, Vector3.Left) : Vector3.Cross(sunDirectionNormalized, Vector3.Up), sunDirectionNormalized);
-            cross.Normalize();
-            _sunRotationAxis = cross;
+            _baseSunDirection = MySunProperties.Default.BaseSunDirectionNormalized;
+            _sunRotationAxis = MySunProperties.Default.SunRotationAxis;
         }
 
         /// <summary>
@@ -54,7 +41,7 @@ namespace Sisk.SmartRotors {
         public Vector3D CalculateSunDirection() {
             if (_enabled) {
                 const float predict = 16f * 100 / 1000;
-                var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.283186f * ((ElapsedGameTime.TotalSeconds + predict) / Speed)));
+                var vector3 = Vector3D.Transform(_baseSunDirection, MatrixD.CreateFromAxisAngle(_sunRotationAxis, 6.2831859588623 * ((ElapsedGameTime.TotalSeconds + predict) / Speed)));
                 vector3.Normalize();
 
                 return vector3;
