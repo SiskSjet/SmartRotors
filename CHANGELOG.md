@@ -1,3 +1,12 @@
+# [1.0.9](https://github.com/SiskSjet/SmartRotors/compare/v1.0.8...v1.0.9) (2020-11-30)
+
+
+### Bug Fixes
+
+* fix tracking issues ([c55d85c](https://github.com/SiskSjet/SmartRotors/commit/c55d85c50e7a4e1b138f4b56c1e2b35633db6c32))
+
+
+
 # [1.0.7](https://github.com/SiskSjet/SmartRotors/compare/v1.0.6...v1.0.7) (2020-06-25)
 
 
