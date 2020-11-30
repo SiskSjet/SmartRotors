@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Sandbox.ModAPI;
-using VRage.Game;
+using VRage.Game.ObjectBuilders;
 using VRageMath;
 
 namespace Sisk.SmartRotors {
@@ -17,11 +18,23 @@ namespace Sisk.SmartRotors {
         ///     Creates a new instance of <see cref="SunTracker" />.
         /// </summary>
         public SunTracker() {
+            var environment = MyAPIGateway.Session.GetSector().Environment;
+            var checkpoint = MyAPIGateway.Session.GetCheckpoint("null");
+
             Speed = 60f * MyAPIGateway.Session.SessionSettings.SunRotationIntervalMinutes;
             _enabled = MyAPIGateway.Session.SessionSettings.EnableSunRotation;
 
-            _baseSunDirection = MySunProperties.Default.BaseSunDirectionNormalized;
-            _sunRotationAxis = MySunProperties.Default.SunRotationAxis;
+            Vector3 sunDirectionNormalized;
+            Vector3.CreateFromAzimuthAndElevation(environment.SunAzimuth, environment.SunElevation, out sunDirectionNormalized);
+
+            var weatherComponent = checkpoint.SessionComponents.OfType<MyObjectBuilder_SectorWeatherComponent>().FirstOrDefault();
+            if (weatherComponent != null && !weatherComponent.BaseSunDirection.IsZero) {
+                _baseSunDirection = weatherComponent.BaseSunDirection;
+            }
+
+            var cross = Vector3.Cross(Math.Abs(Vector3.Dot(sunDirectionNormalized, Vector3.Up)) > 0.95f ? Vector3.Cross(sunDirectionNormalized, Vector3.Left) : Vector3.Cross(sunDirectionNormalized, Vector3.Up), sunDirectionNormalized);
+            cross.Normalize();
+            _sunRotationAxis = cross;
         }
 
         /// <summary>
