@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ParallelTasks;
 using Sandbox.Common.ObjectBuilders;
+using Sandbox.Game;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
@@ -16,6 +17,7 @@ using VRage.ObjectBuilders;
 using VRageMath;
 
 namespace Sisk.SmartRotors.Logic {
+
     /// <summary>
     ///     Provide game logic for Smart Solar Rotors bases.
     /// </summary>
@@ -56,11 +58,11 @@ namespace Sisk.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void UpdateBeforeSimulation100() {
-            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed || Mod.Static.SunTracker == null) {
+            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
                 return;
             }
 
-            var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+            var sunDirection = MyVisualScriptLogicProvider.GetSunDirection();
             Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward, 3 * MathHelper.RPMToRadiansPerSecond);
         }
 
@@ -91,6 +93,7 @@ namespace Sisk.SmartRotors.Logic {
                     default:
                         origin = headPosition + up * gridSize;
                         break;
+
                     case Defs.SolarDefs.SB_SMART_SOLAR_BASE_TYPE_B:
                         origin = headPosition + up + left * gridSize + forward * gridSize;
                         break;
