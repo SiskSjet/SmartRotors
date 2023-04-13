@@ -10,6 +10,7 @@ using VRage;
 using VRage.Game.Components;
 
 namespace Sisk.SmartRotors {
+
     /// <summary>
     ///     Main session component which register Logging, Network and SunTracker components.
     /// </summary>
@@ -34,6 +35,11 @@ namespace Sisk.SmartRotors {
         }
 
         /// <summary>
+        ///     The static instance.
+        /// </summary>
+        public static Mod Static { get; private set; }
+
+        /// <summary>
         ///     Helper for modifying vanilla terminal controls and actions.
         /// </summary>
         public Controls Controls { get; private set; }
@@ -42,11 +48,6 @@ namespace Sisk.SmartRotors {
         ///     Holds Subtype ids for blocks in this mod.
         /// </summary>
         public Defs Defs { get; private set; }
-
-        /// <summary>
-        ///     Indicates if mod is a dev version.
-        /// </summary>
-        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
 
         /// <summary>
         ///     Language used to localize this mod.
@@ -64,27 +65,9 @@ namespace Sisk.SmartRotors {
         public Network Network { get; private set; }
 
         /// <summary>
-        ///     The static instance.
+        ///     Indicates if mod is a dev version.
         /// </summary>
-        public static Mod Static { get; private set; }
-
-        /// <summary>
-        ///     The sun tracker component.
-        /// </summary>
-        public SunTracker SunTracker { get; private set; }
-
-        /// <summary>
-        ///     Used to format the <see cref="LogEvent" /> entries.
-        /// </summary>
-        /// <param name="level">The <see cref="LogEventLevel" /> for current event.</param>
-        /// <param name="message">The <see cref="LogEvent" /> message.</param>
-        /// <param name="timestamp">The timestamp of the <see cref="LogEvent" />.</param>
-        /// <param name="scope">The scope of the <see cref="LogEvent" />.</param>
-        /// <param name="method">The called method of this <see cref="LogEvent" />.</param>
-        /// <returns></returns>
-        private static string LogFormatter(LogEventLevel level, string message, DateTime timestamp, Type scope, string method) {
-            return $"[{timestamp:HH:mm:ss:fff}] [{new string(level.ToString().Take(1).ToArray())}] [{scope}->{method}()]: {message}";
-        }
+        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
 
         /// <summary>
         ///     Load mod settings and create localizations.
@@ -98,9 +81,6 @@ namespace Sisk.SmartRotors {
             }
 
             MyAPIGateway.Gui.GuiControlRemoved += OnGuiControlRemoved;
-            if (Network == null || Network.IsServer) {
-                MyAPIGateway.Session.OnSessionReady += OnSessionReady;
-            }
         }
 
         /// <summary>
@@ -116,7 +96,6 @@ namespace Sisk.SmartRotors {
         protected override void UnloadData() {
             Log?.EnterMethod(nameof(UnloadData));
             MyAPIGateway.Gui.GuiControlRemoved -= OnGuiControlRemoved;
-            MyAPIGateway.Session.OnSessionReady -= OnSessionReady;
 
             if (Network != null) {
                 Log?.Info("Cap network connections");
@@ -140,6 +119,19 @@ namespace Sisk.SmartRotors {
             }
 
             Static = null;
+        }
+
+        /// <summary>
+        ///     Used to format the <see cref="LogEvent" /> entries.
+        /// </summary>
+        /// <param name="level">The <see cref="LogEventLevel" /> for current event.</param>
+        /// <param name="message">The <see cref="LogEvent" /> message.</param>
+        /// <param name="timestamp">The timestamp of the <see cref="LogEvent" />.</param>
+        /// <param name="scope">The scope of the <see cref="LogEvent" />.</param>
+        /// <param name="method">The called method of this <see cref="LogEvent" />.</param>
+        /// <returns></returns>
+        private static string LogFormatter(LogEventLevel level, string message, DateTime timestamp, Type scope, string method) {
+            return $"[{timestamp:HH:mm:ss:fff}] [{new string(level.ToString().Take(1).ToArray())}] [{scope}->{method}()]: {message}";
         }
 
         /// <summary>
@@ -171,16 +163,6 @@ namespace Sisk.SmartRotors {
                 Network = new Network(NETWORK_ID);
                 Log.Info($"IsClient {Network.IsClient}, IsServer: {Network.IsServer}, IsDedicated: {Network.IsDedicated}");
                 Log.Info("Network initialized");
-            }
-        }
-
-        /// <summary>
-        ///     Initialize a sun tracker component.
-        /// </summary>
-        private void InitializeSunTracker() {
-            using (Log.BeginMethod(nameof(InitializeSunTracker))) {
-                SunTracker = new SunTracker();
-                Log.Info($"{nameof(SunTracker)} initialized");
             }
         }
 
@@ -220,15 +202,6 @@ namespace Sisk.SmartRotors {
             if (obj.ToString().EndsWith("ScreenOptionsSpace")) {
                 LoadLocalization();
             }
-        }
-
-        /// <summary>
-        ///     Executed if Session is ready.
-        /// </summary>
-        private void OnSessionReady() {
-            MyAPIGateway.Session.OnSessionReady -= OnSessionReady;
-
-            InitializeSunTracker();
         }
     }
 }

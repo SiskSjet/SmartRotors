@@ -1,4 +1,5 @@
 using Sandbox.Common.ObjectBuilders;
+using Sandbox.Game;
 using Sisk.SmartRotors.Extensions;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
@@ -7,6 +8,7 @@ using VRage.ObjectBuilders;
 using VRageMath;
 
 namespace Sisk.SmartRotors.Logic {
+
     // todo: set lower and upper limits. Lower: -22 | Upper: 202
     // todo: set lower and upper limits. Lower: -42 | Upper: 222 Type B
     /// <summary>
@@ -14,6 +16,7 @@ namespace Sisk.SmartRotors.Logic {
     /// </summary>
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MotorAdvancedStator), false, Defs.SolarDefs.LB_SMART_SOLAR_HINGE, Defs.SolarDefs.LB_SMART_SOLAR_HINGE_TYPE_B, Defs.SolarDefs.SB_SMART_SOLAR_HINGE_TYPE_B)]
     public sealed class SmartRotorSolarHinge : SmartRotorHinge {
+
         /// <summary>
         ///     Initializes a new instance of <see cref="SmartRotorSolarHinge" />.
         /// </summary>
@@ -45,11 +48,11 @@ namespace Sisk.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void UpdateBeforeSimulation100() {
-            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed || Mod.Static.SunTracker == null) {
+            if (Stator == null || !Stator.IsWorking || Stator.Top == null || Stator.Top.Closed) {
                 return;
             }
 
-            var sunDirection = Mod.Static.SunTracker.CalculateSunDirection();
+            var sunDirection = MyVisualScriptLogicProvider.GetSunDirection();
             Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Left, 3 * MathHelper.RPMToRadiansPerSecond);
         }
     }
