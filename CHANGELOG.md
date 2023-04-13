@@ -1,3 +1,12 @@
+# [1.0.10](https://github.com/SiskSjet/SmartRotors/compare/v1.0.9...v1.0.10) (2023-04-13)
+
+
+### Bug Fixes
+
+* fix ctd after se update ([e8818c5f259ce881c1aa82108319fac2ead9bda9](https://github.com/SiskSjet/SmartRotors/commit/e8818c5f259ce881c1aa82108319fac2ead9bda9))
+
+
+
 # [1.0.9](https://github.com/SiskSjet/SmartRotors/compare/v1.0.8...v1.0.9) (2020-11-30)
 
 
