@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
@@ -17,21 +17,21 @@ namespace Sisk.SmartRotors.TerminalControls {
         public bool AreTerminalControlsInitialized { get; private set; }
 
         /// <summary>
+        ///     Initialize the controls.
+        /// </summary>
+        public void InitializeControls() {
+            //ModifyVanillaControls();
+            //ModifyVanillaActions();
+            AreTerminalControlsInitialized = true;
+        }
+
+        /// <summary>
         ///     Check if the given block is one of the solar stator blocks.
         /// </summary>
         /// <param name="block">The block that will be check if it's one of the solar stator blocks.</param>
         /// <returns>Return true if given block is one of the solar block stators.</returns>
         private static bool IsSolarStator(IMyTerminalBlock block) {
             return block != null && (Mod.Static.Defs.Solar.BaseIds.Contains(block.BlockDefinition.SubtypeId) || Mod.Static.Defs.Solar.HingeIds.Contains(block.BlockDefinition.SubtypeId));
-        }
-
-        /// <summary>
-        ///     Initialize the controls.
-        /// </summary>
-        public void InitializeControls() {
-            ModifyVanillaControls();
-            ModifyVanillaActions();
-            AreTerminalControlsInitialized = true;
         }
 
         /// <summary>

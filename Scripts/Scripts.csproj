@@ -92,9 +92,6 @@
     <Reference Include="VRage.Math">
       <HintPath>C:\Spiele\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Math.dll</HintPath>
     </Reference>
-    <Reference Include="VRage.Native">
-      <HintPath>C:\Spiele\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Native.dll</HintPath>
-    </Reference>
     <Reference Include="VRage.Network">
       <HintPath>C:\Spiele\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Network.dll</HintPath>
     </Reference>
@@ -129,7 +126,6 @@
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\SmartRotorSettings.cs" />
-    <Compile Include="SunTracker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utils\Logging\Logging.csproj">

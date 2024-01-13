@@ -7,7 +7,6 @@ using Sisk.SmartRotors.Extensions;
 using Sisk.SmartRotors.Settings;
 using Sisk.Utils.Logging;
 using VRage.Game.Components;
-using VRage.ModAPI;
 using VRage.ObjectBuilders;
 
 namespace Sisk.SmartRotors.Logic {
@@ -38,6 +37,7 @@ namespace Sisk.SmartRotors.Logic {
             set {
                 if (value != _settings.IsHingeAttached) {
                     _settings.IsHingeAttached = value;
+                    Save();
                 }
             }
         }
@@ -61,51 +61,34 @@ namespace Sisk.SmartRotors.Logic {
 
         /// <inheritdoc />
         public override void Init(MyObjectBuilder_EntityBase objectBuilder) {
-            base.Init(objectBuilder);
+            using (Log.BeginMethod(nameof(Init))) {
+                Log.Debug($"START {nameof(Init)}");
+                base.Init(objectBuilder);
 
-            Stator = Entity as IMyMotorAdvancedStator;
+                Stator = Entity as IMyMotorAdvancedStator;
 
-            if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
-                if (Entity.Storage == null) {
-                    Entity.Storage = new MyModStorageComponent();
-                }
-            }
-        }
-
-        /// <summary>
-        ///     Tells the component container serializer whether this component should be saved.
-        ///     I use it to call the <see cref="IMyEntity.Save" /> extension method.
-        /// </summary>
-        /// <returns></returns>
-        public override bool IsSerialized() {
-            using (Log.BeginMethod(nameof(IsSerialized))) {
-                if (Stator != null && (Mod.Static.Network == null || Mod.Static.Network.IsServer)) {
-                    try {
-                        Stator.Save(new Guid(SmartRotorSettings.GUID), _settings);
-                    } catch (Exception exception) {
-                        Log.Error(exception);
-                    }
+                if (Stator == null) {
+                    return;
                 }
 
-                return base.IsSerialized();
-            }
-        }
-
-        /// <inheritdoc />
-        public override void OnAddedToScene() {
-            using (Log.BeginMethod(nameof(OnAddedToScene))) {
                 if (Stator.IsProjected()) {
                     return;
                 }
 
                 if (Mod.Static.Network == null || Mod.Static.Network.IsServer) {
+                    if (Entity.Storage == null) {
+                        Entity.Storage = new MyModStorageComponent();
+                    }
+
                     try {
                         _settings = Stator.Load<SmartRotorSettings>(new Guid(SmartRotorSettings.GUID));
                         if (_settings != null) {
+                            Log.Debug("Settings loaded");
                             if (_settings.Version < SmartRotorSettings.VERSION) {
                                 // todo: merge old and new settings in future versions.
                             }
                         } else {
+                            Log.Debug("New Block creating settings");
                             _settings = new SmartRotorSettings();
                         }
                     } catch (Exception exception) {
@@ -115,6 +98,8 @@ namespace Sisk.SmartRotors.Logic {
 
                     Stator.AttachedEntityChanged += OnAttachedEntityChanged;
                 }
+
+                Log.Debug($"END {nameof(Init)}");
             }
         }
 
@@ -129,12 +114,17 @@ namespace Sisk.SmartRotors.Logic {
         /// </summary>
         /// <param name="base">The base on which the top is changed.</param>
         private void OnAttachedEntityChanged(IMyMechanicalConnectionBlock @base) {
-            if (@base.Top != null) {
-                if (!IsHingeAttached) {
-                    MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
+            using (Log.BeginMethod(nameof(OnAttachedEntityChanged))) {
+                Log.Debug($"START {nameof(OnAttachedEntityChanged)}");
+                if (@base.Top != null) {
+                    if (!IsHingeAttached) {
+                        MyAPIGateway.Parallel.Start(PlaceSmartHinge, PlaceSmartHingeCompleted, new PlaceSmartHingeData(Stator.Top));
+                    }
+                } else {
+                    IsHingeAttached = false;
                 }
-            } else {
-                IsHingeAttached = false;
+
+                Log.Debug($"END {nameof(OnAttachedEntityChanged)}");
             }
         }
 
@@ -161,6 +151,25 @@ namespace Sisk.SmartRotors.Logic {
                         Log.Error("Something went wrong when trying to place hinge.");
                         break;
                 }
+            }
+        }
+
+        /// <summary>
+        ///     Save setting to blocks mod storage.
+        /// </summary>
+        private void Save() {
+            using (Log.BeginMethod(nameof(Save))) {
+                Log.Debug($"START {nameof(Save)}");
+
+                if (Stator != null && (Mod.Static.Network == null || Mod.Static.Network.IsServer)) {
+                    try {
+                        Stator.Save(new Guid(SmartRotorSettings.GUID), _settings);
+                    } catch (Exception exception) {
+                        Log.Error(exception);
+                    }
+                }
+
+                Log.Debug($"END {nameof(Save)}");
             }
         }
     }
