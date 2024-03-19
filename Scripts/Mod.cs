@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using RealSun;
 using Sandbox.ModAPI;
 using Sisk.SmartRotors.TerminalControls;
 using Sisk.Utils.Logging;
@@ -16,7 +17,7 @@ namespace Sisk.SmartRotors {
     ///     Main session component which register Logging, Network and SunTracker components.
     /// </summary>
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
-    public class Mod : MySessionComponentBase {
+    internal class Mod : MySessionComponentBase {
         public const string NAME = "SmartRotors";
         private const LogEventLevel DEFAULT_LOG_EVENT_LEVEL = LogEventLevel.Info | LogEventLevel.Warning | LogEventLevel.Error;
         private const string LOG_FILE_TEMPLATE = "{0}.log";
@@ -62,6 +63,8 @@ namespace Sisk.SmartRotors {
         /// </summary>
         public Network Network { get; private set; }
 
+        public RealStarsApi RealStarsApi { get; private set; }
+
         /// <summary>
         ///     Indicates if mod is a dev version.
         /// </summary>
@@ -73,6 +76,7 @@ namespace Sisk.SmartRotors {
         public override void LoadData() {
             InitializeLogging();
             LoadLocalization();
+            LoadRealStarApi();
 
             if (MyAPIGateway.Multiplayer.MultiplayerActive) {
                 InitializeNetwork();
@@ -94,6 +98,11 @@ namespace Sisk.SmartRotors {
         protected override void UnloadData() {
             Log?.EnterMethod(nameof(UnloadData));
             MyAPIGateway.Gui.GuiControlRemoved -= OnGuiControlRemoved;
+
+            if (RealStarsApi != null) {
+                RealStarsApi.Unload();
+                RealStarsApi = null;
+            }
 
             if (Network != null) {
                 Log?.Info("Cap network connections");
@@ -189,6 +198,11 @@ namespace Sisk.SmartRotors {
                     MyTexts.LoadTexts(path, cultureName, subcultureName);
                 }
             }
+        }
+
+        private void LoadRealStarApi() {
+            RealStarsApi = new RealStarsApi();
+            RealStarsApi.Load();
         }
 
         /// <summary>
