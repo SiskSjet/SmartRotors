@@ -1,390 +1,398 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <CubeBlocks>
+	<CubeBlocks>
 
-    <!-- 	MA_SmartRotor_Base -->
-    <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
-      <Id>
-        <TypeId>MotorAdvancedStator</TypeId>
-        <SubtypeId>MA_SmartRotor_Base</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Base</DisplayName>
-      <Description>Description_MA_SmartRotor_Base</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Base.mwm</Model>
-      <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="10" />
-        <Component Subtype="LargeTube" Count="4" />
-        <Component Subtype="Motor" Count="4" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="5" />
-      </Components>
-      <CriticalComponent Subtype="Computer" Index="0" />
-      <MountPoints>
-        <MountPoint Side="Bottom" StartX="0.08" StartY="0.08" EndX="0.92" EndY="0.92" />
-      </MountPoints>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr2.mwm" />
-      </BuildProgressModels>
-      <BlockPairName>MA_SmartRotor_Base</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>20</BuildTimeSeconds>
-      <PrimarySound>BlockRotor</PrimarySound>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.002</RequiredPowerInput>
-      <MaxForceMagnitude>1E+08</MaxForceMagnitude>
-      <PropulsionForce>20000</PropulsionForce>
+		<!-- 	MA_SmartRotor_Base -->
+		<Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
+			<Id>
+				<TypeId>MotorAdvancedStator</TypeId>
+				<SubtypeId>MA_SmartRotor_Base</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Base</DisplayName>
+			<Description>Description_MA_SmartRotor_Base</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Base.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="LargeTube" Count="4" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="SteelPlate" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.08" StartY="0.08" EndX="0.92" EndY="0.92" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>MA_SmartRotor_Base</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<PrimarySound>BlockRotor</PrimarySound>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.002</RequiredPowerInput>
+			<MaxForceMagnitude>1E+08</MaxForceMagnitude>
+			<PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part1</RotorPart>
+			<RotorPart>MA_SmartRotor_Part1</RotorPart>
 
-      <RotorDisplacementMin>-0.1</RotorDisplacementMin>
-      <RotorDisplacementMax>0.04</RotorDisplacementMax>
-      <RotorDisplacementMinSmall>-0.61</RotorDisplacementMinSmall>
-      <RotorDisplacementMaxSmall>-0.43</RotorDisplacementMaxSmall>
-      <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
+			<RotorDisplacementMin>-0.1</RotorDisplacementMin>
+			<RotorDisplacementMax>0.04</RotorDisplacementMax>
+			<RotorDisplacementMinSmall>-0.61</RotorDisplacementMinSmall>
+			<RotorDisplacementMaxSmall>-0.43</RotorDisplacementMaxSmall>
+			<RotorDisplacementInModel>0.0</RotorDisplacementInModel>
 
-      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-      <DamagedSound>ParticleHeavyMech</DamagedSound>
-      <SafetyDetach>5</SafetyDetach>
-      <SafetyDetachMax>5</SafetyDetachMax>
-      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
-      <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>100</PCU>
-    </Definition>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<SafetyDetach>5</SafetyDetach>
+			<SafetyDetachMax>5</SafetyDetachMax>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<PCU>100</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- 	MA_SmartRotor_Part1 -->
-    <Definition>
-      <Id>
-        <TypeId>MotorAdvancedRotor</TypeId>
-        <SubtypeId>MA_SmartRotor_Part1</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Part1</DisplayName>
-      <Description>Description_MA_SmartRotor_Part1</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Part1.mwm</Model>
-      <UseModelIntersection>true</UseModelIntersection>
-      <Components>
-        <Component Subtype="SteelPlate" Count="30" />
-        <Component Subtype="LargeTube" Count="24" />
-      </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <MountPoints>
-        <MountPoint Side="Top" StartX="0.32" StartY="0.32" EndX="0.68" EndY="0.68" Default="true" />
-      </MountPoints>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr2.mwm" />
-      </BuildProgressModels>
-      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>5</BuildTimeSeconds>
-    </Definition>
+		<!-- 	MA_SmartRotor_Part1 -->
+		<Definition>
+			<Id>
+				<TypeId>MotorAdvancedRotor</TypeId>
+				<SubtypeId>MA_SmartRotor_Part1</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Part1</DisplayName>
+			<Description>Description_MA_SmartRotor_Part1</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Part1.mwm</Model>
+			<UseModelIntersection>true</UseModelIntersection>
+			<Components>
+				<Component Subtype="SteelPlate" Count="30" />
+				<Component Subtype="LargeTube" Count="24" />
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.32" StartY="0.32" EndX="0.68" EndY="0.68" Default="true" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>MA_SmartRotor_Part1</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>5</BuildTimeSeconds>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- >MA_SmartRotor_Base_2 -->
-    <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
-      <Id>
-        <TypeId>MotorAdvancedStator</TypeId>
-        <SubtypeId>MA_SmartRotor_Base_2</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Base_2</DisplayName>
-      <Description>Description_MA_SmartRotor_Base_2</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
-      <GuiVisible>false</GuiVisible>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm</Model>
-      <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="10" />
-        <Component Subtype="LargeTube" Count="4" />
-        <Component Subtype="Motor" Count="4" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="5" />
-      </Components>
-      <CriticalComponent Subtype="Computer" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr2.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Bottom" StartX="0.43" StartY="0.41" EndX="0.57" EndY="0.84" />
-        <MountPoint Side="Top" StartX="0.43" StartY="0.16" EndX="0.57" EndY="0.59" />
-        <MountPoint Side="Back" StartX="0.19" StartY="0.19" EndX="0.81" EndY="0.81" />
-      </MountPoints>
-      <BlockPairName>MA_SmartRotor_Base_2</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>20</BuildTimeSeconds>
-      <PrimarySound>BlockRotor</PrimarySound>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.002</RequiredPowerInput>
-      <MaxForceMagnitude>1E+08</MaxForceMagnitude>
-      <PropulsionForce>20000</PropulsionForce>
+		<!-- >MA_SmartRotor_Base_2 -->
+		<Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
+			<Id>
+				<TypeId>MotorAdvancedStator</TypeId>
+				<SubtypeId>MA_SmartRotor_Base_2</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Base_2</DisplayName>
+			<Description>Description_MA_SmartRotor_Base_2</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
+			<GuiVisible>false</GuiVisible>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="LargeTube" Count="4" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="SteelPlate" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr2.mwm" />
+			</BuildProgressModels>
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.43" StartY="0.41" EndX="0.57" EndY="0.84" />
+				<MountPoint Side="Top" StartX="0.43" StartY="0.16" EndX="0.57" EndY="0.59" />
+				<MountPoint Side="Back" StartX="0.19" StartY="0.19" EndX="0.81" EndY="0.81" />
+			</MountPoints>
+			<BlockPairName>MA_SmartRotor_Base_2</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<PrimarySound>BlockRotor</PrimarySound>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.002</RequiredPowerInput>
+			<MaxForceMagnitude>1E+08</MaxForceMagnitude>
+			<PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part2</RotorPart>
+			<RotorPart>MA_SmartRotor_Part2</RotorPart>
 
-      <RotorDisplacementMin>0</RotorDisplacementMin>
-      <RotorDisplacementMax>0</RotorDisplacementMax>
-      <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
-      <RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
-      <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
+			<RotorDisplacementMin>0</RotorDisplacementMin>
+			<RotorDisplacementMax>0</RotorDisplacementMax>
+			<RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
+			<RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
+			<RotorDisplacementInModel>0.0</RotorDisplacementInModel>
 
-      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-      <DamagedSound>ParticleHeavyMech</DamagedSound>
-      <SafetyDetach>5</SafetyDetach>
-      <SafetyDetachMax>5</SafetyDetachMax>
-      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
-      <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>1</PCU>
-    </Definition>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<SafetyDetach>5</SafetyDetach>
+			<SafetyDetachMax>5</SafetyDetachMax>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<PCU>1</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- 	MA_SmartRotor_Part2 -->
-    <Definition>
-      <Id>
-        <TypeId>MotorAdvancedRotor</TypeId>
-        <SubtypeId>MA_SmartRotor_Part2</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Part2</DisplayName>
-      <Description>Description_MA_SmartRotor_Part2</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
-      <GuiVisible>false</GuiVisible>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Part2.mwm</Model>
-      <UseModelIntersection>true</UseModelIntersection>
-      <Components>
-        <Component Subtype="SteelPlate" Count="30" />
-        <Component Subtype="LargeTube" Count="24" />
-      </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr2.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Left" StartX="0.09" StartY="0.09" EndX="0.91" EndY="0.91" />
-      </MountPoints>
-      <BlockPairName>MA_SmartRotor_Part2</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>5</BuildTimeSeconds>
-      <PCU>1</PCU>
-    </Definition>
+		<!-- 	MA_SmartRotor_Part2 -->
+		<Definition>
+			<Id>
+				<TypeId>MotorAdvancedRotor</TypeId>
+				<SubtypeId>MA_SmartRotor_Part2</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Part2</DisplayName>
+			<Description>Description_MA_SmartRotor_Part2</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
+			<GuiVisible>false</GuiVisible>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Part2.mwm</Model>
+			<UseModelIntersection>true</UseModelIntersection>
+			<Components>
+				<Component Subtype="SteelPlate" Count="30" />
+				<Component Subtype="LargeTube" Count="24" />
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr2.mwm" />
+			</BuildProgressModels>
+			<MountPoints>
+				<MountPoint Side="Left" StartX="0.09" StartY="0.09" EndX="0.91" EndY="0.91" />
+			</MountPoints>
+			<BlockPairName>MA_SmartRotor_Part2</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>5</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- 	MA_SmartRotor_Base_sm -->
-    <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
-      <Id>
-        <TypeId>MotorAdvancedStator</TypeId>
-        <SubtypeId>MA_SmartRotor_Base_sm</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Base_sm</DisplayName>
-      <Description>Description_MA_SmartRotor_Base</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
-      <GuiVisible>false</GuiVisible>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="3" y="3" z="3" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Base_sm.mwm</Model>
-      <Components>
-        <Component Subtype="SteelPlate" Count="3" />
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="SmallTube" Count="1" />
-        <Component Subtype="Motor" Count="1" />
-        <Component Subtype="Computer" Count="1" />
-        <Component Subtype="SteelPlate" Count="2" />
-      </Components>
-      <CriticalComponent Subtype="Motor" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr2.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Bottom" StartX="0.23" StartY="0.23" EndX="2.77" EndY="2.77" />
-      </MountPoints>
-      <BlockPairName>MA_SmartRotor_Base</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>20</BuildTimeSeconds>
-      <PrimarySound>BlockRotor</PrimarySound>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.002</RequiredPowerInput>
-      <MaxForceMagnitude>1E+08</MaxForceMagnitude>
-      <PropulsionForce>20000</PropulsionForce>
+		<!-- 	MA_SmartRotor_Base_sm -->
+		<Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
+			<Id>
+				<TypeId>MotorAdvancedStator</TypeId>
+				<SubtypeId>MA_SmartRotor_Base_sm</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Base_sm</DisplayName>
+			<Description>Description_MA_SmartRotor_Base</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
+			<GuiVisible>false</GuiVisible>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Base_sm.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="3" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="SmallTube" Count="1" />
+				<Component Subtype="Motor" Count="1" />
+				<Component Subtype="Computer" Count="1" />
+				<Component Subtype="SteelPlate" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Motor" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr2.mwm" />
+			</BuildProgressModels>
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.23" StartY="0.23" EndX="2.77" EndY="2.77" />
+			</MountPoints>
+			<BlockPairName>MA_SmartRotor_Base</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<PrimarySound>BlockRotor</PrimarySound>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.002</RequiredPowerInput>
+			<MaxForceMagnitude>1E+08</MaxForceMagnitude>
+			<PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part1</RotorPart>
+			<RotorPart>MA_SmartRotor_Part1</RotorPart>
 
-      <RotorDisplacementMin>-0.1</RotorDisplacementMin>
-      <RotorDisplacementMax>0.1</RotorDisplacementMax>
-      <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
-      <RotorDisplacementMaxSmall>0.02</RotorDisplacementMaxSmall>
-      <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
+			<RotorDisplacementMin>-0.1</RotorDisplacementMin>
+			<RotorDisplacementMax>0.1</RotorDisplacementMax>
+			<RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
+			<RotorDisplacementMaxSmall>0.02</RotorDisplacementMaxSmall>
+			<RotorDisplacementInModel>0.0</RotorDisplacementInModel>
 
-      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-      <DamagedSound>ParticleHeavyMech</DamagedSound>
-      <SafetyDetach>5</SafetyDetach>
-      <SafetyDetachMax>5</SafetyDetachMax>
-      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
-      <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>100</PCU>
-    </Definition>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<SafetyDetach>5</SafetyDetach>
+			<SafetyDetachMax>5</SafetyDetachMax>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<PCU>100</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- 	MA_SmartRotor_Part1_sm -->
-    <Definition>
-      <Id>
-        <TypeId>MotorAdvancedRotor</TypeId>
-        <SubtypeId>MA_SmartRotor_Part1_sm</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Part1_sm</DisplayName>
-      <Description>Description_MA_SmartRotor_Part1</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
-      <GuiVisible>false</GuiVisible>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="3" y="3" z="3" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Part1_sm.mwm</Model>
-      <UseModelIntersection>true</UseModelIntersection>
-      <Components>
-        <Component Subtype="SteelPlate" Count="15" />
-        <Component Subtype="LargeTube" Count="6" />
-      </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr2.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Top" StartX="0.96" StartY="0.96" EndX="2.04" EndY="2.04" />
-      </MountPoints>
-      <BlockPairName>MA_SmartRotor_Part1</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>5</BuildTimeSeconds>
-      <PCU>1</PCU>
-    </Definition>
+		<!-- 	MA_SmartRotor_Part1_sm -->
+		<Definition>
+			<Id>
+				<TypeId>MotorAdvancedRotor</TypeId>
+				<SubtypeId>MA_SmartRotor_Part1_sm</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Part1_sm</DisplayName>
+			<Description>Description_MA_SmartRotor_Part1</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds</Icon>
+			<GuiVisible>false</GuiVisible>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Part1_sm.mwm</Model>
+			<UseModelIntersection>true</UseModelIntersection>
+			<Components>
+				<Component Subtype="SteelPlate" Count="15" />
+				<Component Subtype="LargeTube" Count="6" />
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr2.mwm" />
+			</BuildProgressModels>
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.96" StartY="0.96" EndX="2.04" EndY="2.04" />
+			</MountPoints>
+			<BlockPairName>MA_SmartRotor_Part1</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>5</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- >MA_SmartRotor_Base_2_sm -->
-    <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
-      <Id>
-        <TypeId>MotorAdvancedStator</TypeId>
-        <SubtypeId>MA_SmartRotor_Base_2_sm</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Base_2_sm</DisplayName>
-      <Description>Description_MA_SmartRotor_Base_2</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
-      <GuiVisible>false</GuiVisible>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="3" y="3" z="3" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm.mwm</Model>
-      <Components>
-        <Component Subtype="SteelPlate" Count="3" />
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="SmallTube" Count="1" />
-        <Component Subtype="Motor" Count="1" />
-        <Component Subtype="Computer" Count="1" />
-        <Component Subtype="SteelPlate" Count="2" />
-      </Components>
-      <CriticalComponent Subtype="Motor" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr2.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Bottom" StartX="1.28" StartY="1.22" EndX="1.72" EndY="2.51" />
-        <MountPoint Side="Top" StartX="1.28" StartY="0.49" EndX="1.72" EndY="1.78" />
-        <MountPoint Side="Back" StartX="0.56" StartY="0.56" EndX="2.44" EndY="2.44" />
-      </MountPoints>
-      <BlockPairName>MA_SmartRotor_Base_2</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>20</BuildTimeSeconds>
-      <PrimarySound>BlockRotor</PrimarySound>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.002</RequiredPowerInput>
-      <MaxForceMagnitude>1E+08</MaxForceMagnitude>
-      <PropulsionForce>20000</PropulsionForce>
+		<!-- >MA_SmartRotor_Base_2_sm -->
+		<Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
+			<Id>
+				<TypeId>MotorAdvancedStator</TypeId>
+				<SubtypeId>MA_SmartRotor_Base_2_sm</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Base_2_sm</DisplayName>
+			<Description>Description_MA_SmartRotor_Base_2</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds</Icon>
+			<GuiVisible>false</GuiVisible>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="3" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="SmallTube" Count="1" />
+				<Component Subtype="Motor" Count="1" />
+				<Component Subtype="Computer" Count="1" />
+				<Component Subtype="SteelPlate" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Motor" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr2.mwm" />
+			</BuildProgressModels>
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.28" StartY="1.22" EndX="1.72" EndY="2.51" />
+				<MountPoint Side="Top" StartX="1.28" StartY="0.49" EndX="1.72" EndY="1.78" />
+				<MountPoint Side="Back" StartX="0.56" StartY="0.56" EndX="2.44" EndY="2.44" />
+			</MountPoints>
+			<BlockPairName>MA_SmartRotor_Base_2</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<PrimarySound>BlockRotor</PrimarySound>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.002</RequiredPowerInput>
+			<MaxForceMagnitude>1E+08</MaxForceMagnitude>
+			<PropulsionForce>20000</PropulsionForce>
 
-      <RotorPart>MA_SmartRotor_Part2</RotorPart>
+			<RotorPart>MA_SmartRotor_Part2</RotorPart>
 
-      <RotorDisplacementMin>0</RotorDisplacementMin>
-      <RotorDisplacementMax>0</RotorDisplacementMax>
-      <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
-      <RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
-      <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
+			<RotorDisplacementMin>0</RotorDisplacementMin>
+			<RotorDisplacementMax>0</RotorDisplacementMax>
+			<RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
+			<RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
+			<RotorDisplacementInModel>0.0</RotorDisplacementInModel>
 
-      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-      <DamagedSound>ParticleHeavyMech</DamagedSound>
-      <SafetyDetach>5</SafetyDetach>
-      <SafetyDetachMax>5</SafetyDetachMax>
-      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
-      <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>100</PCU>
-    </Definition>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<SafetyDetach>5</SafetyDetach>
+			<SafetyDetachMax>5</SafetyDetachMax>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<PCU>100</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!-- 	MA_SmartRotor_Part2_sm -->
-    <Definition>
-      <Id>
-        <TypeId>MotorAdvancedRotor</TypeId>
-        <SubtypeId>MA_SmartRotor_Part2_sm</SubtypeId>
-      </Id>
-      <DisplayName>DisplayName_Block_MA_SmartRotor_Part2_sm</DisplayName>
-      <Description>Description_MA_SmartRotor_Part2</Description>
-      <Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
-      <GuiVisible>false</GuiVisible>
-      <RotorPart>MA_SmartRotor_Part2_sm</RotorPart>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="3" y="3" z="3" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\MA_SmartRotor\MA_SmartRotor_Part2_sm.mwm</Model>
-      <UseModelIntersection>true</UseModelIntersection>
-      <Components>
-        <Component Subtype="SteelPlate" Count="15" />
-        <Component Subtype="LargeTube" Count="6" />
-      </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr1.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr2.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Left" StartX="0.26" StartY="0.26" EndX="2.74" EndY="2.74" />
-      </MountPoints>
-      <BlockPairName>MA_SmartRotor_Part2</BlockPairName>
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>5</BuildTimeSeconds>
-      <PCU>1</PCU>
-    </Definition>
+		<!-- 	MA_SmartRotor_Part2_sm -->
+		<Definition>
+			<Id>
+				<TypeId>MotorAdvancedRotor</TypeId>
+				<SubtypeId>MA_SmartRotor_Part2_sm</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_MA_SmartRotor_Part2_sm</DisplayName>
+			<Description>Description_MA_SmartRotor_Part2</Description>
+			<Icon>Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds</Icon>
+			<GuiVisible>false</GuiVisible>
+			<RotorPart>MA_SmartRotor_Part2_sm</RotorPart>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\MA_SmartRotor\MA_SmartRotor_Part2_sm.mwm</Model>
+			<UseModelIntersection>true</UseModelIntersection>
+			<Components>
+				<Component Subtype="SteelPlate" Count="15" />
+				<Component Subtype="LargeTube" Count="6" />
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr2.mwm" />
+			</BuildProgressModels>
+			<MountPoints>
+				<MountPoint Side="Left" StartX="0.26" StartY="0.26" EndX="2.74" EndY="2.74" />
+			</MountPoints>
+			<BlockPairName>MA_SmartRotor_Part2</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>5</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
 
-    <!--PMW Style
+		<!--PMW Style
     <Definition xsi:type="MyObjectBuilder_MotorStatorDefinition">
       <Id>
         <TypeId>MotorAdvancedStator</TypeId>
@@ -436,7 +444,7 @@
       <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0.11</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -532,7 +540,7 @@
       <RotorDisplacementMinSmall>-0.11</RotorDisplacementMinSmall>
       <RotorDisplacementMaxSmall>0.11</RotorDisplacementMaxSmall>
       <RotorDisplacementInModel>0.0</RotorDisplacementInModel>
-      
+
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <SafetyDetach>5</SafetyDetach>
@@ -575,6 +583,5 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>5</BuildTimeSeconds>
     </Definition>-->
-
-  </CubeBlocks>
+	</CubeBlocks>
 </Definitions>

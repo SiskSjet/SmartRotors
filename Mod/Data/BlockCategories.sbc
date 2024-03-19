@@ -1,25 +1,30 @@
 <?xml version="1.0"  encoding="utf-8"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <CategoryClasses>
-    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
-      <Id>
-        <TypeId>GuiBlockCategoryDefinition</TypeId>
-        <SubtypeId/>
-      </Id>
-      <DisplayName>MA</DisplayName>
-      <Name>AutoMcD_Astronautical</Name>
-      <ItemIds>
-        <string>MotorAdvancedStator/MA_SmartRotor_Base</string>
-        <string>MotorAdvancedStator/MA_SmartRotor_Base_2</string>
+	<CategoryClasses>
+		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+			<Id>
+				<TypeId>GuiBlockCategoryDefinition</TypeId>
+				<SubtypeId />
+			</Id>
+			<DisplayName>MA</DisplayName>
+			<Name>AutoMcD_Astronautical</Name>
+			<ItemIds>
+				<string>MotorAdvancedStator/MA_SmartRotor_Base</string>
+				<string>MotorAdvancedStator/MA_SmartRotor_Base_2</string>
 
-        <string>MotorAdvancedRotor/MA_SmartRotor_Part1</string>
-        <string>MotorAdvancedRotor/MA_SmartRotor_Part2</string>
+				<string>MotorAdvancedRotor/MA_SmartRotor_Part1</string>
+				<string>MotorAdvancedRotor/MA_SmartRotor_Part2</string>
 
-        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Base_TypeB</string>
-        <string>MotorAdvancedStator/MA_SmartRotor_Solar_Base</string>
+				<string>MotorAdvancedStator/MA_SmartRotor_Solar_Base_TypeB</string>
+				<string>MotorAdvancedStator/MA_SmartRotor_Solar_Base</string>
 
-        <string>CubeBlock/MA_Solar_Support</string>
-      </ItemIds>
-    </Category>
-  </CategoryClasses>
+				<string>MotorAdvancedStator/MA_SmartRotor_Solar_Hinge_TypeB</string>
+				<string>MotorAdvancedStator/MA_SmartRotor_Solar_Hinge</string>
+				<string>MotorAdvancedRotor/MA_SmartRotor_Solar_Part2_TypeB</string>
+				<string>MotorAdvancedRotor/MA_SmartRotor_Solar_Part2</string>
+
+				<string>CubeBlock/MA_Solar_Support</string>
+			</ItemIds>
+		</Category>
+	</CategoryClasses>
 </Definitions>
