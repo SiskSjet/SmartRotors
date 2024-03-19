@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Sandbox.ModAPI;
+using Sisk.SmartRotors.TerminalControls;
 using Sisk.Utils.Logging;
 using Sisk.Utils.Logging.DefaultHandler;
 using Sisk.Utils.Net;
@@ -17,10 +18,7 @@ namespace Sisk.SmartRotors {
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
     public class Mod : MySessionComponentBase {
         public const string NAME = "SmartRotors";
-
-        // important: change to info | warning | error or none before publishing this mod.
         private const LogEventLevel DEFAULT_LOG_EVENT_LEVEL = LogEventLevel.Info | LogEventLevel.Warning | LogEventLevel.Error;
-
         private const string LOG_FILE_TEMPLATE = "{0}.log";
         private const ushort NETWORK_ID = 51511;
         private static readonly string LogFile = string.Format(LOG_FILE_TEMPLATE, NAME);
@@ -48,6 +46,11 @@ namespace Sisk.SmartRotors {
         ///     Holds Subtype ids for blocks in this mod.
         /// </summary>
         public Defs Defs { get; private set; }
+
+        /// <summary>
+        ///     Indicates if mod is a dev version.
+        /// </summary>
+        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
 
         /// <summary>
         ///     Language used to localize this mod.

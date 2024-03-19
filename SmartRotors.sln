@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Utils\Logging\Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net", "Utils\Net\Net.csproj", "{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalControls", "Utils\TerminalControls\TerminalControls.csproj", "{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,14 @@ Global
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}.Release|x64.ActiveCfg = Release|Any CPU
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71}.Release|x64.Build.0 = Release|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Debug|x64.Build.0 = Debug|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Release|x64.ActiveCfg = Release|Any CPU
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +82,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D8581C43-F65D-49EB-BFE3-75F185371512} = {769C43A3-19A5-42D8-B525-8B5EE64036D0}
 		{2285E3A1-63A2-4632-AA74-CAA8DAC96C71} = {769C43A3-19A5-42D8-B525-8B5EE64036D0}
+		{BEAE5F29-1B17-4F13-8262-6EE88B8CC41B} = {769C43A3-19A5-42D8-B525-8B5EE64036D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A12AFCC-73DB-4DE3-A1A4-95FB729FF82E}

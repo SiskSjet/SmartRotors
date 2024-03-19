@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
 
-namespace Sisk.SmartRotors {
-
+namespace Sisk.SmartRotors.TerminalControls {
     /// <summary>
     ///     Class to modify terminal controls and actions for blocks from this mod.
     /// </summary>
