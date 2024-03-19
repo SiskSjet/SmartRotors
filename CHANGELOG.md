@@ -1,3 +1,17 @@
+# [1.0.11](https://github.com/SiskSjet/SmartRotors/compare/v1.0.10...v1.0.11) (2024-03-19)
+
+
+### Bug Fixes
+
+* limits were accidentally set on the wrong rotor ([c803efd](https://github.com/SiskSjet/SmartRotors/commit/c803efde03755b27f316c1e199bc6e67a88a2554))
+
+
+### Features
+
+* add support for `Real Stars` ([333723d](https://github.com/SiskSjet/SmartRotors/commit/333723d10b793a69436bcc37489123b3d7203852))
+
+
+
 # [1.0.10](https://github.com/SiskSjet/SmartRotors/compare/v1.0.9...v1.0.10) (2023-04-13)
 
 
