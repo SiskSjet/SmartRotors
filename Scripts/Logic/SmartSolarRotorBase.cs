@@ -15,6 +15,7 @@ using VRage.Game.Components;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
 using VRageMath;
+using static Sisk.SmartRotors.Defs;
 
 namespace Sisk.SmartRotors.Logic {
 
@@ -62,7 +63,7 @@ namespace Sisk.SmartRotors.Logic {
                 return;
             }
 
-            var sunDirection = MyVisualScriptLogicProvider.GetSunDirection();
+            var sunDirection = Mod.Static.RealStarsApi.IsReady ? Mod.Static.RealStarsApi.GetSunInfoWithPlanetAtPosition(Stator.GetPosition()).Item3 : (Vector3D)MyVisualScriptLogicProvider.GetSunDirection();
             Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward, 3 * MathHelper.RPMToRadiansPerSecond);
         }
 
@@ -134,6 +135,8 @@ namespace Sisk.SmartRotors.Logic {
                     var colorMask = Stator.SlimBlock.ColorMaskHSV;
                     var skin = Stator.SlimBlock.SkinSubtypeId;
                     var buildPercent = head.SlimBlock.IsFullIntegrity ? 1 : 0.00001525902f;
+                    var maxAngle = hingeSubtype == SolarDefs.LB_SMART_SOLAR_HINGE ? MathHelper.ToRadians(195) : float.MaxValue;
+                    var minAngle = hingeSubtype == SolarDefs.LB_SMART_SOLAR_HINGE ? MathHelper.ToRadians(-15) : float.MinValue;
                     var hingeBuilder = new MyObjectBuilder_MotorAdvancedStator {
                         SubtypeName = hingeSubtype,
                         Owner = Stator.OwnerId,
@@ -141,8 +144,8 @@ namespace Sisk.SmartRotors.Logic {
                         BuildPercent = buildPercent,
                         IntegrityPercent = buildPercent,
                         LimitsActive = true,
-                        MaxAngle = MathHelper.ToRadians(195),
-                        MinAngle = MathHelper.ToRadians(-15),
+                        MaxAngle = maxAngle,
+                        MinAngle = minAngle,
 
                         Min = hingePosition,
                         BlockOrientation = new SerializableBlockOrientation(head.Orientation.Up, head.Orientation.Left),
