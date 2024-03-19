@@ -1,16 +1,17 @@
-\.git
-\.vs
+.git/
+.vs/
 
-\bin
-\obj
-\Properties
-\packages
+beta/
+dev/
 
-\CommandHandler
-\Profiler
+bin/
+obj/
+Properties/
+packages/
 
-.csproj
-.git
-.sln
+*.csproj
+*.git
+*.sln
+*.gitignore
 
 App.config

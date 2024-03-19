@@ -48,11 +48,6 @@ namespace Sisk.SmartRotors {
         public Defs Defs { get; private set; }
 
         /// <summary>
-        ///     Indicates if mod is a dev version.
-        /// </summary>
-        private bool IsDevVersion => ModContext.ModName.EndsWith("_DEV");
-
-        /// <summary>
         ///     Language used to localize this mod.
         /// </summary>
         public MyLanguagesEnum? Language { get; private set; }

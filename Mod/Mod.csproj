@@ -1,170 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{441ADEE1-8DBA-4DDA-8892-41E2B0C460FA}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mod</RootNamespace>
-    <AssemblyName>Mod</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Data\Localization\MyTexts.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyTexts.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\Blocks\SimpleRotor.sbc" />
-    <None Include="Data\Blocks\SolarRotor.sbc" />
-    <None Include="Data\BlockCategories.sbc" />
-    <None Include="Data\BlockVariantGroup.sbc" />
-    <None Include="Data\BlueprintClasses.sbc" />
-    <None Include="Data\Blueprints.sbc" />
-    <None Include="Data\EntityComponents.sbc" />
-    <None Include="Data\Research.sbc" />
-    <None Include="dev\modinfo.sbmi" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_sm_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_2_TypeB_sm_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Base_sm_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part1_sm_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Part2_sm_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_2_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Base_LOD2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_PMW_Part2_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_Constr3.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm_Constr3.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_SmartRotor_Solar_Part2_TypeB_sm_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_Solar_Support.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr2.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_Solar_Support_Constr3.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD1.mwm" />
-    <None Include="Models\MA_SmartRotor\MA_Solar_Support_LOD2.mwm" />
-    <None Include="modinfo.sbmi" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="beta\thumb.png" />
-    <Content Include="dev\metadata.mod" />
-    <Content Include="dev\thumb.png" />
-    <Content Include="metadata.mod" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Base_2.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Part.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Part2.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Base_TypeB.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Hinge_TypeB.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_SmartRotor_Solar_Part2_TypeB.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_Smart_Rotor.dds" />
-    <Content Include="Textures\GUI\Icons\Cubes\MA_Solar_Support.dds" />
-    <Content Include="Textures\SISK_Terminal_cm.dds" />
-    <Content Include="thumb.jpg" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Data\Localization\MyTexts.de.resx" />
-    <EmbeddedResource Include="Data\Localization\MyTexts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MyTexts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<Platforms>x64</Platforms>
+		<LangVersion>6</LangVersion>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+		<IsPublishable>False</IsPublishable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Update="Data\Localization\MyTexts.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>MyTexts.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Data\Localization\MyTexts.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>MyTexts.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 </Project>
