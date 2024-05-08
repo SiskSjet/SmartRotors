@@ -63,7 +63,14 @@ namespace Sisk.SmartRotors.Logic {
                 return;
             }
 
-            var sunDirection = Mod.Static.RealStarsApi.IsReady ? Mod.Static.RealStarsApi.GetSunInfoWithPlanetAtPosition(Stator.GetPosition()).Item3 : (Vector3D)MyVisualScriptLogicProvider.GetSunDirection();
+            Vector3D sunDirection;
+            if (Mod.Static.RealStarsApi.IsReady) {
+                var info = Mod.Static.RealStarsApi.GetSunInfoNearbyPlanets(Stator.GetPosition());
+                sunDirection = Mod.Static.RealStarsApi.GetSunInfoWithPlanetAtPosition(Stator.GetPosition(), info.Item1, info.Item2).Item1;
+            } else {
+                sunDirection = (Vector3D)MyVisualScriptLogicProvider.GetSunDirection();
+            }
+
             Stator.PointRotorAtVector(sunDirection, Stator.Top.WorldMatrix.Forward, 3 * MathHelper.RPMToRadiansPerSecond);
         }
 
