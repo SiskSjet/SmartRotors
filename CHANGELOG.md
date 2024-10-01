@@ -1,3 +1,12 @@
+# [1.0.13](https://github.com/SiskSjet/SmartRotors/compare/v1.0.12...v1.0.13) (2024-10-01)
+
+
+### Features
+
+* update to new RealStar API ([8be2937](https://github.com/SiskSjet/SmartRotors/commit/8be2937e8b768d0ea3bc6d19f259ac6d17f19010))
+
+
+
 # [1.0.12](https://github.com/SiskSjet/SmartRotors/compare/v1.0.11...v1.0.12) (2024-05-08)
 
 

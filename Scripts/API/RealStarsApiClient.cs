@@ -1,4 +1,5 @@
-﻿using Sandbox.Game.Entities;
+﻿using Sandbox.Game;
+using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace RealSun {
         private const long Channel = 635917436927;
         private bool _apiInit;
 
+        private Action _forceMainUpdate;
         private Func<Vector3D> _getCurrentRealSunDirection;
         private Func<float> _getCurrentRealSunDist;
         private Func<float> _getCurrentRealSunRad;
@@ -29,19 +31,21 @@ namespace RealSun {
         private bool _isRegistered;
         private Func<MyPlanet, bool, float, bool, bool> _setPlanetInfo;
         private Func<MyPlanet, float, Vector3I, float, float, float, float, float, bool> _setStarInfo;
+        private Func<MyPlanet, string, bool> _setStarName;
         private Action<string, Vector3D, float, int> _spawnPlanetNoCycle;
         private Action<string, Vector3D, float, int, float, bool, float> _spawnPlanetWithCycle;
-        private Action<Vector3D, float, Vector3I, float, float, float, float, float> _spawnStar;
+        private Func<Vector3D, float, Vector3I, float, float, float, float, float, MyPlanet> _spawnStar;
         public bool Compromised { get; private set; }
         public bool IsReady { get; private set; }
 
         public void ApiLoad(IReadOnlyDictionary<string, Delegate> delegates) {
             _apiInit = true;
 
-            _spawnStar = (Action<Vector3D, float, Vector3I, float, float, float, float, float>)delegates["SpawnStar"];
+            _spawnStar = (Func<Vector3D, float, Vector3I, float, float, float, float, float, MyPlanet>)delegates["SpawnStar"];
             _getStarInfo = (Func<MyPlanet, MyTuple<bool, float, Vector3I, float, float, float>>)delegates["GetStarInfo"];
             _getStarGravity = (Func<MyPlanet, MyTuple<bool, float, float>>)delegates["GetStarGravity"];
             _setStarInfo = (Func<MyPlanet, float, Vector3I, float, float, float, float, float, bool>)delegates["SetStarInfo"];
+            _setStarName = (Func<MyPlanet, string, bool>)delegates["SetStarName"];
             _spawnPlanetNoCycle = (Action<string, Vector3D, float, int>)delegates["SpawnPlanetNoCycle"];
             _spawnPlanetWithCycle = (Action<string, Vector3D, float, int, float, bool, float>)delegates["SpawnPlanetWithCycle"];
             _getPlanetInfo = (Func<MyPlanet, MyTuple<bool, bool, float, bool>>)delegates["GetPlanetInfo"];
@@ -53,9 +57,12 @@ namespace RealSun {
             _getCurrentRealSunDirection = (Func<Vector3D>)delegates["GetCurrentRealSunDirection"];
             _getCurrentRealSunDist = (Func<float>)delegates["GetCurrentRealSunDist"];
             _getCurrentRealSunRad = (Func<float>)delegates["GetCurrentRealSunRad"];
+            _forceMainUpdate = (Action)delegates["ForceMainUpdate"];
         }
 
-        public Vector3D GetCurrentRealSunDirection() => _getCurrentRealSunDirection?.Invoke() ?? Vector3D.Zero;
+        public void ForceMainUpdate() => _forceMainUpdate?.Invoke();
+
+        public Vector3D GetCurrentRealSunDirection() => _getCurrentRealSunDirection?.Invoke() ?? MyVisualScriptLogicProvider.GetSunDirection();
 
         public float GetCurrentRealSunDist() => _getCurrentRealSunDist?.Invoke() ?? float.MaxValue;
 
@@ -89,11 +96,13 @@ namespace RealSun {
 
         public bool SetStarInfo(MyPlanet planet, float radius, Vector3I color, float effectBrightness, float lightBrightness, float damageRadius, float gravityStrength, float gravityFalloff) => _setStarInfo?.Invoke(planet, radius, color, effectBrightness, lightBrightness, damageRadius, gravityStrength, gravityFalloff) ?? false;
 
+        public bool SetStarName(MyPlanet planet, string name) => _setStarName?.Invoke(planet, name) ?? false;
+
         public void SpawnPlanetNoCycle(string planetName, Vector3D position, float radius, int seed) => _spawnPlanetNoCycle?.Invoke(planetName, position, radius, seed);
 
         public void SpawnPlanetWithCycle(string planetName, Vector3D position, float radius, int seed, float daySeconds, bool isCounterClockwise, float extraZoneRadiusKm) => _spawnPlanetWithCycle?.Invoke(planetName, position, radius, seed, daySeconds, isCounterClockwise, extraZoneRadiusKm);
 
-        public void SpawnStar(Vector3D position, float radius, Vector3I color, float effectBrightness, float lightBrightness, float damageRadius, float gravityStrength, float gravityFalloff) => _spawnStar?.Invoke(position, radius, color, effectBrightness, lightBrightness, damageRadius, gravityStrength, gravityFalloff);
+        public MyPlanet SpawnStar(Vector3D position, float radius, Vector3I color, float effectBrightness, float lightBrightness, float damageRadius, float gravityStrength, float gravityFalloff) => _spawnStar?.Invoke(position, radius, color, effectBrightness, lightBrightness, damageRadius, gravityStrength, gravityFalloff) ?? null;
 
         public void Unload() {
             if (_isRegistered) {
