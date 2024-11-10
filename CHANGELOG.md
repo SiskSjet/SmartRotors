@@ -1,3 +1,12 @@
+# [1.0.14](https://github.com/SiskSjet/SmartRotors/compare/v1.0.13...v1.0.14) (2024-10-01)
+
+
+### Bug Fixes
+
+* update to new real star api and change method calls ([4702683](https://github.com/SiskSjet/SmartRotors/commit/4702683162b9e46d830561eb9844e48768fd5f61))
+
+
+
 # [1.0.13](https://github.com/SiskSjet/SmartRotors/compare/v1.0.12...v1.0.13) (2024-10-01)
 
 

@@ -27,7 +27,7 @@ namespace RealSun {
         private Func<MyPlanet, MyTuple<bool, float, Vector3I, float, float, float>> _getStarInfo;
         private Func<Vector3D, MyTuple<Vector3D, float, float>> _getSunInfoAtPosition;
         private Func<Vector3D, MyTuple<MyPlanet, MyPlanet>> _getSunInfoNearbyPlanets;
-        private Func<Vector3D, MyPlanet, MyPlanet, MyTuple<Vector3D, float, float, float, float>> _getSunInfoWithPlanetAtPosition;
+        private Func<Vector3D, MyPlanet, MyPlanet, bool, MyTuple<Vector3D, float, float, float, float>> _getSunInfoWithPlanetAtPosition;
         private bool _isRegistered;
         private Func<MyPlanet, bool, float, bool, bool> _setPlanetInfo;
         private Func<MyPlanet, float, Vector3I, float, float, float, float, float, bool> _setStarInfo;
@@ -52,7 +52,7 @@ namespace RealSun {
             _setPlanetInfo = (Func<MyPlanet, bool, float, bool, bool>)delegates["SetPlanetInfo"];
             _getSunInfoAtPosition = (Func<Vector3D, MyTuple<Vector3D, float, float>>)delegates["GetSunInfoAtPosition"];
             _getSunInfoNearbyPlanets = (Func<Vector3D, MyTuple<MyPlanet, MyPlanet>>)delegates["GetSunInfoNearbyPlanets"];
-            _getSunInfoWithPlanetAtPosition = (Func<Vector3D, MyPlanet, MyPlanet, MyTuple<Vector3D, float, float, float, float>>)delegates["GetSunInfoWithPlanetAtPosition"];
+            _getSunInfoWithPlanetAtPosition = (Func<Vector3D, MyPlanet, MyPlanet, bool, MyTuple<Vector3D, float, float, float, float>>)delegates["GetSunInfoWithPlanetAtPosition"];
             _getSolarBlockMinMax = (Func<MyTuple<float, float>>)delegates["GetSolarBlockMinMax"];
             _getCurrentRealSunDirection = (Func<Vector3D>)delegates["GetCurrentRealSunDirection"];
             _getCurrentRealSunDist = (Func<float>)delegates["GetCurrentRealSunDist"];
@@ -80,7 +80,7 @@ namespace RealSun {
 
         public MyTuple<MyPlanet, MyPlanet> GetSunInfoNearbyPlanets(Vector3D position) => _getSunInfoNearbyPlanets?.Invoke(position) ?? new MyTuple<MyPlanet, MyPlanet>();
 
-        public MyTuple<Vector3D, float, float, float, float> GetSunInfoWithPlanetAtPosition(Vector3D position, MyPlanet planetZone, MyPlanet planetNearest) => _getSunInfoWithPlanetAtPosition?.Invoke(position, planetZone, planetNearest) ?? new MyTuple<Vector3D, float, float, float, float>();
+        public MyTuple<Vector3D, float, float, float, float> GetSunInfoWithPlanetAtPosition(Vector3D position, MyPlanet planetZone, MyPlanet planetNearest, bool isSurface) => _getSunInfoWithPlanetAtPosition?.Invoke(position, planetZone, planetNearest, isSurface) ?? new MyTuple<Vector3D, float, float, float, float>();
 
         public bool Load() {
             if (!_isRegistered) {

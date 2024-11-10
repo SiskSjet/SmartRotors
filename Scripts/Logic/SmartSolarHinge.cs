@@ -55,7 +55,7 @@ namespace Sisk.SmartRotors.Logic {
             Vector3D sunDirection;
             if (Mod.Static.RealStarsApi.IsReady) {
                 var info = Mod.Static.RealStarsApi.GetSunInfoNearbyPlanets(Stator.GetPosition());
-                sunDirection = Mod.Static.RealStarsApi.GetSunInfoWithPlanetAtPosition(Stator.GetPosition(), info.Item1, info.Item2).Item1;
+                sunDirection = Mod.Static.RealStarsApi.GetSunInfoWithPlanetAtPosition(Stator.GetPosition(), info.Item1, info.Item2, false).Item1;
             } else {
                 sunDirection = (Vector3D)MyVisualScriptLogicProvider.GetSunDirection();
             }
